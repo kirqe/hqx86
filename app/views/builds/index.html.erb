@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="medium-12 columns content">		  
+    <dl class="sub-nav">
+      <dt>Filter:</dt>
+      <dd class="active"><a href="#">All</a></dd>
+      <dd><a href="#">Mini</a></dd>
+      <dd><a href="#">Mid</a></dd>
+      <dd><a href="#">Pro</a></dd>
+      <dd><a href="#">Laptop</a></dd>  
+    </dl>
+
+
+    <% @builds.each do |build| %>
+		<ul class="inline-list items" style="	border-left: 3px solid #F1684D;">
+			<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+			<li><span class="mid"><%= build.b_type %></span></li>
+	  	<li><span class="conf grayed"><%= build.spec %></span></li>
+	  	<li><span class="im"><%= build.im %></span></li>
+	  	<li><span class="stat_success"><%= build.status %></span></li>
+	  	<li><span class="cost">~$<%= build.cost %></span></li>
+		</ul>
+    <% end %>
+  </div>
+</div>
+
+
+
+

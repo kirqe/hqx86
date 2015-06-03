@@ -1,0 +1,162 @@
+/*select:hover{
+  border-color: #cccccc;
+  background-color: #fff;
+}
+*/
+label{
+	font-size: 13px;
+	color: #838383;
+}
+
+/* COLORS AND LABELS */
+.emphasize{
+	color: #F1684D;
+}
+
+.grayed{
+  color: #6f6f6f;
+}
+
+#min,.min{
+	color: #148DC8;
+}
+#mid,.mid{
+	color: #F1684D;
+}
+#pro,.pro{
+	color: #D94B61;
+}
+#lt,.lt{
+	color: #6E68D1;
+}
+.na{
+	color: #c6c6cf;
+}
+
+.stat_success{
+	color: #43AC6A;
+}
+
+.stat_warn{
+	color: #f08a24;
+}
+
+.stat_other{
+	color: #6E68D1;
+}
+
+/* INDEX */
+
+.items{
+	background-color: #f3f3f3;
+	font-size: 12px;
+  margin: 0px auto 3px auto;
+}
+
+
+
+/*.right_panel{
+  border-left: 1px solid rgba(228, 228, 228, 0.78);
+  border-right: 1px solid rgba(228, 228, 228, 0.78);
+  min-height:100vh;
+}
+*/
+
+
+/*Medium screens*/
+@media only screen and (min-width: 641px) and (max-width: 1025px) {
+  .content, .right_panel{
+    width: 100%;
+  }
+  .right_panel{
+    border:none;
+  }
+   .row{max-width:60em;}
+  
+/*   build-conent{
+     width:100;
+   }
+   build-right{
+     display:none;
+   }*/
+  
+} 
+
+@media only screen and (min-width: 1025px)  { 
+ .row{max-width:70em;}
+
+}
+
+
+
+ 
+
+@media only screen and (min-width: 1441px) {
+ .row{max-width:70em;}
+} 
+
+
+
+.right_panel p{
+  font-size: 12px;
+}
+
+.nav-menu{
+  min-height:100vh;
+  font-size: 12px;
+}
+
+.sub-nav{
+  padding-top:1.25rem;
+}
+
+/* SHOW */
+
+ul.item_show{
+	background-color: #f3f3f3;
+	font-size: 12px;
+}
+
+.installation_notes{
+	font-size: 12px;
+}
+
+/* COMMENTS */
+
+/* make some edits here */
+
+.comments{ 
+	font-size: 12px;
+	padding: 0;
+	
+}
+.comment{
+	margin: 3px auto;
+	background-color: #fbf5e8;
+	border-right: 3px solid #ffb520;
+	padding: 3px;
+}
+
+#comment_ta{
+	margin: 3px auto;
+	font-size: 12px;
+}
+#comment_ta:focus{
+
+}
+
+#comment_btn{
+
+}
+
+/* USER PROFILE */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
+  text-align: center;
+  background-color:#fff;
+}
