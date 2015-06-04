@@ -1,6 +1,10 @@
-<h1>Editing Build</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @build %> |
-<%= link_to 'Back', builds_path %>
+<div class="row">
+  <div class="medium-10 columns">		  
+  	<div class="row">
+  		<div class="large-12 columns">
+  	    <h5 class="subheader">Editing: <%= @build.name %></h5>
+  		</div>
+  	</div>
+    <%= render 'form' %>
+  </div>
+</div>

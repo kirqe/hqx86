@@ -3,6 +3,7 @@
   background-color: #fff;
 }
 */
+
 label{
 	font-size: 13px;
 	color: #838383;
@@ -72,25 +73,12 @@ label{
     border:none;
   }
    .row{max-width:60em;}
-  
-/*   build-conent{
-     width:100;
-   }
-   build-right{
-     display:none;
-   }*/
-  
 } 
 
 @media only screen and (min-width: 1025px)  { 
  .row{max-width:70em;}
 
 }
-
-
-
- 
-
 @media only screen and (min-width: 1441px) {
  .row{max-width:70em;}
 } 
@@ -118,7 +106,7 @@ ul.item_show{
 }
 
 .installation_notes{
-	font-size: 12px;
+	font-size: 13px;
 }
 
 /* COMMENTS */
@@ -141,6 +129,7 @@ ul.item_show{
 	margin: 3px auto;
 	font-size: 12px;
 }
+
 #comment_ta:focus{
 
 }
@@ -149,7 +138,7 @@ ul.item_show{
 
 }
 
-/* USER PROFILE */
+
 footer {
   position: fixed;
   left: 0;
