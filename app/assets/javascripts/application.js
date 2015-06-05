@@ -13,7 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+
+$(document).ready(function(){
+  $('#build_b_type').change(function(){
+  	if ($('#build_b_type').val() == 'Laptop') {
+      $('div#hw').hide();
+  	} else {
+      $('div#hw').show();
+  	}
+  });
+});
+
