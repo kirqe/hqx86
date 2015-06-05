@@ -11,11 +11,10 @@
       <dd><a href="#">Laptop</a></dd>  
     </dl>
 
-
     <% @builds.each do |build| %>
-		<ul class="inline-list items" style="	border-left: 3px solid #F1684D;">
-			<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
-			<li><span class="mid"><%= build.b_type %></span></li>
+		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
+    	<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+			<li><span style="color: <%= lab(build.b_type) %>"><%= build.b_type %></span></li>
 	  	<li><span class="conf grayed"><%= build.spec %></span></li>
 	  	<li><span class="im"><%= build.im %></span></li>
 	  	<li><span class="stat_success"><%= build.status %></span></li>

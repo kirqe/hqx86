@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div data-alert id="notice" class="alert-box info radius">
+  <%= notice %>
+  <a href="#" class="close">&times;</a>
+</div>
+<% end %>
+
 <div class="row">
-	<div class="medium-12 columns build-content">	
+	<div class="medium-9 columns build-content">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
     
-	  <ul class="inline-list items" style="	border-left: 3px solid #F1684D;">
+	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
 			<li><span class="title"><%= @build.name %></span></li>
 			<li><span class="mid"><%= @build.b_type %></span></li>
 	  	<li><span class="conf grayed"><%= @build.spec %></span></li>
@@ -24,7 +30,30 @@
 		</div>
     
     <div class="installation_notes">
-      <%= @build.body %>
+      <%= markdown(@build.body) %>
     </div>
+  </div>
+  	<div class="medium-3 columns build-content">
+    </div>
+</div>			
+
+<div class="row">
+  <div class="medium-9 columns build-content"><hr/>	
+    <h5 class="subheader">comments:</h5>					
+		  <ul class="no-bullet comments">
+  		  <li class="comment">
+			    <b>klinker:</b>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+			
+			  <li class="comment"><b>klinker:</b>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>		
+		</ul>		
+			
+		<div id="comment_box">
+			<label>leave a comment
+			<textarea id="comment_ta" placeholder="type your message here"></textarea>
+			<a href="#" id="comment_btn" class="button tiny">Submit</a>
+			</label>
+		</div>
   </div>
 </div>
