@@ -17,6 +17,126 @@
  */
 
 
+/* labels */
+.stat_success{
+	color: #43AC6A;
+}
+
+.stat_warn{
+	color: #f08a24;
+}
+
+.stat_other{
+	color: #6E68D1;
+}
+
+
+@media only screen and (min-width: 641px) and (max-width: 1025px) {
+  .content, .right_panel{
+    width: 100%;
+  }
+  .right_panel{
+    border:none;
+  }
+   .row{
+     max-width:70em;
+     margin: 0;
+     width: 100%;
+   }
+} 
+
+@media only screen and (min-width: 1025px)  { 
+ .row{
+   max-width:70em;
+ }
+}
+
+@media only screen and (min-width: 1441px) {
+ .row{
+   max-width:70em;
+ }
+} 
+
 section{
   padding-bottom: 30px;
+}
+
+.items {
+	background-color: #f3f3f3;
+	font-size: 12px;
+  margin: 0px auto 3px auto;
+}
+.items a{
+  color: #222;
+}
+
+.emphasize{
+	color: #F1684D;
+}
+
+
+
+
+select{
+  outline: none;
+}
+
+div.show {
+  margin: 0 auto 0 0 !important;
+  max-width: 62.5rem;
+  width: 100%;
+}
+
+/* new and edit */
+#build_body{
+  font-size: 14px;
+}
+
+/* show */
+ul.item_show{
+	background-color: #f3f3f3;
+	font-size: 12px;
+}
+
+.installation_notes p{
+	font-size: 13px;
+}
+
+.installation_notes img{
+  max-width:100%;
+  height: auto;
+}
+
+
+
+
+/* footer */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  border-top: 1px solid #EAEAEA;
+  text-align: center;
+  background-color:#fff;
+}
+
+/* comments */
+
+.comments{ 
+	font-size: 12px;
+	padding: 0;
+	
+}
+.comment{
+	margin: 3px auto;
+	background-color: #fbf5e8;
+	border-right: 3px solid #ffb520;
+	padding: 3px;
+}
+
+#comment_ta{
+	margin: 3px auto;
+	font-size: 12px;
 }
