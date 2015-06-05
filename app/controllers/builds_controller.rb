@@ -5,6 +5,10 @@ class BuildsController < ApplicationController
   # GET /builds.json
   def index
     @builds = Build.all
+    @mini = Build.mini
+    @mid = Build.mid
+    @pro = Build.pro
+    @laptop = Build.laptop
   end
 
   # GET /builds/1
