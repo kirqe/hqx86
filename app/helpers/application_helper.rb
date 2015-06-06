@@ -14,15 +14,23 @@ module ApplicationHelper
 
   def lab(attr)
     case attr 
-      when "Mini" 
+      when "mini" 
         "#148DC8;"
-      when "Mid" 
+      when "mid" 
          "#F1684D;"
-      when "Pro" 
+      when "pro" 
          "#D94B61;"
-      when "Laptop" 
+      when "laptop" 
          "#6E68D1;"
       else "#c6c6cf"
     end
   end
+  
+  def bar_link(text, path)
+    options = current_page?(path) ? { class: "active"} : {}
+    content_tag(:dd, options) do 
+      link_to text, path
+    end
+  end
+  
 end

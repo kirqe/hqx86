@@ -1,5 +1,5 @@
 class Build < ActiveRecord::Base
-  validates :b_type, presence: true, inclusion: {in: %w(Mini Mid Pro Laptop), message: "the value is not allowed"}
+  validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, presence: true, uniqueness: true, on: :create, length: {in: 3..50}
   validates :spec, presence: true, length: {in: 3..50}
   validates :mb, allow_blank: true, length: {in: 3..50}
@@ -14,8 +14,8 @@ class Build < ActiveRecord::Base
   validates :status, presence: true, inclusion: {in: %w(other success warning), message: "the value is not allowed"}
   validates :body, presence: true, length: {in: 50..150000}
   
-  scope :mini, -> {where('b_type = ?', "Mini")}
-  scope :mid, -> {where('b_type = ?', "Mid")}
-  scope :pro, -> {where('b_type = ?', "Pro")}
-  scope :laptop, -> {where('b_type = ?', "Laptop")}
+  scope :mini, -> { where('b_type = ?', "mini") }
+  scope :mid, -> { where('b_type = ?', "mid") }
+  scope :pro, -> { where('b_type = ?', "pro") }
+  scope :laptop, -> { where('b_type = ?', "laptop") }
 end

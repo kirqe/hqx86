@@ -4,11 +4,18 @@ class BuildsController < ApplicationController
   # GET /builds
   # GET /builds.json
   def index
-    @builds = Build.all
-    @mini = Build.mini
-    @mid = Build.mid
-    @pro = Build.pro
-    @laptop = Build.laptop
+    case params[:t]
+    when "mini"
+      @builds = Build.mini
+    when "mid"
+      @builds = Build.mid      
+    when "pro"
+      @builds = Build.pro      
+    when "laptop"
+      @builds = Build.laptop      
+    else 
+      @builds = Build.all
+    end
   end
 
   # GET /builds/1

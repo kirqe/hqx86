@@ -4,11 +4,11 @@
 	<div class="medium-12 columns content">		  
     <dl class="sub-nav">
       <dt>Filter:</dt>
-      <dd class="active"><a href="#">All</a></dd>
-      <dd><a href="#">Mini</a></dd>
-      <dd><a href="#">Mid</a></dd>
-      <dd><a href="#">Pro</a></dd>
-      <dd><a href="#">Laptop</a></dd>  
+      <dd><%= bar_link "All", builds_path(:t => "all") %></dd>
+      <dd><%= bar_link "Mini", builds_path(:t => "mini") %></dd>
+      <dd><%= bar_link "Mid", builds_path(:t => "mid") %></dd>
+      <dd><%= bar_link "Pro", builds_path(:t => "pro") %></dd>
+      <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>  
     </dl>
 
     <% @builds.each do |build| %>
@@ -23,7 +23,5 @@
     <% end %>
   </div>
 </div>
-
-
 
 
