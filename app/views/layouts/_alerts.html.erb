@@ -1,0 +1,15 @@
+<!-- <% if notice %>
+<div data-alert id="notice" class="notice alert-box info radius">
+  <%= notice %>
+  <a href="#" class="close">&times;</a>
+</div>
+<% elsif alert %>
+<div data-alert id="notice" class="alert alert-box info radius">
+  <%= notice %>
+  <a href="#" class="close">&times;</a>
+</div>
+<% end %> -->
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, :class => "alert-box info radius #{key}" unless value.blank? %>
+<% end %>

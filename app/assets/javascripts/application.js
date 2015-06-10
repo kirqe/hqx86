@@ -20,7 +20,7 @@ $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){
   $('#build_b_type').change(function(){
-  	if ($('#build_b_type').val() == 'Laptop') {
+  	if ($('#build_b_type').val() == 'laptop') {
       $('div#hw').hide();
   	} else {
       $('div#hw').show();

@@ -8,22 +8,39 @@
   </ul>
 
   <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="has-dropdown">
-        <a href="#">Logged is as user@example.com</a>
-        <ul class="dropdown">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </li>
-    </ul>
+
 
     <!-- Left Nav Section -->
     <ul class="left">
       <li><a href="/">Home</a></li>
-      <!-- <li><a href="#">About</a></li> -->
+      <li><a href="#">Info</a></li>
+      <li class="has-dropdown"><%= link_to "Builds", builds_path%>
+	      <ul class="dropdown">
+          <li><%= link_to "Mini", builds_path(t: "mini"), id: "mini"%></li>
+          <li><%= link_to "Mid", builds_path(t: "mid"), id: "mid"%></li>
+          <li><%= link_to "Pro", builds_path(t: "pro"), id: "pro"%></li>
+          <li><%= link_to "Laptops", builds_path(t: "laptop"), id: "laptop"%></li>
+	      </ul>
+			</li>
+      <% if user_signed_in? %>
       <li><%= link_to 'Add new build', new_build_path, {:style=>"color: #817AFF;"}%></li>
+      <% end %>
+    </ul>
+    
+    
+    
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <% if user_signed_in? %>
+      <li class="has-dropdown"><%= link_to "#{current_user.username}", "#"%>
+  	    <ul class="dropdown">
+          <li><%= link_to "Profile", "#" %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+  	    </ul>
+  		</li>
+      <% else %>
+      <li><%= link_to "Log in", new_user_session_path %></li>
+      <%end%>
     </ul>
   </section>
 </nav>

@@ -1,13 +1,13 @@
 class Build < ActiveRecord::Base
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
-  validates :name, presence: true, uniqueness: true, on: :create, length: {in: 3..50}
-  validates :spec, presence: true, length: {in: 3..50}
-  validates :mb, allow_blank: true, length: {in: 3..50}
-  validates :cpu, allow_blank: true, length: {in: 3..50}
-  validates :gpu, allow_blank: true, length: {in: 3..50}
-  validates :ram, allow_blank: true, length: {in: 3..50}
-  validates :disk, allow_blank: true, length: {in: 3..50}
-  validates :chassis, allow_blank: true, length: {in: 3..50}
+  validates :name, presence: true, uniqueness: true, on: :create, length: {in: 3..150}
+  validates :spec, presence: true, length: {in: 3..150}
+  validates :mb, allow_blank: true, length: {in: 3..150}
+  validates :cpu, allow_blank: true, length: {in: 3..150}
+  validates :gpu, allow_blank: true, length: {in: 3..150}
+  validates :ram, allow_blank: true, length: {in: 3..150}
+  validates :disk, allow_blank: true, length: {in: 3..150}
+  validates :chassis, allow_blank: true, length: {in: 3..150}
   validates :cost, presence: true, length: {in: 3..20}
   validates :os, presence: true, length: {in: 3..20}
   validates :im, presence: true, length: {in: 3..30}

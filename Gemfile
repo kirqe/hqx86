@@ -7,6 +7,11 @@ gem 'foundation-rails'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'rack-mini-profiler', require: false
+gem 'devise'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
