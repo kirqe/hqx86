@@ -58,6 +58,14 @@
 #pro{color: #D94B61;}
 #laptop{color: #6E68D1;}
 
+.custom_btn{
+  background-color: #484659;
+}
+
+.right_panel img{
+  margin-bottom: 5px;
+}
+
 /* media queries */
 @media only screen and (min-width: 641px) and (max-width: 1025px) {
  .medium-9{
@@ -103,6 +111,17 @@ section{
     color: #222;
   }
 }
+
+
+.admin-items {
+	background-color: #f3f3f3;
+	font-size: 12px;
+  margin: 0px auto 3px auto;
+  padding: 0px;
+  margin-bottom: 5px;
+}
+
+
 
 .emphasize{
 	color: #F1684D;

@@ -1,11 +1,12 @@
 <div class="row">
 	<div class="middle-12 columns">
 		<% @users.each do |user| %>
-			<ul class="inline-list items">
+			<ul class="inline-list admin-items">
 				<li><%= user.id %>.</li>
 				<li class="label alert">Admin</li>
 				<li class="label success">Mod</li>
 				<li class="label secondary">activated</li>
+        <li class="label secondary">last sign in:<%= user.last_sign_in_at.to_formatted_s(:short) %></li>
 			  <li><%= user.username %></li>
 			  <li><%= user.email %></li>
 			  <li><%= link_to "show", "#" %></li>

@@ -11,7 +11,7 @@
 	  	<li><span class="cost">~$<%= @build.cost %></span></li>
 		</ul>
     
-    <% unless @build.b_type == "Laptop" %>
+    <% unless @build.b_type == "laptop" %>
 		<div id="specs">
 			<ul class="item_show no-bullet">
 				<li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
@@ -50,10 +50,12 @@
 		</div>
 
   </div>
-  	<div class="medium-3 columns build-content show-for-large-up">
-      <div class="panel" style="height: 100vh; text-align: center; ">
-      <h1>derp</h1>
-      </div>
+  	<div class="medium-3 columns right_panel build-content show-for-large-up">
+     <%= image_tag "http://placehold.it/280x200"%>
+     
+     <%= image_tag "http://placehold.it/280x200"%>
+     
+     <%= image_tag "http://placehold.it/280x200"%>
     </div>
 </div>			
 
