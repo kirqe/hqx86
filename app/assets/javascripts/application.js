@@ -27,3 +27,12 @@ $(document).ready(function(){
   	}
   });
 });
+
+
+$(document).ready(function(){
+ $("#new_build").submit(function(){
+      $myForm.submit(function(){
+          return false;
+      });
+  });
+});
