@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
  #         omniauth_providers: [:github ]
  
   validates :username, presence: true, uniqueness: true, length: {in: 3..150}
+  has_many :builds
 end

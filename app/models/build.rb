@@ -14,8 +14,11 @@ class Build < ActiveRecord::Base
   validates :status, presence: true, inclusion: {in: %w(other success warning), message: "the value is not allowed"}
   validates :body, presence: true, length: {in: 50..150000}
   
-  scope :mini, -> { where('b_type = ?', "mini") }
-  scope :mid, -> { where('b_type = ?', "mid") }
-  scope :pro, -> { where('b_type = ?', "pro") }
-  scope :laptop, -> { where('b_type = ?', "laptop") }
+  belongs_to :user
+  
+  default_scope {order('updated_at DESC')}
+  scope :mini, -> { where('b_type = ?', "mini")}
+  scope :mid, -> { where('b_type = ?', "mid")}
+  scope :pro, -> { where('b_type = ?', "pro")}
+  scope :laptop, -> { where('b_type = ?', "laptop")}
 end
