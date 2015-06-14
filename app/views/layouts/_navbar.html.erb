@@ -32,6 +32,9 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <li><%= link_to "admin", users_path %></li>
+      <% end %>
       <li class="has-dropdown"><%= link_to "#{current_user.username}", "#"%>
   	    <ul class="dropdown">
           <li><%= link_to "Profile", "#" %></li>

@@ -15,11 +15,11 @@ module ApplicationHelper
   def lab(attr)
     case attr 
       when "mini" 
-        "#148DC8;"
+        "#44D1FF;"
       when "mid" 
-         "#F1684D;"
+         "#0082E1;"
       when "pro" 
-         "#D94B61;"
+         "#F73753;"
       when "laptop" 
          "#6E68D1;"
       else "#c6c6cf"

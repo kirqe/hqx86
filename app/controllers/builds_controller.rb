@@ -1,21 +1,22 @@
 class BuildsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_build, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   # GET /builds
   # GET /builds.json
   def index
     case params[:t]
     when "mini"
-      @builds = Build.mini
+      @builds = Build.mini.page params[:page]
     when "mid"
-      @builds = Build.mid      
+      @builds = Build.mid.page params[:page]      
     when "pro"
-      @builds = Build.pro      
+      @builds = Build.pro.page params[:page]      
     when "laptop"
-      @builds = Build.laptop      
+      @builds = Build.laptop.page params[:page]      
     else 
-      @builds = Build.all
+      @builds = Build.all.page params[:page]
     end
   end
 

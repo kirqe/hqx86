@@ -3,15 +3,19 @@
 		<% @users.each do |user| %>
 			<ul class="inline-list admin-items">
 				<li><%= user.id %>.</li>
-				<li class="label alert">Admin</li>
-				<li class="label success">Mod</li>
-				<li class="label secondary">activated</li>
         <li class="label secondary">last sign in:<%= user.last_sign_in_at.to_formatted_s(:short) %></li>
 			  <li><%= user.username %></li>
 			  <li><%= user.email %></li>
-			  <li><%= link_to "show", "#" %></li>
+			  <li><%= link_to "show", user_path(user) %></li>
 			  <li><%= link_to "edit", "#" %></li>
-			  <li><%= link_to "delete", "#" %></li>
+        <% unless user == current_user && current_user.admin? %>
+			  <li>
+        <%= link_to "x", user, method: :delete, data: {confirm: "Are you sure?"} %>
+        </li>
+        <% end %>
+        <% if user.admin? %>
+				<li class="label alert">Admin</li>
+        <% end %>
 			</ul>
 		<% end %>
 	</div>
