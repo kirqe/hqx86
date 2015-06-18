@@ -62,9 +62,7 @@
   background-color: #484659;
 }
 
-.right_panel img{
-  margin-bottom: 5px;
-}
+
 
 /* media queries */
 @media only screen and (min-width: 641px) and (max-width: 1025px) {
@@ -191,7 +189,24 @@ ul.item_show{
   img{
     max-width:100%;
     height: auto;
+    
   }
+}
+
+.border-dotted {
+  border: 1px dotted #A4A4A4;
+  padding: 1.25rem;
+  border-radius: 3px;
+}
+.b30 {
+  margin-bottom: 30px !important;
+}
+
+img {
+  border-radius: 3px;
+}
+input.search{
+  border-radius: 3px; 
 }
 
 /* footer */

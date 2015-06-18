@@ -17,7 +17,7 @@ module ApplicationHelper
       when "mini" 
         "#44D1FF;"
       when "mid" 
-         "#FFA227;"
+         "#EB7A65;"
       when "pro" 
          "#F73753;"
       when "laptop" 

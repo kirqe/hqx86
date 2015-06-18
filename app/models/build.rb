@@ -21,4 +21,11 @@ class Build < ActiveRecord::Base
   scope :mid, -> { where('b_type = ?', "mid")}
   scope :pro, -> { where('b_type = ?', "pro")}
   scope :laptop, -> { where('b_type = ?', "laptop")}
+  
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("spec LIKE ?", "%#{search}%")
+    where("body LIKE ?", "%#{search}%")
+  end
+  
 end

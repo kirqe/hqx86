@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="medium-12 columns content">		  
+	<div class="medium-9 columns content">		  
     <dl class="sub-nav">
       <dt>Filter:</dt>
       <dd><%= bar_link "All", builds_path(:t => "all") %></dd>
@@ -9,19 +9,43 @@
       <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>  
     </dl>
 
-    <% @builds.each do |build| %>
+<% if @builds.present? %>
+    <% @builds.each do |build| %>    
 		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
-    	<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+      <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
+
 			<li><span style="color: <%= lab(build.b_type) %>"><%= build.b_type %></span></li>
-	  	<li><span class="conf grayed"><%= build.spec %></span></li>
-	  	<li><span class="im"><%= build.im %></span></li>
-	  	<li><span class="stat_success">[<%= build.status %>]</span></li>
-	  	<li><span class="cost">~$<%= build.cost %></span></li>
+	  	<li><span class="im"><%= build.im %></span></li>      
+	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
+	  	<li><span class="label info radius">~$<%= build.cost %></span></li>    	<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
 		</ul>
     <% end %>
     
-    
     <%= paginate @builds %>
+    <% else %>
+    <div class="panel radius b30">
+     <h4>Nothing's found for <%= "#{params[:search]}" %></h4>
+    </div>
+    <% end %>
+  </div>
+  
+  <div class="medium-3 columns right_panel build-content show-for-large-up">      
+      <%= form_tag(builds_path, method: "get") do%>
+      <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
+      <% end %>
+    <div class="panel radius b30">
+      
+
+      
+      <h3>Sidebar</h3> 
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    </div> 
+    
+    <img class="b30" src="http://dummyimage.com/303x16:9/df4949/e27b3f.png&amp;text=Ad+Space" alt=""> 
+    <div class="border-dotted radius b30"> 
+      <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
+      <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
+    </div> 
   </div>
 </div>
 

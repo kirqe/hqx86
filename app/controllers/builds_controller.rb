@@ -6,17 +6,22 @@ class BuildsController < ApplicationController
   # GET /builds
   # GET /builds.json
   def index
+    # dry DERP
+    if params[:search]
+      @builds = Build.search(params[:search]).page params[:page]
+    else
     case params[:t]
-    when "mini"
-      @builds = Build.mini.page params[:page]
-    when "mid"
-      @builds = Build.mid.page params[:page]      
-    when "pro"
-      @builds = Build.pro.page params[:page]      
-    when "laptop"
-      @builds = Build.laptop.page params[:page]      
-    else 
-      @builds = Build.all.page params[:page]
+      when "mini"
+        @builds = Build.mini.page params[:page]
+      when "mid"
+        @builds = Build.mid.page params[:page]      
+      when "pro"
+        @builds = Build.pro.page params[:page]      
+      when "laptop"
+        @builds = Build.laptop.page params[:page]      
+      else 
+        @builds = Build.all.page params[:page]
+      end
     end
   end
 
