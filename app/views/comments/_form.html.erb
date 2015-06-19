@@ -1,0 +1,6 @@
+<div id="comment_box">
+  <%= simple_form_for([@build, @build.comments.build], remote: true) do |f| %>
+    <%= f.input :body, label: "leave a comment", placeholder: "enter at least 10 characters"%>
+    <%= f.button :submit, "Submit", class: "button tiny" %>
+  <% end %>
+</div>

@@ -15,6 +15,7 @@ class Build < ActiveRecord::Base
   validates :body, presence: true, length: {in: 50..150000}
   
   belongs_to :user
+  has_many :comments, dependent: :destroy
   
   default_scope {order('updated_at DESC')}
   scope :mini, -> { where('b_type = ?', "mini")}

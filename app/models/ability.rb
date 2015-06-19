@@ -4,11 +4,11 @@ class Ability
   def initialize(user)
     
     if user.nil?
-      can :read, [Build]# , Comment]
+      can :read, [Build, Comment]
     elsif user.admin?
       can :manage, :all
     else
-      can [:read, :create], [Build]# , Comment]
+      can [:read, :create], [Build, Comment]
       can [:update], Build, user_id: user.id
     end
     
