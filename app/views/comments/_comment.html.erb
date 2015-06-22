@@ -1,7 +1,7 @@
 <li class="comment">
   <b><%= comment.user.username %>:</b>
   <%= comment.body%>
-  <% if current_user.admin? %>
+  <% if current_user.try(:admin?) %>
   <span class="right ">
     <%= link_to "(del)", [@build, comment], method: :delete, data:{confirm: "Are you sure?"} %>
   </span>

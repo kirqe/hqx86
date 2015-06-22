@@ -109,6 +109,7 @@ section{
     color: #222;
   }
 }
+
 ul.pagination{
   margin-top: 1.25rem;
 }
@@ -233,6 +234,18 @@ footer {
 	border-right: 3px solid #ffb520;
 	padding: 3px;
 }
+
+.comments-admin{
+	font-size: 12px;
+	padding: 0;
+  margin:0;
+}
+.comment-admin{
+	margin: 3px auto;
+	background-color: #fbf5e8;
+	border-right: 3px solid #ffb520;
+}
+
 
 #comment_ta{
 	margin: 3px auto;

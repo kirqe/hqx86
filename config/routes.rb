@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'dashboard/index'
+  end
+
   devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }
   resources :builds
   resources :users
@@ -6,6 +10,7 @@ Rails.application.routes.draw do
   resources :builds do 
     resources :comments
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

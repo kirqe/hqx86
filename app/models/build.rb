@@ -28,5 +28,5 @@ class Build < ActiveRecord::Base
     where("spec LIKE ?", "%#{search}%")
     where("body LIKE ?", "%#{search}%")
   end
-  
+
 end

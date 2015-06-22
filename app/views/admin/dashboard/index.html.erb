@@ -1,0 +1,39 @@
+<div class="large-12 columns">
+	<div class="medium-6 columns ">	
+    <h5 class="subheader">Latest Users</h5>
+		<% @users.each do |user| %>
+			<ul class="inline-list admin-items">
+				<li><%= user.id %>.</li>
+        <li class="label secondary">last sign in:<%= user.last_sign_in_at.to_formatted_s(:short) %></li>
+        <li class="label secondary">created at:<%= user.created_at %></li>
+			  <li><%= user.username %></li>
+			  <li><%= user.email %></li>
+			  <li><%= link_to "show", user_path(user) %></li>
+			  <li><%= link_to "edit", "#" %></li>
+        <% unless user == current_user && current_user.admin? %>
+			  <li>
+        <%= link_to "x", user, method: :delete, data: {confirm: "Are you sure?"} %>
+        </li>
+        <% end %>
+        <% if user.admin? %>
+				<li class="label alert">Admin</li>
+        <% end %>
+			</ul>
+		<% end %>
+  </div>  
+  
+  <div class="medium-6 columns">
+    <h5 class="subheader">Latest Builds</h5>
+    <% @builds.each do |build| %>    
+		<ul class="inline-list items admin-items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
+      <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
+			<li><span style="color: <%= lab(build.b_type) %>"><%= build.b_type %></span></li>
+	  	<li><span class="im"><%= build.im %></span></li>      
+	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
+	  	<li><span class="label info radius">~$<%= build.cost %></span></li>    	<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+		</ul>
+    <% end %>
+  </div>
+</div>
+
+

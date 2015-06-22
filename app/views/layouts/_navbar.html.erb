@@ -26,14 +26,19 @@
       <li><%= link_to 'Add new build', new_build_path, {:style=>"color: #817AFF;"}%></li>
       <% end %>
     </ul>
-    
-    
-    
+      
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
       <% if current_user.admin? %>
-        <li><%= link_to "admin", users_path %></li>
+      
+        <li class="has-dropdown"><%= link_to "admin", admin_dashboard_index_path %>
+          <ul class="dropdown">
+            <li><%= link_to "All Users", users_path %></li>
+            <li><%= link_to "All Builds", builds_path %></li>
+          </ul>
+        </li>
+        
       <% end %>
       <li class="has-dropdown"><%= link_to "#{current_user.username}", "#"%>
   	    <ul class="dropdown">
