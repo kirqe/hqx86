@@ -33,6 +33,9 @@
 //   padding: 0 0 12px 0.9375rem;
 // }
 
+body{
+  background-image: url(http://i.imgur.com/xj4Zlxi.png);
+}
 
 
 /* labels and colors */
@@ -103,7 +106,7 @@ section{
 .items {
 	background-color: #f3f3f3;
 	font-size: 12px;
-  margin: 0px auto 3px auto;
+  margin: 0px auto 3px auto;box-shadow: 0px 0px 5px #CFCFCF;
   
   a{
     color: #222;
@@ -168,13 +171,13 @@ div.show {
 
 /* new and edit */
 #build_body{
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* show */
 ul.item_show{
 	background-color: #f3f3f3;
-	font-size: 12px;
+	font-size: 12px;box-shadow: 0px 0px 5px #CFCFCF;
 }
 
 .installation_notes {
@@ -183,14 +186,21 @@ ul.item_show{
     word-wrap: break-word;
   }
   
-  p{
+  p, li{
 	  font-size: 13px;
+  }
+  
+  li p{
+    margin-bottom: 0;
   }
   
   img{
     max-width:100%;
     height: auto;
-    
+  }
+  
+  table{
+    width: 100%;
   }
 }
 
@@ -233,6 +243,7 @@ footer {
 	background-color: #fbf5e8;
 	border-right: 3px solid #ffb520;
 	padding: 3px;
+  box-shadow: 0px 0px 5px #CFCFCF;
 }
 
 .comments-admin{
