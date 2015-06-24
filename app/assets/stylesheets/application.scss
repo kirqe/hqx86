@@ -177,7 +177,9 @@ div.show {
 /* show */
 ul.item_show{
 	background-color: #f3f3f3;
-	font-size: 12px;box-shadow: 0px 0px 5px #CFCFCF;
+	font-size: 12px;
+  padding: 0 5px;
+  box-shadow: 0px 0px 5px #CFCFCF;
 }
 
 .installation_notes {

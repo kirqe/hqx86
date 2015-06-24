@@ -11,7 +11,7 @@
 			  <li><%= user.username %></li>
 			  <li><%= user.email %></li>
 			  <li><%= link_to "show", user_path(user) %></li>
-			  <li><%= link_to "edit", "#" %></li>
+			  <li><%= link_to "edit", edit_user_path(user) %></li>
         <% unless user == current_user && current_user.admin? %>
 			  <li>
         <%= link_to "x", user, method: :delete, data: {confirm: "Are you sure?"} %>

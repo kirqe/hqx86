@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
  
   validates :username, presence: true, uniqueness: true, length: {in: 3..150}
   has_many :builds
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   default_scope {order('created_at DESC')}
 end

@@ -10,6 +10,7 @@ class Ability
     else
       can [:read, :create], [Build, Comment]
       can [:update], Build, user_id: user.id
+      can [:show, :edit], User, id: user.id  #should probably be updated later
     end
     
     # Define abilities for the passed in user here. For example:

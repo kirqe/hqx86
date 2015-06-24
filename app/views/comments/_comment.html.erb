@@ -1,5 +1,5 @@
 <li class="comment">
-  <b><%= comment.user.username %>:</b>
+  <b><%= comment.user.try(:username) %>:</b>
   <%= comment.body%>
   <% if current_user.try(:admin?) %>
   <span class="right ">

@@ -1,0 +1,15 @@
+<%= simple_form_for @user do |f| %>
+<div class="row">
+  <div class="medium-4 columns">
+    <%= f.input :username %>
+    <%= f.input :email %>
+  </div>
+  
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+  <%= f.button :submit, "Save", class: "button tiny" %>
+    <small><%= link_to "Cancel", users_path, class: "button secondary tiny" %></small>	  
+  </div>
+</div>
+<% end %>

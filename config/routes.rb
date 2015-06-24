@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pages/about'
+  get 'pages/notes'
+  get 'pages/contacts'
+
   namespace :admin do
     get 'dashboard/index'
   end
