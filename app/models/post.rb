@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   validates :header_img_url, format: {with: /\.(png|jpg|gif)/, message: "only image url"}, allow_blank: true
   validates :body, presence: true, length: {in: 50..150000}
   
+  default_scope {order('created_at DESC')}
   belongs_to :user
   belongs_to :category
 end
