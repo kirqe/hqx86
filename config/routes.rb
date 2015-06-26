@@ -1,26 +1,31 @@
 Rails.application.routes.draw do
+  root 'posts#index'
+  
+  devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
+  resources :users
+  
+  resources :posts
+  
+  resources :builds
+  resources :builds do 
+    resources :comments
+  end
+  
+  namespace :admin do
+    get 'dashboard/index'
+  end
+  
   get 'pages/about'
   get 'pages/notes'
   get 'pages/contacts'
 
-  namespace :admin do
-    get 'dashboard/index'
-  end
+  get '*path', to: 'application#handle_404'
 
-  devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }
-  resources :builds
-  resources :users
-  
-  resources :builds do 
-    resources :comments
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'builds#index'
-   get '*path', to: 'application#handle_404'
    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
