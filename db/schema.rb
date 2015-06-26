@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626132950) do
+ActiveRecord::Schema.define(version: 20150626173309) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 20150626132950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "slug"
   end
 
+  add_index "builds", ["slug"], name: "index_builds_on_slug", unique: true
   add_index "builds", ["user_id"], name: "index_builds_on_user_id"
 
   create_table "categories", force: :cascade do |t|
@@ -52,6 +54,19 @@ ActiveRecord::Schema.define(version: 20150626132950) do
   add_index "comments", ["build_id"], name: "index_comments_on_build_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "header_img_url"
@@ -60,9 +75,11 @@ ActiveRecord::Schema.define(version: 20150626132950) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
+    t.string   "slug"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|

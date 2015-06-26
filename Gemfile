@@ -10,6 +10,7 @@ gem 'rack-mini-profiler', require: false
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'kaminari'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'omniauth-github'
 gem 'omniauth-facebook'

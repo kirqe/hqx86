@@ -1,4 +1,7 @@
 class Build < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :spec, use: :slugged
+  
   before_validation :default_name
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
