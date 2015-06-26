@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619181204) do
+ActiveRecord::Schema.define(version: 20150626125322) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 20150619181204) do
   end
 
   add_index "builds", ["user_id"], name: "index_builds_on_user_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
