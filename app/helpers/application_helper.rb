@@ -22,6 +22,10 @@ module ApplicationHelper
          "#F73753;"
       when "laptop" 
          "#6E68D1;"
+       when "success"
+         "#43AC6A;"
+       when "notice"
+         "#a0d3e8;"
       else "#c6c6cf"
     end
   end

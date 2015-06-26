@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= raphael
-//= morris
 //= require foundation
 //= require_tree .
 

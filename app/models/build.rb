@@ -11,7 +11,7 @@ class Build < ActiveRecord::Base
   validates :cost, presence: true, length: {in: 3..20}
   validates :os, presence: true, length: {in: 3..20}
   validates :im, presence: true, length: {in: 3..30}
-  validates :status, presence: true, inclusion: {in: %w(other success warning), message: "the value is not allowed"}
+  validates :status, presence: true, inclusion: {in: %w(other success notice), message: "the value is not allowed"}
   validates :body, presence: true, length: {in: 50..150000}
   
   belongs_to :user

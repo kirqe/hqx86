@@ -1,14 +1,13 @@
 <div class="row">
-	<div class="medium-9 columns build-content">	
+  <div class="medium-9 columns build-content">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
-
-
+    
 	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
 		  <li><span class="title"><%= @build.name %></span></li>
-		  <li><span class="b_type"><%= @build.b_type %></span></li>
+		  <li><span style="color: <%= lab(@build.b_type) %>"><%= @build.b_type %></span></li>
 	  	<li><span class="conf grayed"><%= @build.spec %></span></li>
 	  	<li><span class="cost"><%= @build.im %></span></li>
-	  	<li><span class="stat_success ">[<%= @build.status %>]</span></li>
+	  	<li><span class="uc" style="color: <%= lab(@build.status) %>">[<%= @build.status %>]</span></li>
 	  	<li><span class="cost">~$<%= @build.cost %></span></li>
 		</ul>
     
@@ -32,35 +31,39 @@
 		<div class="row">
 		  <div class="medium-12 columns build-content"><hr/>	
 		    <h5 class="subheader">comments:</h5>					
-				  <ul class="no-bullet comments">
-            <% @build.comments.each do |comment| %>
-            <%= render partial: "comments/comment", locals: {comment: comment} %>
-            <% end %>
-					</ul>			
-	        <%= render partial: "comments/form" %>                
+			  <ul class="no-bullet comments">
+          <% @build.comments.each do |comment| %>
+          <%= render partial: "comments/comment", locals: {comment: comment} %>
+          <% end %>
+				</ul>			
+        <%= render partial: "comments/form" %>                
 		  </div>
 		</div>
-
-  </div>
-  	<div class="medium-3 columns right_panel build-content show-for-large-up">
-      <%= form_tag(builds_path, method: "get") do%>
+  </div> <!-- medium-9 columns -->
+  
+  
+  <div class="medium-3 columns right_panel build-content show-for-large-up">    
+    <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
-      <% end %>
-      <% if @build.user == current_user || current_user.try(:admin?)  %>
-          <div class="panel radius callout">
-        <%= link_to "Owner? Edit this post", edit_build_path(@build) %>
-            </div>
-      <% end %>
+    <% end %>            
       
- <div class="panel radius b30">
-    <h3>Sidebar</h3> 
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-  </div> 
-   <img class="b30" src="http://dummyimage.com/303x16:9/df4949/e27b3f.png&amp;text=Ad+Space" alt=""> 
-   <div class="border-dotted radius b30"> 
-     <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
-     <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
+    <% if @build.user == current_user || current_user.try(:admin?)  %>
+    <div class="panel radius callout">
+      <%= link_to "Owner? Edit this post", edit_build_path(@build) %>
+    </div>
+    <% end %>      
+      
+    <div class="panel radius b30">
+      <h3>Sidebar</h3> 
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
     </div> 
-   </div>
+ 
+    <img class="b30" src="http://dummyimage.com/303x16:9/df4949/e27b3f.png&amp;text=Ad+Space" alt=""> 
+    
+    <div class="border-dotted radius b30"> 
+      <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
+      <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
+    </div>   
+   </div> <!-- medium-3 columns -->
 </div>			
 

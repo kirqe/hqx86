@@ -10,7 +10,7 @@
   <div class="medium-3 columns left">
   <%= f.input :status,
               label: "Build status",
-              collection: ["other", "success", "warning"],
+              collection: ["other", "success", "notice"],
               selected: @build.status || "other"  %>
   </div>
 </div>  

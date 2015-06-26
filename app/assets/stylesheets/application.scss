@@ -36,7 +36,9 @@
 body{
   background-image: url(http://i.imgur.com/xj4Zlxi.png);
 }
-
+.uc{
+  text-transform: uppercase;
+}
 
 /* labels and colors */
 .stat_success{
@@ -56,10 +58,23 @@ body{
   padding-top: 10vh;
 }
 
-#mini{color: #148DC8;}
-#mid{color: #F1684D;}
-#pro{color: #D94B61;}
+#mini{color: #44D1FF;}
+#mid{color: #EB7A65;}
+#pro{color: #F73753;}
 #laptop{color: #6E68D1;}
+
+.mini{color: #44D1FF;}
+.mid{color: #EB7A65;}
+.pro{color: #F73753;}
+.laptop{color: #6E68D1;}
+
+.success{color:#43AC6A;}
+.notice{color:#a0d3e8;}
+.other{color:#c6c6cf;}
+
+
+
+
 
 .custom_btn{
   background-color: #484659;
@@ -218,6 +233,7 @@ ul.item_show{
 img {
   border-radius: 3px;
 }
+
 input.search{
   border-radius: 3px; 
 }
