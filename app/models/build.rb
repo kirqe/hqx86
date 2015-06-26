@@ -1,6 +1,7 @@
 class Build < ActiveRecord::Base
+  before_validation :default_name
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
-  validates :name, presence: true, uniqueness: true, on: :create, length: {in: 3..150}
+  validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
   validates :mb, allow_blank: true, length: {in: 3..150}
   validates :cpu, allow_blank: true, length: {in: 3..150}
@@ -29,4 +30,9 @@ class Build < ActiveRecord::Base
     where("body LIKE ?", "%#{search}%")
   end
 
+  private
+  def default_name
+    username = User.find(user_id).username
+    self.name = "#{username}'s build [#{self.id}]" unless name.present?
+  end
 end
