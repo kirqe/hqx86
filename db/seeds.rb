@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-categories = %w(news guide ad promotion)
+categories = %w(news guide ad promotion review)
 categories.each{|c| Category.create(name: c)}
 
 

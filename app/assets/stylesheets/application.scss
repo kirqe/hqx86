@@ -36,6 +36,7 @@
 body{
   background-image: url(http://i.imgur.com/xj4Zlxi.png);
 }
+
 .uc{
   text-transform: uppercase;
 }
@@ -103,6 +104,8 @@ body{
   }
   img{
     padding-bottom: 5px; //should probably be removed
+    width:100%;
+    height:auto;
   }
   
   .omission{

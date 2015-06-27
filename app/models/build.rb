@@ -38,4 +38,9 @@ class Build < ActiveRecord::Base
     username = User.find(user_id).username
     self.name = "#{username}'s build [#{self.id}]" unless name.present?
   end
+  
+  def should_generate_new_friendly_id?
+    slug.blank? || spec_changed?
+  end
+  
 end

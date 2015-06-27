@@ -14,4 +14,10 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   
   default_scope {order('created_at DESC')}
+  
+  private
+  def should_generate_new_friendly_id?
+    slug.blank? || username_changed?
+  end
+  
 end

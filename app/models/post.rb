@@ -9,4 +9,9 @@ class Post < ActiveRecord::Base
   default_scope {order('created_at DESC')}
   belongs_to :user
   belongs_to :category
+  
+  private
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
+  end
 end
