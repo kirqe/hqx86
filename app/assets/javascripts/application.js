@@ -30,8 +30,8 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
- $("#new_build").submit(function(){
-      $myForm.submit(function(){
+ $("#new_build").submit(function(e){
+      e.submit(function(){
           return false;
       });
   });

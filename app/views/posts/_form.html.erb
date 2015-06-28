@@ -2,22 +2,22 @@
   <%= f.error_notification %>
   
 <div class="row">
-  <div class="medium-9 columns">
+  <div class="medium-10 columns">
     <%= f.input :title, placeholder: "Installations tips" %>
   </div>
-  <div class="medium-3 columns">
+  <div class="medium-4 columns">
     <%= f.association :category %>
   </div>
 </div>
     
 <div class="row">
-  <div class="medium-5 columns">    
+  <div class="medium-6 columns">    
     <%= f.input :header_img_url, label: "Post header image URL" , placeholder: "http://i.imgur.com/qwerty.png" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="medium-12 columns">
+  <div class="medium-14 columns">
     <%= link_to "Notes", "/pages/notes", class: "label-link", target: "_blank" %>
     <%= link_to "Markdown-Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", class: "label-link", target: "_blank" %> 
     <%= f.input :body, placeholder: "use markdown", input_html: {rows: 30} %>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="row">
-  <div class="medium-12 columns">
+  <div class="medium-14 columns">
   <%= f.button :submit, "Submit", class: "button tiny" %>
     <small><%= link_to "Cancel", root_path, class: "button secondary tiny" %></small>	  
   </div>
