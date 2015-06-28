@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="medium-9 columns build-content">	
+  <div class="large-10 columns content">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
     
 	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
@@ -28,8 +28,7 @@
       <%= markdown(@build.body) %>
     </div>
 
-		<div class="row">
-		  <div class="medium-12 columns build-content"><hr/>	
+        <hr/>
 		    <h5 class="subheader">comments:</h5>					
 			  <ul class="no-bullet comments">
           <% @build.comments.each do |comment| %>
@@ -37,12 +36,11 @@
           <% end %>
 				</ul>			
         <%= render partial: "comments/form" %>                
-		  </div>
-		</div>
+
   </div> <!-- medium-9 columns -->
   
   
-  <div class="medium-3 columns right_panel build-content show-for-large-up">    
+  <div class="large-4 columns right_panel show-for-large-up">    
     <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
     <% end %>            

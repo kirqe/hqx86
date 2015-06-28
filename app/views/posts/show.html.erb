@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="medium-9 columns content">		  
+	<div class="large-10 columns content">		  
     <div class="post_wrapper">
       <h3 class="subheader"><%= @post.title %></h3>
       <ul class="inline-list post_info">
@@ -8,12 +8,13 @@
         <li class="label info"><%= @post.category.name %></li>
       </ul>
       <img src="<%= @post.header_img_url %>">
-  
+   <div class="post_content">
       <%= markdown(@post.body) %>
+         </div>
     </div>
   </div>
   
-  <div class="medium-3 columns right_panel build-content show-for-large-up">      
+  <div class="large-4 columns right_panel show-for-large-up">      
       <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>

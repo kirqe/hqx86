@@ -34,12 +34,13 @@
 // }
 
 body{
-  background-image: url(http://i.imgur.com/xj4Zlxi.png);
+  background-image: url(bg.png);
 }
 
 .uc{
   text-transform: uppercase;
 }
+
 
 /* labels and colors */
 .stat_success{
@@ -96,55 +97,64 @@ body{
     
 }
 
-.post_wrapper{
-  margin-bottom: 40px;
 
-  .subheader a{
-    color: #6f6f6f;
-  }
-  img{
-    padding-bottom: 5px; //should probably be removed
-    width:100%;
-    height:auto;
-  }
-  
-  .omission{
-    color: #F1684D;
-      &:hover{
-        color: #F1684D;
-    }
-  }
-  
+
+.right_panel{
+  position: relative;
+  float: left;
+  width: 330px;
+  margin-left: -330px;
 }
-
 
 /* media queries */
-@media only screen and (min-width: 641px) and (max-width: 1025px) {
- .medium-9{
-    width: 100%;
+@media only screen and (min-width: 40.063em) {
+  .content{
+    padding-right: 50px;
   }
-  .right_panel{
-    display: none;
-  }
-  .row{
-    max-width:70em;
-    margin: 0;
-    width: 100%;
-  }
-} 
-
-@media only screen and (min-width: 1025px)  { 
- .row{
-   max-width:70em;
- }
-
 }
 
-@media only screen and (min-width: 1441px) {
- .row{
-   max-width:70em;
- }
-} 
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { 
+  .content{
+    padding-right: 40px;
+  }
+  
+
+//  .right_panel{position: relative;
+//    float: left;
+//    width: 330px;
+//    margin-left: -340px;
+//  }
+  
+}
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+  .content{
+    padding-right: 30px;
+  }
+  
+//  .right_panel{position: relative;
+//    float: left;
+//    width: 330px;
+//    margin-left: -330px;
+//  }
+}
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) { 
+  .content{
+    padding-right: 30px;
+  }
+  
+//  .right_panel{position: relative;
+//    float: left;
+//    width: 330px;
+//    margin-left: -330px;
+//  }
+}
+
+
+
+/* end media queries */
+
 
 section{
   padding-bottom: 30px;
@@ -233,14 +243,33 @@ ul.item_show{
   box-shadow: 0px 0px 5px #CFCFCF;
 }
 
-.installation_notes {
-  
-  p,h1,h2,h3,h4,h5,h6{
-    word-wrap: break-word;
+/* posts */
+.post_wrapper{
+  margin-bottom: 40px;
+
+  .subheader a{
+    color: #6f6f6f;
   }
   
-  p, li{
-	  font-size: 13px;
+  img{
+    padding-bottom: 5px; //should probably be removed
+    width:100%;
+    height:auto;
+  }
+  
+  .omission{
+    color: #F1684D;
+      &:hover{
+        color: #F1684D;
+    }
+  }
+}
+/* end posts */
+
+/* markdown styling */
+.installation_notes, .post_wrapper{
+  p,h1,h2,h3,h4,h5,h6{
+    word-wrap: break-word;
   }
   
   li p{
@@ -256,6 +285,22 @@ ul.item_show{
     width: 100%;
   }
 }
+
+.installation_notes {
+  p, li{
+	  font-size: 13px;
+  }
+}
+
+.post_content {
+  p, li{
+	  font-size: 15px;
+  }
+}
+
+/* end markdown styling */
+
+
 
 .border-dotted {
   border: 1px dotted #A4A4A4;

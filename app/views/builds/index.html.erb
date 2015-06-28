@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="medium-9 columns content">		  
+	<div class="large-10 columns content">		  
     <dl class="sub-nav">
       <dt>Filter:</dt>
       <dd><%= bar_link "All", builds_path(:t => "all") %></dd>
@@ -22,6 +22,11 @@
     <% end %>
     
     <%= paginate @builds %>
+    
+    <div class="bottom_page_div" >
+      <img style="display:block; margin:auto;" src="https://lh5.ggpht.com/NFYFP2H9CCP50vAQNLa7AtCj_mbbYmOzY978fZqd31oL5qOdvXgxU3KW8ek2VgvIOvTqWY0=w728">
+    </div>
+    
     <% else %>
     <div class="panel radius b30">
      <h4>Nothing's found for <%= "#{params[:search]}" %></h4>
@@ -29,7 +34,7 @@
     <% end %>
   </div>
   
-  <div class="medium-3 columns right_panel build-content show-for-large-up">      
+  <div class="large-4 columns right_panel show-for-large-up">      
       <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
