@@ -1,0 +1,16 @@
+<div class="row">
+
+   <div class="medium-7 large-centered columns ">
+        <h2 class="subheader">Contact Us</h5>
+      <%= simple_form_for @contact do |f|%>
+
+          <%= f.input :name, required: true %>
+          <%= f.input :email, required: true %>
+          <%= f.input :message, as: :text, required: false, input_html: {rows:10}%>
+          <%= f.input :nickname, hint: "Leave this field blank!", wrapper_html: {class:"hidden"}%>
+          <%= f.button :submit, "Sent message", class:"button tiny"%>
+        <% end %>
+    </div><!--end 8 columns-->
+    
+  </div>
+    

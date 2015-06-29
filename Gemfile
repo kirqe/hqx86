@@ -14,6 +14,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'twitter'
 gem 'figaro'
 gem 'bitly'
+gem 'mail_form'
 
 gem 'omniauth-github'
 gem 'omniauth-facebook'

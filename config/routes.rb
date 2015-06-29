@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  resources :contacts, as: 'contacts', only: [:new, :create]
+  
   namespace :admin do
     get 'dashboard/index'
   end
