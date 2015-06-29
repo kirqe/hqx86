@@ -5,30 +5,34 @@
       <ul class="inline-list post_info">
         <li><%= @post.user.username %></li>
         <li><%= @post.created_at.to_formatted_s(:long) %></li>
-        <li class="label info"><%= @post.category.name %></li>
+        <li class="label info"><%= @post.category.try(:name) || "no category" %></li>  <!-- <--- FIX THIS(problem when not present) -->
       </ul>
-      <img src="<%= @post.header_img_url %>">
-   <div class="post_content">
-      <%= markdown(@post.body) %>
-         </div>
+      
+      <%= image_tag "#{@post.header_img_url}", class: "header_img" if @post.header_img_url.present? %><%  %>
+     
+      <div class="post_content">
+        <%= markdown(@post.body) %>
+      </div>
     </div>
   </div>
   
   <div class="large-4 columns right_panel show-for-large-up">      
-      <%= form_tag(builds_path, method: "get") do%>
+    <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
-      <% end %>
-    <div class=" radius b30">
-      
-<a class="twitter-timeline" href="https://twitter.com/search?q=hackintosh" data-widget-id="613036226984198145">Tweets about hackintosh</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <% end %>
+    
+    <div class=" radius b30"> 
+    <a class="twitter-timeline" href="https://twitter.com/search?q=hackintosh" data-widget-id="613036226984198145">Tweets about hackintosh</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div> 
     
     <img class="b30" src="http://dummyimage.com/303x16:9/df4949/e27b3f.png&amp;text=Ad+Space" alt=""> 
+    
     <div class="border-dotted radius b30"> 
       <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
       <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
     </div> 
+    
   </div>
 </div>
 

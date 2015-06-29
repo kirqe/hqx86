@@ -1,7 +1,7 @@
 <div class="row">
   <div class="large-10 columns content">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
-    
+    <%= build_url(@build)%>
 	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
 		  <li><span class="title"><%= @build.name %></span></li>
 		  <li><span style="color: <%= lab(@build.b_type) %>"><%= @build.b_type %></span></li>

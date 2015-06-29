@@ -3,28 +3,31 @@
     <% @posts.each do |post| %>
     <div class="post_wrapper">
       <h3 class="subheader"><%= link_to "#{post.title}", post%></h3>
+      
       <ul class="inline-list post_info">
         <li><%= post.user.username %></li>
         <li><%= post.created_at.to_formatted_s(:long) %></li>
         <li class="label info"><%= post.category.name %></li>
       </ul>
-      <img src="<%= post.header_img_url%>">
-    <div class="post_content">
-      <%= markdown(truncate(post.body, omission: "...", length: 600){link_to "[continue reading]", post, class:"omission"}) %>
-    </div>
+    
+      <%= image_tag "#{post.header_img_url}", class: "header_img" if post.header_img_url.present? %>
+      
+      <div class="excerpt">
+        <%= markdown(truncate(post.body, omission: "...", length: 450){link_to "[continue reading]", post, class:"omission"}) %>
+      </div>
     </div>
     <% end %>
+    
     <%= paginate @posts %>
   </div>
   
-  <div class="large-4 columns right_panel show-for-large-up">
+  <div class="large-5 columns right_panel show-for-large-up">
     
     <div class="search_box">      
       <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
-    </div>
-    
+    </div>    
     
     <div class="radius b30">
       <div style="twitter_box">      

@@ -1,8 +1,11 @@
 class Build < ActiveRecord::Base
+  include Tweets
   extend FriendlyId
   friendly_id :spec, use: :slugged
   
   before_validation :default_name
+  after_create :post_to_twitter
+
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
@@ -33,14 +36,17 @@ class Build < ActiveRecord::Base
     where("body LIKE ?", "%#{search}%")
   end
 
+  def should_generate_new_friendly_id?
+    slug.blank? || spec_changed?
+  end
+
   private
   def default_name
     username = User.find(user_id).username
     self.name = "#{username}'s build [#{self.id}]" unless name.present?
   end
   
-  def should_generate_new_friendly_id?
-    slug.blank? || spec_changed?
+  def post_to_twitter
+    tweet("[#{status.upcase}] #{name}: #{spec} #{Bitly.client.shorten('http://www.google.com').short_url}")  #add a few tags later
   end
-  
 end

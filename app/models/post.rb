@@ -1,5 +1,9 @@
 class Post < ActiveRecord::Base
+  include Tweets
   extend FriendlyId
+  
+  after_create :post_to_twitter
+  
   friendly_id :title, use: :slugged
   validates :title, presence: true, uniqueness: true, on: :create, length: {in: 5..150}
   validates :category, presence: true, allow_blank: true
@@ -10,8 +14,13 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   
-  private
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
   end
+  
+  private  
+  def post_to_twitter
+    tweet("#{title[0..120]} #{Bitly.client.shorten('http://www.google.com').short_url}")  #add a few tags later + replace google with real url
+  end
+  
 end

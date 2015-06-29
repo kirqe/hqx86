@@ -84,18 +84,7 @@ body{
 
 
 
-/* posts */
-.post_info{
-  	background-color: #f3f3f3;
-  	font-size: 12px;
-    margin: 0px auto 3px auto;
-    box-shadow: 0px 0px 5px #CFCFCF;
-    
-    li{
-      margin-left: 0.5rem;
-    }
-    
-}
+
 
 
 
@@ -244,6 +233,19 @@ ul.item_show{
 }
 
 /* posts */
+
+.post_info{
+  background-color: #f3f3f3;
+  font-size: 12px;
+  margin: 0px auto 3px auto;
+  box-shadow: 0px 0px 5px #CFCFCF;
+
+  li{
+    margin-left: 0.5rem;
+  }
+}
+
+
 .post_wrapper{
   margin-bottom: 40px;
 
@@ -251,11 +253,11 @@ ul.item_show{
     color: #6f6f6f;
   }
   
-  img{
-    padding-bottom: 5px; //should probably be removed
-    width:100%;
-    height:auto;
-  }
+//  img{
+//    padding-bottom: 5px; //should probably be removed
+//    width:100%;
+//    height:auto;
+//  }
   
   .omission{
     color: #F1684D;
@@ -298,6 +300,18 @@ ul.item_show{
   }
 }
 
+.excerpt p{
+  font-size: 15px;
+}
+
+.img_center{
+  display:block;
+  margin: auto;
+}
+
+.header_img{
+  margin: 3px 0 10px 0;
+}
 /* end markdown styling */
 
 
