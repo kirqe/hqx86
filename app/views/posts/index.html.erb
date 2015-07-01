@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="large-10 columns content">		  
+	<div class="small-12 medium-7 large-8 columns">		  
     <% @posts.each do |post| %>
     <div class="post_wrapper">
       <h3 class="subheader"><%= link_to "#{post.title}", post%></h3>
@@ -21,10 +21,10 @@
     <%= paginate @posts %>
   </div>
   
-  <div class="large-5 columns right_panel show-for-large-up">
+  <div class="medium-5 large-4  columns show-for-medium-up sidebar">
     
     <div class="search_box">      
-      <%= form_tag(builds_path, method: "get") do%>
+      <%= form_tag(posts_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
     </div>    
@@ -35,9 +35,9 @@
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
       </div>
     </div> 
-    
+    <div class="slogan-panel">
     <img class="b30" style="" src="https://lh4.ggpht.com/1Rw1DEbRB87sJ3sdx1g8yMrmx-Lt-VgYqhYolXv_y0hAZxbqoA1HAw1qT-JLk68-dHEL-QHmAA=w300" alt=""> 
-    
+    </div>
     <div class="border-dotted radius b30"> 
       <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
       <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>

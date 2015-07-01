@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="large-10 columns content">	
+  <div class="small-12 medium-7 large-8 columns">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
     <%= build_url(@build)%>
 	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
@@ -40,7 +40,7 @@
   </div> <!-- medium-9 columns -->
   
   
-  <div class="large-4 columns right_panel show-for-large-up">    
+  <div class="medium-5 large-4  columns sidebar">    
     <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
     <% end %>            

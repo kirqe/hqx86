@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="large-10 columns content">		  
+	<div class="small-12 medium-7 large-8 columns">		  
     <dl class="sub-nav">
       <dt>Filter:</dt>
       <dd><%= bar_link "All", builds_path(:t => "all") %></dd>
@@ -13,20 +13,21 @@
     <% @builds.each do |build| %>    
 		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
       <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
-
-			<li><span style="color: <%= lab(build.b_type) %>"><%= build.b_type %></span></li>
+      <!-- <li><span style="color: <%= lab(build.b_type) %>"><%= build.b_type %></span></li> -->
 	  	<li><span class="im"><%= build.im %></span></li>      
 	  	<li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
-	  	<li><span class="label info radius">~$<%= build.cost %></span></li>    	<li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+      <li><span class="label info radius">~$<%= build.cost %></span></li>
+      <li><span class="title show-for-xlarge-up"><%= link_to "#{build.name}", build_path(build) %></span></li>      
 		</ul>
     <% end %>
     
     <%= paginate @builds %>
     
-    <div class="bottom_page_div" >
-      <img style="display:block; margin: 30px auto;" src="https://lh5.ggpht.com/NFYFP2H9CCP50vAQNLa7AtCj_mbbYmOzY978fZqd31oL5qOdvXgxU3KW8ek2VgvIOvTqWY0=w728">
+
+    <div class="bottom_page_div show-for-small-only " style="display:block; margin: 30px auto; width: 336px; height: 280px;">
+      <img style="display:block; margin: 30px auto; width: 336px; height: 280px;" src=" https://lh5.ggpht.com/CztHBMfmRKhSv-_up3GCkK5R5M0TCm1czCVkVBwB0urvaHUVCEh6YtpS7DY3mcZuwC2SzX9A3w=w338">
     </div>
-    
+   
     <% else %>
     <div class="panel radius b30">
      <h4>Nothing's found for <%= "#{params[:search]}" %></h4>
@@ -34,7 +35,7 @@
     <% end %>
   </div>
   
-  <div class="large-4 columns right_panel show-for-large-up">      
+  <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
       <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
@@ -50,6 +51,16 @@
       <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
     </div> 
   </div>
+  
+  
+
 </div>
 
 
+<div class="row">
+ 
+    <div class="bottom_page_div show-for-medium-up" style="display:block; margin: 30px auto; width: 728px; height: 90px;">
+      <img style="display:block; margin: 30px auto; width: 728px; height: 90px;" src="https://lh5.ggpht.com/NFYFP2H9CCP50vAQNLa7AtCj_mbbYmOzY978fZqd31oL5qOdvXgxU3KW8ek2VgvIOvTqWY0=w728">
+    </div>
+
+</div>
