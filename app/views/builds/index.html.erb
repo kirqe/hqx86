@@ -22,17 +22,17 @@
     <% end %>
     
     <%= paginate @builds %>
-    
-
-    <div class="bottom_page_div show-for-small-only " style="display:block; margin: 30px auto; width: 336px; height: 280px;">
-      <img style="display:block; margin: 30px auto; width: 336px; height: 280px;" src=" https://lh5.ggpht.com/CztHBMfmRKhSv-_up3GCkK5R5M0TCm1czCVkVBwB0urvaHUVCEh6YtpS7DY3mcZuwC2SzX9A3w=w338">
-    </div>
    
     <% else %>
     <div class="panel radius b30">
      <h4>Nothing's found for <%= "#{params[:search]}" %></h4>
+     <%= link_to "Home page", root_path %>
     </div>
     <% end %>
+    
+    <div class="bottom_page_div show-for-small-only " style="display:block; margin: 30px auto; width: 336px; height: 280px;">
+      <img style="display:block; margin: 30px auto; width: 336px; height: 280px;" src=" https://lh5.ggpht.com/CztHBMfmRKhSv-_up3GCkK5R5M0TCm1czCVkVBwB0urvaHUVCEh6YtpS7DY3mcZuwC2SzX9A3w=w338">
+    </div>
   </div>
   
   <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
@@ -45,7 +45,8 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div> 
     
-    <img class="b30" src="http://dummyimage.com/303x16:9/df4949/e27b3f.png&amp;text=Ad+Space" alt=""> 
+    <img class="b30" style="" src="https://lh4.ggpht.com/1Rw1DEbRB87sJ3sdx1g8yMrmx-Lt-VgYqhYolXv_y0hAZxbqoA1HAw1qT-JLk68-dHEL-QHmAA=w300" alt=""> 
+    
     <div class="border-dotted radius b30"> 
       <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
       <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
