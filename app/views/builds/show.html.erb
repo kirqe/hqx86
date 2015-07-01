@@ -1,7 +1,6 @@
 <div class="row">
   <div class="small-12 medium-7 large-8 columns">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
-    <%= build_url(@build)%>
 	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
 		  <li><span class="title"><%= @build.name %></span></li>
 		  <li><span style="color: <%= lab(@build.b_type) %>"><%= @build.b_type %></span></li>
@@ -27,7 +26,7 @@
     <div class="installation_notes">
       <%= markdown(@build.body) %>
     </div>
-
+    <%= render "shared/share_links"%>
         <hr/>
 		    <h5 class="subheader">comments:</h5>					
 			  <ul class="no-bullet comments">
@@ -44,6 +43,13 @@
       <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
+      
+      <% if @build.user == current_user || current_user.try(:admin?)  %>
+      <div class="panel radius callout">
+        <%= link_to "Owner? Edit this post", edit_build_path(@build) %>
+      </div>
+      <% end %>
+      
     <div class=" radius b30">
       
 <a class="twitter-timeline" href="https://twitter.com/search?q=hackintosh" data-widget-id="613036226984198145">Tweets about hackintosh</a>
