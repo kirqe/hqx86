@@ -14,6 +14,12 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   
+  
+  def self.search(search)
+    where("title LIKE ?", "%#{search}%")
+    where("body LIKE ?", "%#{search}%")
+  end
+  
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
   end
