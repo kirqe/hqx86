@@ -67,8 +67,6 @@
   .row{
     width:  50.063em;
   }
-
-
 }
 
 @media only screen and (min-width: 64.063em){
@@ -98,8 +96,11 @@
   margin-bottom:10px;
 }
 
-
-
+.auth-box{
+  width: 300px;
+  display: block;
+  margin: auto;
+}
 
 body{
   background-image: url(bg.png);
