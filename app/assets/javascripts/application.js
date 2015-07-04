@@ -45,3 +45,12 @@ $(document).ready(function(){
   }, 3000);
 });
 
+$(document).ready(function(){
+  maxCharacters = 500;
+  $('#count').text(maxCharacters);
+  $('#comment_body').bind('keyup keydown', function() {
+      var count = $('#count');
+      var characters = $(this).val().length;
+      count.text(maxCharacters - characters);
+  });
+});

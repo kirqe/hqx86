@@ -31,10 +31,9 @@
       <li><%= link_to 'Add new build', new_build_path, {:style=>"color: #817AFF;"}%></li>
       <% if current_user.admin? %>
       
-        <li class="has-dropdown"><%= link_to "admin", admin_dashboard_index_path %>
+        <li class="has-dropdown"><%= link_to "Actions", "#" %>
           <ul class="dropdown">
-            <li><%= link_to "all users", users_path %></li>
-            <li><%= link_to "all builds", builds_path %></li>
+            <li><%= link_to "New Post", new_post_path %></li>
           </ul>
         </li>
         

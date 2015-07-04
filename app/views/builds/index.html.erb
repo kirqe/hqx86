@@ -13,7 +13,6 @@
     <% @builds.each do |build| %>    
 		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
       <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
-      <!-- <li><span style="color: <%= lab(build.b_type) %>"><%= build.b_type %></span></li> -->
 	  	<li><span class="im"><%= build.im %></span></li>      
 	  	<li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
       <li><span class="label info radius">~$<%= build.cost %></span></li>
@@ -52,16 +51,11 @@
       <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
     </div> 
   </div>
-  
-  
-
 </div>
 
 
 <div class="row">
- 
     <div class="bottom_page_div show-for-medium-up" style="display:block; margin: 30px auto; width: 728px; height: 90px;">
       <img style="display:block; margin: 30px auto; width: 728px; height: 90px;" src="https://lh5.ggpht.com/NFYFP2H9CCP50vAQNLa7AtCj_mbbYmOzY978fZqd31oL5qOdvXgxU3KW8ek2VgvIOvTqWY0=w728">
     </div>
-
 </div>
