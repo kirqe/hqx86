@@ -24,17 +24,9 @@
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
     <% end %>
     
-    <div class=" radius b30"> 
-    <a class="twitter-timeline" href="https://twitter.com/search?q=hackintosh" data-widget-id="613036226984198145">Tweets about hackintosh</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </div> 
-    
-    <img class="b30" style="" src="https://lh4.ggpht.com/1Rw1DEbRB87sJ3sdx1g8yMrmx-Lt-VgYqhYolXv_y0hAZxbqoA1HAw1qT-JLk68-dHEL-QHmAA=w300" alt=""> 
-    
-    <div class="border-dotted radius b30"> 
-      <img src="http://placekitten.com/271/270" alt="uh, Placekitten"> 
-      <p class="text-left"> This is an advertisment with a crazy cat! <a href="http://placekitten.com/">More cats, please!</a> </p>
-    </div> 
+      <%= render "shared/twitter_feed"%>
+      <%= render "shared/ad_300x600"%>
+      <%= render "shared/ad_300x250"%>
     
   </div>
 </div>
