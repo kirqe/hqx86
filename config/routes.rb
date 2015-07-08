@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+
   
   devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
   resources :users
   
-  resources :posts
-  
-  resources :builds
-  resources :builds do 
-    resources :comments
+  resources :posts do 
+    resources :comments, module: :posts
   end
+  
+  resources :builds do 
+    resources :comments, module: :builds
+  end
+  
+  
   
   resources :contacts, as: 'contacts', only: [:new, :create]
   
@@ -23,7 +26,7 @@ Rails.application.routes.draw do
 
   get '*path', to: 'application#handle_404'
 
-
+  root 'posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

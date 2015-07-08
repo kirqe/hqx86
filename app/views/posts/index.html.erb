@@ -8,7 +8,7 @@
       <ul class="inline-list post_info">
         <li><%= post.user.username %></li>
         <li><%= post.created_at.to_formatted_s(:long) %></li>
-        <li class="label info"><%= post.category.name %></li>
+        <li class="label info"><%= post.category.try(:name) || "uncategorized" %></li>
       </ul>
     
       <%= image_tag "#{post.header_img_url}", class: "header_img" if post.header_img_url.present? %>
@@ -23,8 +23,8 @@
     
     <% else %>
     <div class="panel radius b30">
-     <h4>Nothing's found for <%= "#{params[:search]}" %></h4>
-     <%= link_to "Home page", root_path %>
+     <h4>Nothing's here ¯\_(ツ)_/¯</h4>
+    But you can check <%= link_to "Home page", root_path %>  or  <%= link_to "Builds", builds_path %>
     </div>
     <% end %>
     <%# render "shared/ad_300x250"%>

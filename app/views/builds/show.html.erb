@@ -28,15 +28,9 @@
     </div>
     <%= render "shared/share_links"%>
         <hr/>
-		    <h5 class="subheader">comments:</h5>					
-			  <ul class="no-bullet comments">
-          <% @build.comments.each do |comment| %>
-          <%= render partial: "comments/comment", locals: {comment: comment} %>
-          <% end %>
-				</ul>			
-        <%= render partial: "comments/form" %>                
-
-  </div>
+    <%= render partial: "comments/comments", locals: {commentable: @build} %>
+    <%= render partial: "comments/form", locals: {commentable: @build}%>
+    </div>
   
   
   <div class="medium-5 large-4  columns show-for-medium-up sidebar">      

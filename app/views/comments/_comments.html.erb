@@ -1,0 +1,17 @@
+<h5 class="subheader">comments:</h5>			
+<ul class="no-bullet comments">
+  <% commentable.comments.each do |comment| %>
+
+  <li class="comment">
+    <b><%= commentable.user.try(:username) %>:</b>
+    <%= comment.body%>
+    <% if current_user.try(:admin?) %>
+    <span class="right ">
+      <%= link_to "(d)", [commentable,comment], method: :delete, data:{confirm: "Are you sure?"} %>
+    </span>
+    <% end %>
+  </li>
+  <% end %>
+</ul>
+
+

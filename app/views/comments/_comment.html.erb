@@ -1,9 +1,9 @@
-<li class="comment">
-  <b><%= comment.user.try(:username) %>:</b>
-  <%= comment.body%>
-  <% if current_user.try(:admin?) %>
-  <span class="right ">
-    <%= link_to "(del)", [@build, comment], method: :delete, data:{confirm: "Are you sure?"} %>
-  </span>
-  <% end %>
-</li>
+  <li class="comment">
+    <b><%= comment.user.try(:username) %>:</b>
+    <%= comment.body%>
+    <% if current_user.try(:admin?) %>
+    <span class="right ">
+      <%= link_to "(d)", [commentable, comment], method: :delete, data:{confirm: "Are you sure?"} %>
+    </span>
+    <% end %>
+  </li>

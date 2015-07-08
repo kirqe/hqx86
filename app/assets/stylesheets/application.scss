@@ -259,7 +259,7 @@ ul.item_show{
 .post_wrapper{
   margin-bottom: 40px;
 
-  .subheader a{
+  h3.subheader a{
     color: #6f6f6f;
   }
   
@@ -363,11 +363,12 @@ footer {
 	padding: 0;	
 }
 .comment{
-	margin: 3px auto;
-	background-color: #fbf5e8;
-	border-right: 3px solid #ffb520;
-	padding: 3px;
+	margin: 10px auto;
+	background-color: #F7F7F7;
+
+	padding: 10px;
   box-shadow: 0px 0px 5px #CFCFCF;
+  word-wrap: break-word;
 }
 
 .comments-admin{
@@ -380,7 +381,6 @@ footer {
 	background-color: #fbf5e8;
 	border-right: 3px solid #ffb520;
 }
-
 
 #comment_ta{
 	margin: 3px auto;

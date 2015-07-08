@@ -5,22 +5,20 @@ class CommentsController < ApplicationController
   
   
   def create
-    @build = Build.friendly.find(params[:build_id])
-    @comment = @build.comments.build(comment_params)
-    @comment.user_id = current_user.id
+    @comment = @commentable.comments.new(comment_params)
+    @comment.user = current_user
     @comment.save
     respond_to do |format|
-      format.html { redirect_to buld_path(@build)}
+      format.html { redirect_to @commentable, notice: "Your comment was successfully added."}
       format.js
     end
   end
   
   def destroy
-    @build = Build.friendly.find(params[:build_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to build_path(@build)}
+      format.html { redirect_to @commentable, notice: "The comment was successfully deleted."}
       format.js
     end
   end
@@ -28,7 +26,7 @@ class CommentsController < ApplicationController
   
   private
   def comment_params
-    params.require(:comment).permit(:body, :user_id, :build_id, :user)
+    params.require(:comment).permit(:body)
   end
   
 end

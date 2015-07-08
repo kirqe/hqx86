@@ -1,5 +1,5 @@
 <% unless @comment.errors.any? %>
-$("ul.comments").append('<%= escape_javascript render @comment %>')
+$("ul.comments").append('<%= j render partial: "comments/comment", locals:{comment: @comment, commentable: @commentable} %>')
 $("#new_comment")[0].reset();
 <% end %>
 

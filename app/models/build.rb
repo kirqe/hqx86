@@ -4,7 +4,7 @@ class Build < ActiveRecord::Base
   friendly_id :spec, use: :slugged
   
   before_validation :default_name
-  after_create :post_to_twitter
+  # after_create :post_to_twitter
 
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
@@ -22,7 +22,7 @@ class Build < ActiveRecord::Base
   validates :body, presence: true, length: {in: 50..150000}
   
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
   
   default_scope {order('updated_at DESC')}
   scope :mini, -> { where('b_type = ?', "mini")}
