@@ -1,13 +1,12 @@
 <h5 class="subheader">comments:</h5>			
 <ul class="no-bullet comments">
   <% commentable.comments.each do |comment| %>
-
-  <li class="comment">
+  <li class="comment" id="comment_<%=comment.id%>">
     <b><%= commentable.user.try(:username) %>:</b>
     <%= comment.body%>
     <% if current_user.try(:admin?) %>
-    <span class="right ">
-      <%= link_to "(d)", [commentable,comment], method: :delete, data:{confirm: "Are you sure?"} %>
+    <span class="right">
+      <%= link_to "x", [commentable,comment], method: :delete, data:{confirm: "Are you sure?"}, class:"del_link", remote: true %>
     </span>
     <% end %>
   </li>
