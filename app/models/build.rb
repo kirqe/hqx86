@@ -29,6 +29,7 @@ class Build < ActiveRecord::Base
   scope :mid, -> { where('b_type = ?', "mid")}
   scope :pro, -> { where('b_type = ?', "pro")}
   scope :laptop, -> { where('b_type = ?', "laptop")}
+  scope :published, -> {where(published: true)}
   
   def self.search(search)
     where("name LIKE ?", "%#{search}%")

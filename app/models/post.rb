@@ -15,6 +15,8 @@ class Post < ActiveRecord::Base
   belongs_to :category
   has_many :comments, as: :commentable, dependent: :destroy
   
+  scope :published, -> {where(published: true)}
+  
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
     where("body LIKE ?", "%#{search}%")
