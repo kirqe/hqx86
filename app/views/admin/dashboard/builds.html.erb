@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="large-12 columns">
+    <dl class="sub-nav">
+      <dd><%= link_to "All Builds", admin_dashboard_builds_path %></dd>
+      <dd><%= link_to "All Posts", admin_dashboard_posts_path %></dd>
+      <dd><%= link_to "All Users", admin_dashboard_users_path %></dd>
+    </dl>
+    
+    <% @builds.each do |build| %>    
+  	<ul class="inline-list items admin-items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
+      <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>   
+    	<li><span class="stat_success">[<%= build.status %>]</span></li>      
+      <li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+		  <li><%= link_to "show", build %></li>
+		  <li><%= link_to "edit", edit_build_path(build) %></li>
+		  <li><%= link_to "delete", build, method: :delete, data: {confirm: "Are you sure?"} %></li>
+  	</ul>
+    <% end %>
+    <%= paginate @builds %>
+  </div>
+</div>
