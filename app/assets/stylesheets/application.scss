@@ -145,7 +145,7 @@ body{
 
 .success{color:#43AC6A;}
 .notice{color:#a0d3e8;}
-.other{color:#c6c6cf;}
+.other, .del_link{color:#c6c6cf;}
 
 .emphasize{
 	color: #F1684D;
@@ -217,6 +217,14 @@ ul.pagination{
 
 .sub-nav{
     margin: -0.25rem 0 0.6rem;
+    
+    .button{
+       display:inline-block;
+       margin:0;
+       height: 22px;
+       padding:3px 10px 0px 10px;
+       font-size: 0.8rem; 
+    }
 }
 
 
@@ -275,6 +283,10 @@ ul.item_show{
         color: #F1684D;
     }
   }
+}
+
+.not_published{
+  opacity: 0.5;
 }
 /* end posts */
 

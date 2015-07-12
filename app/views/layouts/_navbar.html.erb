@@ -28,16 +28,16 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
-      <li><%= link_to 'Add new build', new_build_path, {:style=>"color: #817AFF;"}%></li>
-      <% if current_user.admin? %>
-      
-        <li class="has-dropdown"><%= link_to "Actions", "#" %>
-          <ul class="dropdown">
-            <li><%= link_to "New Post", new_post_path %></li>
-          </ul>
-        </li>
+        <% if current_user.admin? %>      
+          <li class="has-dropdown"><%= link_to "Actions", "#" %>
+            <ul class="dropdown">
+              <li><%= link_to "New Post", new_post_path %></li>
+              <li><%= link_to "New Build", new_build_path %></li>
+              <li><%= link_to "Dashboard", admin_dashboard_index_path %></li>
+            </ul>
+          </li>        
+        <% end %>
         
-      <% end %>
       <li class="has-dropdown"><%= link_to "#{current_user.username}", "#"%>
   	    <ul class="dropdown">
           <li><%= link_to "Profile", user_path(current_user) %></li>
@@ -46,7 +46,7 @@
   		</li>
       <% else %>
       <li><%= link_to "Log in", new_user_session_path %></li>
-      <%end%>
+      <% end %>
     </ul>
   </section>
 </nav>

@@ -3,7 +3,7 @@
   <div id="comment_box">
     <%= simple_form_for([commentable, Comment.new], remote: true) do |f| %>
        <h4 class="c_counter right"><small><em id="count"></em> characters remaining</small></h4>
-      <%= f.input :body, label: false, placeholder: "at least 10 characters"%>
+      <%= f.input :body, label: false, placeholder: "at least 5 characters"%>
       <%= f.button :submit, "Submit", class: "button tiny" %>
     <% end %>
 

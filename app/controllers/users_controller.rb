@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+    @user_builds = @user.builds.page params[:page]
 	end
   
   def edit

@@ -9,19 +9,19 @@ class BuildsController < ApplicationController
   def index
     # dry DERP
     if params[:search]
-      @builds = Build.search(params[:search]).page params[:page]
+      @builds = Build.published.search(params[:search]).page params[:page]
     else
     case params[:t]
       when "mini"
-        @builds = Build.mini.page params[:page]
+        @builds = Build.published.mini.page params[:page]
       when "mid"
-        @builds = Build.mid.page params[:page]      
+        @builds = Build.published.mid.page params[:page]      
       when "pro"
-        @builds = Build.pro.page params[:page]      
+        @builds = Build.published.pro.page params[:page]      
       when "laptop"
-        @builds = Build.laptop.page params[:page]      
+        @builds = Build.published.laptop.page params[:page]      
       else 
-        @builds = Build.all.page params[:page]
+        @builds = Build.published.page params[:page]
       end
     end
   end
@@ -88,6 +88,6 @@ class BuildsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def build_params
-      params.require(:build).permit(:b_type, :name, :spec, :mb, :cpu, :gpu, :ram, :disk, :chassis, :cost, :os, :im, :status, :body, :user_id)
+      params.require(:build).permit(:b_type, :name, :spec, :mb, :cpu, :gpu, :ram, :disk, :chassis, :cost, :os, :im, :status, :body, :user_id, :published)
     end
 end

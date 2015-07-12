@@ -2,7 +2,7 @@
 	<div class="small-12 medium-7 large-8 columns">
   <% if @posts.present? %>		  
     <% @posts.each do |post| %>
-    <div class="post_wrapper">
+    <div class="post_wrapper <%= 'not_published' if !post.published && current_user.try(:admin)%>">
       <h3 class="subheader"><%= link_to "#{post.title}", post%></h3>
       
       <ul class="inline-list post_info">

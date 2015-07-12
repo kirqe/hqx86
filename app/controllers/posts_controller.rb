@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:search]
-      @posts = Post.search(params[:search]).page params[:page]
+      @posts = Post.published.search(params[:search]).page params[:page]
     else
-      @posts = Post.all.page params[:page]
+      @posts = Post.published.page params[:page]
     end
   end
 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user_id = current_user.id   #UPDATE THIS
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -74,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :header_img_url, :body, :category_id, :user)
+      params.require(:post).permit(:title, :header_img_url, :body, :category_id, :user, :published)
     end
 end

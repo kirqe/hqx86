@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150705151742) do
+ActiveRecord::Schema.define(version: 20150708144226) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -28,10 +28,11 @@ ActiveRecord::Schema.define(version: 20150705151742) do
     t.string   "im"
     t.string   "status"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.string   "slug"
+    t.boolean  "published",  default: true
   end
 
   add_index "builds", ["slug"], name: "index_builds_on_slug", unique: true
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150705151742) do
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
     t.string   "slug"
+    t.boolean  "published"
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"

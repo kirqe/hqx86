@@ -7,8 +7,12 @@
       <dd><%= bar_link "Mini", builds_path(:t => "mini") %></dd>
       <dd><%= bar_link "Mid", builds_path(:t => "mid") %></dd>
       <dd><%= bar_link "Pro", builds_path(:t => "pro") %></dd>
-      <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>  
-    </dl>
+      <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>
+      <% if user_signed_in? %>    
+        <%= link_to "Add new build", new_build_path, class: "button tiny alert right"%>
+      <% end %>
+    </dl>     
+
 
 <% if @builds.present? %>
     <% @builds.each do |build| %>    
@@ -33,10 +37,11 @@
     <%# render "shared/ad_300x250"%>
   </div>
   
-  <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
+  <div class="medium-5 large-4  columns show-for-medium-up sidebar">     
       <%= form_tag(builds_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
+ 
       <%= render "shared/twitter_feed"%>
       <%= render "shared/ad_300x600"%>
       <%= render "shared/ad_300x250"%>

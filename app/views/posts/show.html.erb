@@ -26,9 +26,15 @@
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
     <% end %>
     
-      <%= render "shared/twitter_feed"%>
-      <%= render "shared/ad_300x600"%>
-      <%= render "shared/ad_300x250"%>
+    <% if current_user.try(:admin?)  %>
+    <div class="panel radius callout">
+      <%= link_to "Owner? Edit this post", edit_post_path(@post) %>
+    </div>
+    <% end %>
+    
+    <%= render "shared/twitter_feed"%>
+    <%= render "shared/ad_300x600"%>
+    <%= render "shared/ad_300x250"%>
     
   </div>
 </div>

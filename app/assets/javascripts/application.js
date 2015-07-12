@@ -54,3 +54,4 @@ $(document).ready(function(){
       count.text(maxCharacters - characters);
   });
 });
+
