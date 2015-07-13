@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except:[:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   def index
@@ -38,6 +38,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-  	params.require(:user).permit(:username)
+  	params.require(:user).permit(:user_info, :current_build, :contact_details) #removed :username
   end
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
-  resources :users
+  resources :users, except:[:index, :new]
   
   resources :posts do 
     resources :comments, module: :posts
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :builds do 
     resources :comments, module: :builds
   end
-  
+
   resources :contacts, as: 'contacts', only: [:new, :create]
   
   namespace :admin do

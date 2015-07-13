@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   include Tweets
   extend FriendlyId
   
-  after_create :post_to_twitter
+  # after_create :post_to_twitter
   
   friendly_id :title, use: :slugged
   validates :title, presence: true, uniqueness: true, on: :create, length: {in: 5..150}

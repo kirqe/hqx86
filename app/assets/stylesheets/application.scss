@@ -162,7 +162,9 @@ body{
 
 
 
-
+.user_info, .edit_user{
+  font-size: 13px;
+}
 
 
 section{
@@ -317,8 +319,8 @@ ul.item_show{
 }
 
 .post_content {
-  p, li{
-	  font-size: 15px;
+  p, li, dt, dd{
+	  font-size: 13px;
   }
 }
 

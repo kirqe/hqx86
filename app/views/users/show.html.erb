@@ -1,52 +1,39 @@
 <div class="row">
 	<div class="medium-5 large-4  columns show-for-medium-up sidebar">
-    <h5 class="subheader">Profile</h5>	
-
-      
-     <% if @user.admin? %>
-      <ul class="vcard">
-        <li class="email"><a href="#"><%= @user.email %></a></li>
-        <li><%= @user.username %></li>
-        <li>current sign in at:<%= @user.current_sign_in_at.to_formatted_s(:short) %></li>
-        <li>last sign in at:<%= @user.last_sign_in_at.to_formatted_s(:short) %></li>
-        <li>ip:<%= @user.current_sign_in_ip %></li>
-        <li>admin?:<%= @user.admin? %></li>
-        <li>&nbsp;</li>
-        <li><%= link_to "edit profile", edit_user_path(@user), class: "button tiny expand regular"%></li>
-        <li><%= link_to "edit account", edit_user_registration_path(@user), class: "button tiny expand regular"%></li>
-        <li><%= link_to "delete", @user, method: :delete, data: {confirm: "Are you sure?"}, class: "button tiny expand alert"%></li>
-      </ul>
-      
-      <% else %>
-      
-      <div class="panel radius callout">
+    <h5 class="subheader">Profile</h5>	      
+      <div class="panel radius callout user_info">
           Username: <%= @user.username %><br/>          
-          Registration Date:<br/> <%= @user.created_at.to_formatted_s(:long)%><br/>
+          Join Date: <%= @user.created_at.to_formatted_s(:long)%><br/>
           <hr/>
-         <% if @user.id == current_user.id || @user.try(:admin?) %> 
-          <%= link_to "Edit Account", edit_user_registration_path %>
+          <% if @user.current_build.present? %><%= @user.current_build %><br/><% else %>No current build.<% end %>
+          <hr/>
+          <% if @user.contact_details.present? %><%= @user.contact_details %><br/><% else %>No contact info yet.<% end %>
+          <hr/>
+          <% if @user.user_info.present? %><%= @user.user_info %><br/><% else %>This user hasn't shared any info yet.<% end %>
+          <hr/>
+           
+         <% if @user == current_user || current_user.try(:admin?) %>
+          <%= link_to "Edit Profile", edit_user_path %>
+          <%= link_to "(Edit Account)", edit_user_registration_path, class: "right",style:"color:rgb(216, 216, 216);" %>
          <% end %>
-      </div>
-      
-      <% end%>    
+      </div>    
   </div>
 
 	<div class="small-12 medium-7 large-8 columns">
     <h5 class="subheader">latest builds:</h5>
-    <% if @user.builds.present? %>	
+      <% if @user.builds.present? %>	
       <% @user_builds.each do |build| %>    
-      <% if build.published? || (build.user == current_user || current_user.try(:admin)) %>
-  		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
-        <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
-  	  	<li><span class="im"><%= build.im %></span></li>      
-  	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
-  	  	<li><span class="label info radius">~$<%= build.cost %></span></li>
+        <% if build.published? || (build.user == current_user || current_user.try(:admin)) %>
+    		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
+          <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
+    	  	<li><span class="im"><%= build.im %></span></li>      
+    	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
+    	  	<li><span class="label info radius">~$<%= build.cost %></span></li>
         <% unless build.published %>
-        <li><span class="label warning">Not Published</span></li>
+          <li><span class="label warning">Not Published</span></li>
         <% end %>
-
-  		</ul>
-              <% end %>
+    		</ul>
+        <% end %>
       <% end %>
       <%= paginate @user_builds %>
     <% else%>

@@ -1,6 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
     <dl class="sub-nav">
+      <dd><%= link_to "Dashboard", admin_dashboard_index_path %></dd>      
       <dd><%= link_to "All Builds", admin_dashboard_builds_path %></dd>
       <dd><%= link_to "All Posts", admin_dashboard_posts_path %></dd>
       <dd><%= link_to "All Users", admin_dashboard_users_path %></dd>
@@ -8,12 +9,11 @@
         
     <% @posts.each do |post| %>    
   	<ul class="inline-list items admin-items">
-      <li><%= link_to "#{post.title}", post %></li>
-      <li><%= post.category_id %></li>
+      <li><%= post.id %>.</li>
       <li class="label alert"><%= post.published ? "published" : "not published" %></li>
-      <li><%= post.comments.length %></li>
-      <li><%= link_to "#{post.header_img_url}", post.header_img_url %></li>
-      <li><%= link_to "show", post %></li>
+      <li><%= post.comments.size %></li>           
+      <li><%= post.category.try(:name) %></li>     
+      <li><%= link_to "#{post.title}", post %></li>
       <li><%= link_to "edit", edit_post_path(post) %></li>
       <li><%= link_to "delete", post, method: :delete %></li>
   	</ul>
@@ -21,3 +21,4 @@
     <%= paginate @posts %>
   </div>
 </div>
+

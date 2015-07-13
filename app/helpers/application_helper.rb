@@ -36,5 +36,9 @@ module ApplicationHelper
       link_to text, path
     end
   end
+
+  def display 
+    
+  end
   
 end

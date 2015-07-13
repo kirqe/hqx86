@@ -1,6 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
     <dl class="sub-nav">
+      <dd><%= link_to "Dashboard", admin_dashboard_index_path %></dd>      
       <dd><%= link_to "All Builds", admin_dashboard_builds_path %></dd>
       <dd><%= link_to "All Posts", admin_dashboard_posts_path %></dd>
       <dd><%= link_to "All Users", admin_dashboard_users_path %></dd>
@@ -9,15 +10,12 @@
   		<% @users.each do |user| %>
 			<ul class="inline-list items admin-items">
 				<li><%= user.id %>.</li>
-			  <li><%= user.username %></li>
+        <li class="label secondary"><%= user.created_at %></li>
+			  <li><%= link_to "#{user.username}", user %></li>
 			  <li><%= user.email %></li>
-        <li class="label secondary">sign_up:<%= user.created_at %></li>        
-			  <li><%= link_to "show", user %></li>
-			  <li><%= link_to "edit", "#" %></li>
+        <li><%= link_to "edit profile", edit_user_path(user) %></li>
         <% unless user == current_user && current_user.admin? %>
-			  <li>
-        <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %>
-        </li>
+			  <li><%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %></li>
         <% end %>
         <% if user.admin? %>
 				<li class="label alert">Admin</li>
