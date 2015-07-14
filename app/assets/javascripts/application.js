@@ -11,9 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks  
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
+//= require turbolinks
 
 $(function(){ $(document).foundation(); });
 
@@ -54,4 +56,5 @@ $(document).ready(function(){
       count.text(maxCharacters - characters);
   });
 });
+
 

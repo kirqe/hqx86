@@ -17,7 +17,7 @@
   	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
         <li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
         <li><%= link_to "edit", edit_build_path(build) %></li>
-        <li><%= link_to "delete", build, method: :delete %></li>
+        <li><%= link_to "delete", build, method: :delete, data: {confirm: "Are you sure?"} %></li>
   		</ul>
       <% end %>
     </div>
@@ -33,7 +33,7 @@
         <li><%= post.category.try(:name) %></li>     
         <li><%= link_to "#{post.title}", post %></li>
         <li><%= link_to "edit", edit_post_path(post) %></li>
-        <li><%= link_to "delete", post, method: :delete %></li>
+        <li><%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %></li>
     	</ul>
       <% end %>
     </div>

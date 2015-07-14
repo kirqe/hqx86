@@ -14,7 +14,7 @@
 	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
       <li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
       <li><%= link_to "edit", edit_build_path(build) %></li>
-      <li><%= link_to "delete", build, method: :delete %></li>
+      <li><%= link_to "delete", build, method: :delete, data: {confirm: "Are you sure?"} %></li>
 		</ul>
     <% end %>
     <%= paginate @builds %>

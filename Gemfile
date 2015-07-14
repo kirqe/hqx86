@@ -15,6 +15,7 @@ gem 'twitter'
 gem 'figaro'
 gem 'bitly'
 gem 'mail_form'
+gem 'jquery-turbolinks'
 
 gem 'omniauth-github'
 gem 'omniauth-facebook'

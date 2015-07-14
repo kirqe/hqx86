@@ -15,7 +15,7 @@
       <li><%= post.category.try(:name) %></li>     
       <li><%= link_to "#{post.title}", post %></li>
       <li><%= link_to "edit", edit_post_path(post) %></li>
-      <li><%= link_to "delete", post, method: :delete %></li>
+      <li><%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %></li>
   	</ul>
     <% end %>
     <%= paginate @posts %>
