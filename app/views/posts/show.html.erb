@@ -12,9 +12,16 @@
      
       <div class="post_content">
         <%= markdown(@post.body) %>
+      </div>   
+      
+
+      
+      <div class="tags">
+        tags: <%=raw tag_links(@post.all_tags)%>
       </div>
       
       <%= render "shared/share_links"%>
+      
       <hr/>
       <%= render partial: "comments/comments", locals: {commentable: @post} %>
       <%= render partial: "comments/form", locals: {commentable: @post}%>
@@ -34,6 +41,7 @@
     
     <%= render "shared/twitter_feed"%>
     <%= render "shared/ad_300x600"%>
+    <%= render partial: "shared/tag_cloud" %>
     <%= render "shared/ad_300x250"%>
     
   </div>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
   resources :users, except:[:index, :new]
-  
+
   resources :posts do 
     resources :comments, module: :posts
   end
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'dashboard/users'
   end
   
+  get 'tags/:tag', to: 'posts#index', as: "tag"
   get 'pages/about'
   get 'pages/notes'
   get 'pages/contacts'

@@ -10,6 +10,12 @@ class PostsController < ApplicationController
     else
       @posts = Post.published.page params[:page]
     end
+    
+    if params[:tag]
+      @posts = Post.published.tagged_with(params[:tag]).page params[:page]
+    else
+      @posts = Post.published.page params[:page]
+    end
   end
 
   # GET /posts/1
@@ -74,6 +80,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :header_img_url, :body, :category_id, :user, :published)
+      params.require(:post).permit(:title, :header_img_url, :body, :category_id, :user, :published, :all_tags)
     end
 end

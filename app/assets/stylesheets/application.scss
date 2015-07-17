@@ -340,6 +340,19 @@ ul.item_show{
 
 
 
+/* tags */
+.tags, .tags_cloud{
+  line-height: inherit;
+  text-decoration: none;
+  font-size: 90%;
+}
+.tags{
+  margin: 10px 0;
+}
+/* endtags */
+
+
+
 .border-dotted {
   border: 1px dotted #A4A4A4;
   padding: 1.25rem;
@@ -356,6 +369,9 @@ img {
 input.search{
   border-radius: 3px; 
 }
+
+
+
 
 /* footer */
 footer {
