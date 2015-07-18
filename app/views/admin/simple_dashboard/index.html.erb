@@ -1,0 +1,50 @@
+<div class="b30 ">	
+  <h5 class="subheader">Latest 10 Builds</h5>
+  <% @builds.each do |build| %>    
+  <ul class="inline-list items admin-items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
+    <li><%= build.id %>.</li>
+    <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>   
+    <li><span class="stat_success">[<%= build.status %>]</span></li>      
+    <li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+    <li><%= link_to "edit", edit_build_path(build) %></li>
+    <li><%= link_to "delete", build, method: :delete, data: {confirm: "Are you sure?"} %></li>
+  </ul>
+  <% end %>
+</div>
+    
+    
+<div class="b30">
+  <h5 class="subheader">Latest 10 Posts</h5>	    
+  <% @posts.each do |post| %>    
+  <ul class="inline-list items admin-items">
+    <li><%= post.id %>.</li>
+    <li class="label alert"><%= post.published ? "published" : "not published" %></li>
+    <li><%= post.comments.size %></li>           
+    <li><%= post.category.try(:name) %></li>     
+    <li><%= link_to "#{post.title}", post %></li>
+    <li><%= link_to "edit", edit_post_path(post) %></li>
+    <li><%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %></li>
+  </ul>
+  <% end %>
+</div>
+    
+<div class="b30">	
+  <h5 class="subheader">Latest 10 Users</h5>
+  <% @users.each do |user| %>
+  <ul class="inline-list items admin-items">
+    <li><%= user.id %>.</li>
+    <li class="label secondary"><%= user.created_at %></li>
+    <li><%= link_to "#{user.username}", user %></li>
+    <li><%= user.email %></li>
+    <li><%= link_to "edit profile", edit_user_path(user) %></li>        
+    <% unless user == current_user && current_user.admin? %>
+    <li><%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %></li>
+    <% end %>
+    <% if user.admin? %>
+    <li class="label alert">Admin</li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+
+

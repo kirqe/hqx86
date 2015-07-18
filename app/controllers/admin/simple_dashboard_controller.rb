@@ -1,7 +1,10 @@
-class Admin::DashboardController < ApplicationController
+class Admin::SimpleDashboardController < ApplicationController
+
   before_action :authenticate_user!
   authorize_resource :class => false
-  
+
+  layout "simple_admin"  
+
   def index
     @users = User.limit(10)
     @builds = Build.limit(10)

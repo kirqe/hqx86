@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "hqx86" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>    
+    <section role="main" class="scroll-container">
+      <div class="row">
+        <div class="large-12 columns">
+          <dl class="sub-nav">
+            <dd><%= link_to "Dashboard", admin_simple_dashboard_index_path %></dd>
+            <dd><%= link_to "All Builds", admin_simple_dashboard_builds_path %></dd>
+            <dd><%= link_to "All Posts", admin_simple_dashboard_posts_path %></dd>
+            <dd><%= link_to "All Users", admin_simple_dashboard_users_path %></dd>
+          </dl>
+        <%= yield %>
+        </div>
+      </div>
+    </section>
+      <%= render 'layouts/footer'%>
+  </body>
+</html>

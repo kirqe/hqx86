@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+  
   devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
   resources :users, except:[:index, :new]
 
@@ -14,12 +16,12 @@ Rails.application.routes.draw do
   resources :contacts, as: 'contacts', only: [:new, :create]
   
   namespace :admin do
-    get 'dashboard/index'
-    get 'dashboard/posts'
-    get 'dashboard/builds'
-    get 'dashboard/users'
+    get 'simple_dashboard/index'
+    get 'simple_dashboard/posts'
+    get 'simple_dashboard/builds'
+    get 'simple_dashboard/users'
   end
-  
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   get 'tags/:tag', to: 'posts#index', as: "tag"
   

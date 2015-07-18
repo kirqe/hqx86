@@ -1,12 +1,3 @@
-<div class="row">
-  <div class="large-12 columns">
-    <dl class="sub-nav">
-      <dd><%= link_to "Dashboard", admin_dashboard_index_path %></dd>      
-      <dd><%= link_to "All Builds", admin_dashboard_builds_path %></dd>
-      <dd><%= link_to "All Posts", admin_dashboard_posts_path %></dd>
-      <dd><%= link_to "All Users", admin_dashboard_users_path %></dd>
-    </dl>
-    
     <% @builds.each do |build| %>    
 		<ul class="inline-list items admin-items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
       <li><%= build.id %>.</li>
@@ -18,5 +9,3 @@
 		</ul>
     <% end %>
     <%= paginate @builds %>
-  </div>
-</div>
