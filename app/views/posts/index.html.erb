@@ -34,8 +34,10 @@
       <%= form_tag(posts_path, method: "get") do%>
       <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
       <% end %>
+
       <%= render "shared/twitter_feed"%>
       <%= render "shared/ad_300x600"%>
+      <%= render "shared/tag_cloud" %>
       <%= render "shared/ad_300x250"%>
   </div>
 </div>

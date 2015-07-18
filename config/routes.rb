@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     get 'dashboard/users'
   end
   
+
   get 'tags/:tag', to: 'posts#index', as: "tag"
+  
   get 'pages/about'
   get 'pages/notes'
   get 'pages/contacts'
