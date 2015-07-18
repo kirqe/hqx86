@@ -13,8 +13,8 @@ class Ability
   end
 end
 
-  # can [:read,:create], [Build, Comment]
-  # can [:read, :update], Build, user_id: user.id
-  # can [:update], User, id: user.id  #should probably be updated later
-  # can [:read], [Post, Build], published: true
-  # can [:read], User, admin: false
+# can [:read,:create], [Build, Comment]
+# can [:read, :update], Build, user_id: user.id
+# can [:update], User, id: user.id  #should probably be updated later
+# can [:read], [Post, Build], published: true
+# can [:read], User, admin: false

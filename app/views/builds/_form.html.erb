@@ -1,109 +1,109 @@
 <%= simple_form_for @build do |f| %>
 <div class="row">
   <div class="medium-5 columns">
-  <%= f.input :b_type,
-              label: "Build type",
-              collection: ["n/a", "mini", "mid", "pro", "laptop"],
-              selected: @build.b_type || "n/a"  %>
+    <%= f.input :b_type,
+                label: "Build type",
+                collection: ["n/a", "mini", "mid", "pro", "laptop"],
+                selected: @build.b_type || "n/a"  %>
   </div>
   
   <div class="medium-4 columns left">
-  <%= f.input :status,
-              label: "Build status",
-              collection: ["other", "success", "notice"],
-              selected: @build.status || "other"  %>
+    <%= f.input :status,
+                label: "Build status",
+                collection: ["other", "success", "notice"],
+                selected: @build.status || "other"  %>
   </div>
 </div>  
            
 <div class="row">
   <div class="medium-6 columns">              
-  <%= f.input :spec,
-              label: "Short specs or laptop name",
-              placeholder: "GA-P55A-UD3 / i5-750 / 12GB / GTX460 / 10.9.4" %>
+    <%= f.input :spec,
+                label: "Short specs or laptop name",
+                placeholder: "GA-P55A-UD3 / i5-750 / 12GB / GTX460 / 10.9.4" %>
   </div>
   
   <div class="medium-6 columns">
-  <%= f.input :name,
-              label: "Build's name",
-              placeholder: "if empty your username will be used" %>
+    <%= f.input :name,
+                label: "Build's name",
+                placeholder: "if empty your username will be used" %>
   </div>
 </div>              
 
 <div id="hw" class="row" >
   <div id="mobo" class="medium-6 columns">              
-  <%= f.input :mb,
-              label: "Motherboard",
-              placeholder: "Gigabyte GA-P55A-UD3 rev. 1 Bios F11" %>
+    <%= f.input :mb,
+                label: "Motherboard",
+                placeholder: "Gigabyte GA-P55A-UD3 rev. 1 Bios F11" %>
   </div>
   
   <div class="medium-6 columns">             
-  <%= f.input :cpu,
-              label: "CPU",
-              placeholder: "Intel Core i5 750 2,66Ghz overclocked @ 3,66Ghz/183x20" %>
+    <%= f.input :cpu,
+                label: "CPU",
+                placeholder: "Intel Core i5 750 2,66Ghz overclocked @ 3,66Ghz/183x20" %>
   </div>
   
   <div class="medium-6 columns">             
-  <%= f.input :gpu,
-              label: "GPU",
-              placeholder: "Gigabyte GTX560Ti 1GB Superoverclock GV-N560SO-1GI-950" %>
+    <%= f.input :gpu,
+                label: "GPU",
+                placeholder: "Gigabyte GTX560Ti 1GB Superoverclock GV-N560SO-1GI-950" %>
   </div>
   
   <div class="medium-6 columns">              
-  <%= f.input :ram,
-              label: "RAM",
-              placeholder: "2x4GB DDR3 Kingston HyperX Blue 1600Mhz overclocked @ 1830Mhz" %>
+    <%= f.input :ram,
+                label: "RAM",
+                placeholder: "2x4GB DDR3 Kingston HyperX Blue 1600Mhz overclocked @ 1830Mhz" %>
   </div>
   
   <div class="medium-6 columns">            
-  <%= f.input :disk,
-              label: "HDD/SSD",
-              placeholder: "Samsung 840 Basic 120GB" %>
+    <%= f.input :disk,
+                label: "HDD/SSD",
+                placeholder: "Samsung 840 Basic 120GB" %>
   </div>
   
   <div class="medium-6 columns">            
-  <%= f.input :chassis,
-              label: "CHASSIS",
-              placeholder: "" %>
+    <%= f.input :chassis,
+                label: "CHASSIS",
+                placeholder: "" %>
   </div>
 </div>
 
 <div class="row">
   <div class="medium-4 columns ">            
-  <%= f.input :cost,
-              label: "Average cost",
-              placeholder:"$" %>
+    <%= f.input :cost,
+                label: "Average cost",
+                placeholder:"$" %>
   </div>
 </div>              
 
 <div class="row">
   <div class="medium-4 columns">
-  <%= f.input :os,
-              label: "OS",
-              placeholder: "10.9.5 Mavericks" %>
+    <%= f.input :os,
+                label: "OS",
+                placeholder: "10.9.5 Mavericks" %>
   </div>
   
   <div class="medium-4 columns left">              
-  <%= f.input :im,
-              label: "Installation method",
-              placeholder: "clover, multibeast..." %>
+    <%= f.input :im,
+                label: "Installation method",
+                placeholder: "clover, multibeast..." %>
   </div>
 </div>
 
 <div class="row">
   <div class="medium-12 columns"> 
-  <%= link_to "Notes", "/pages/notes", class: "label-link", target: "_blank" %>
-  <%= link_to "Markdown-Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", class: "label-link", target: "_blank" %>
-  <%= f.input :body,
-              label: "Installation notes, instructions, photos...",
-              placeholder: "use markdown",
-              :input_html => {:rows => 30} %>
+    <%= link_to "Notes", "/pages/notes", class: "label-link", target: "_blank" %>
+    <%= link_to "Markdown-Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", class: "label-link", target: "_blank" %>
+    <%= f.input :body,
+                label: "Installation notes, instructions, photos...",
+                placeholder: "use markdown",
+                :input_html => {:rows => 30} %>
   </div>
 </div>
 
 <div class="row">
   <div class="medium-12 columns">
-  <%= f.input :published, inline_label: "Publish this build (make it visible for others)", as: :boolean %>
-  <%= f.button :submit, "Submit", class: "button tiny" %>
+    <%= f.input :published, inline_label: "Publish this build (make it visible for others)", as: :boolean %>
+    <%= f.button :submit, "Submit", class: "button tiny" %>
     <small><%= link_to "Cancel", root_path, class: "button secondary tiny" %></small>	  
   </div>
 </div>

@@ -11,7 +11,7 @@ class BuildsController < ApplicationController
     if params[:search]
       @builds = Build.published.search(params[:search]).page params[:page]
     else
-    case params[:t]
+      case params[:t]
       when "mini"
         @builds = Build.published.mini.page params[:page]
       when "mid"
@@ -81,13 +81,13 @@ class BuildsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_build
-      @build = Build.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_build
+    @build = Build.friendly.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def build_params
-      params.require(:build).permit(:b_type, :name, :spec, :mb, :cpu, :gpu, :ram, :disk, :chassis, :cost, :os, :im, :status, :body, :user_id, :published)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def build_params
+    params.require(:build).permit(:b_type, :name, :spec, :mb, :cpu, :gpu, :ram, :disk, :chassis, :cost, :os, :im, :status, :body, :user_id, :published)
+  end
 end

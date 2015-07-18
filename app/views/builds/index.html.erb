@@ -1,6 +1,12 @@
+<%
+meta title: "hqx86.com builds, guides, news",
+description: "hqx86.com builds, guides, news",
+keywords: %w(hackintosh macos mac x86 osx builds hqx86.com instructions)
+%>
+
 <div class="row">
   
-	<div class="small-12 medium-7 large-8 columns">		  
+  <div class="small-12 medium-7 large-8 columns">		  
     <dl class="sub-nav">
       <dt>Filter:</dt>
       <dd><%= bar_link "All", builds_path(:t => "all") %></dd>
@@ -9,28 +15,28 @@
       <dd><%= bar_link "Pro", builds_path(:t => "pro") %></dd>
       <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>
       <% if user_signed_in? %>    
-        <%= link_to "Add new build", new_build_path, class: "button tiny alert right"%>
+      <%= link_to "Add new build", new_build_path, class: "button tiny alert right"%>
       <% end %>
     </dl>     
 
 
-<% if @builds.present? %>
+    <% if @builds.present? %>
     <% @builds.each do |build| %>    
-		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
+    <ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
       <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
-	  	<li><span class="im"><%= build.im %></span></li>      
-	  	<li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
+      <li><span class="im"><%= build.im %></span></li>      
+      <li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
       <li><span class="label info radius">~$<%= build.cost %></span></li>
       <li><span class="title show-for-xlarge-up"><%= link_to "#{build.name}", build_path(build) %></span></li>      
-		</ul>
+    </ul>
     <% end %>
     
     <%= paginate @builds %>
    
     <% else %>
     <div class="panel radius b30">
-     <h4>Nothing's here ¯\_(ツ)_/¯</h4>
-    But you can check <%= link_to "Home page", root_path %>  or  <%= link_to "Builds", builds_path %>
+      <h4>Nothing's here ¯\_(ツ)_/¯</h4>
+      But you can check <%= link_to "Home page", root_path %>  or  <%= link_to "Builds", builds_path %>
     </div>
     <% end %>
     
@@ -38,13 +44,13 @@
   </div>
   
   <div class="medium-5 large-4  columns show-for-medium-up sidebar">     
-      <%= form_tag(builds_path, method: "get") do%>
-      <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
-      <% end %>
+    <%= form_tag(builds_path, method: "get") do%>
+    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
+    <% end %>
  
-      <%= render "shared/twitter_feed"%>
-      <%= render "shared/ad_300x600"%>
-      <%= render "shared/ad_300x250"%>
+    <%= render "shared/twitter_feed"%>
+    <%= render "shared/ad_300x600"%>
+    <%= render "shared/ad_300x250"%>
   </div>
 </div>
 

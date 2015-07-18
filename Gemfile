@@ -17,6 +17,7 @@ gem 'bitly'
 gem 'mail_form'
 gem 'jquery-turbolinks'
 gem 'rails_admin'
+gem 'metamagic'
 
 
 

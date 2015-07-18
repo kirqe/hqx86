@@ -1,52 +1,58 @@
+<%
+meta title: "#{@build.name}: #{@build.spec}",
+description: "#{@build.name}: #{@build.spec}",
+keywords: %w(hackintosh macos mac x86 osx builds hqx86.com instructions)<<@build.spec.split("/")
+%>
+
 <div class="row">
   <div class="small-12 medium-7 large-8 columns">	
     <h4 class="subheader"><%= @build.name %>: <%= @build.spec %></h4>
-	  <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
-		  <li><span class="title"><%= @build.name %></span></li>
-		  <li><span style="color: <%= lab(@build.b_type) %>"><%= @build.b_type %></span></li>
-	  	<li><span class="conf grayed"><%= @build.spec %></span></li>
-	  	<li><span class="cost"><%= @build.im %></span></li>
-	  	<li><span class="uc" style="color: <%= lab(@build.status) %>">[<%= @build.status %>]</span></li>
-	  	<li><span class="cost">~$<%= @build.cost %></span></li>
-		</ul>
+    <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
+      <li><span class="title"><%= @build.name %></span></li>
+      <li><span style="color: <%= lab(@build.b_type) %>"><%= @build.b_type %></span></li>
+      <li><span class="conf grayed"><%= @build.spec %></span></li>
+      <li><span class="cost"><%= @build.im %></span></li>
+      <li><span class="uc" style="color: <%= lab(@build.status) %>">[<%= @build.status %>]</span></li>
+      <li><span class="cost">~$<%= @build.cost %></span></li>
+    </ul>
     
     <% unless @build.b_type == "laptop" %>
-		<div id="specs">
-			<ul class="item_show no-bullet">
-				<li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
-				<li id="cpu"><b>CPU(s):</b> <%= @build.cpu %></li>
-				<li id="ram"><b>Memory:</b> <%= @build.ram %></li>
-				<li id="gpu"><b>GPU(s):</b> <%= @build.gpu %></li>
-				<li id="disk"><b>HDD/SSD(s):</b> <%= @build.disk %></li>		
-				<li id="os"><b>OS:</b> <%= @build.os %></li>
-			</ul>
-		</div>
+    <div id="specs">
+      <ul class="item_show no-bullet">
+        <li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
+        <li id="cpu"><b>CPU(s):</b> <%= @build.cpu %></li>
+        <li id="ram"><b>Memory:</b> <%= @build.ram %></li>
+        <li id="gpu"><b>GPU(s):</b> <%= @build.gpu %></li>
+        <li id="disk"><b>HDD/SSD(s):</b> <%= @build.disk %></li>		
+        <li id="os"><b>OS:</b> <%= @build.os %></li>
+      </ul>
+    </div>
     <% end %>
 
     <div class="installation_notes">
       <%= markdown(@build.body) %>
     </div>
     <%= render "shared/share_links"%>
-        <hr/>
+    <hr/>
     <%= render partial: "comments/comments", locals: {commentable: @build} %>
     <%= render partial: "comments/form", locals: {commentable: @build}%>
-    </div>
+  </div>
   
   
   <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
-      <%= form_tag(builds_path, method: "get") do%>
-      <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
-      <% end %>
+    <%= form_tag(builds_path, method: "get") do%>
+    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
+    <% end %>
            
-      <% if @build.user == current_user || current_user.try(:admin?)  %>
-      <div class="panel radius callout">
-        <%= link_to "Owner? Edit this post", edit_build_path(@build) %>
-      </div>
-      <% end %>
+    <% if @build.user == current_user || current_user.try(:admin?)  %>
+    <div class="panel radius callout">
+      <%= link_to "Owner? Edit this post", edit_build_path(@build) %>
+    </div>
+    <% end %>
       
-      <%= render "shared/twitter_feed"%>
-      <%= render "shared/ad_300x600"%>
-      <%= render "shared/ad_300x250"%>
+    <%= render "shared/twitter_feed"%>
+    <%= render "shared/ad_300x600"%>
+    <%= render "shared/ad_300x250"%>
   </div>
 </div>			
 
