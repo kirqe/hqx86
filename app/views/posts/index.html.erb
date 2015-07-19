@@ -1,8 +1,8 @@
-<%
-meta title: "hqx86.com builds, guides, news",
-     description: "hqx86.com builds, guides, news",
-     keywords: %w(hackintosh macos mac x86 osx builds hqx86.com instructions)
-%>
+  <%
+  meta title: "hqx86.com builds, guides, news",
+       description: "hqx86.com builds, guides, news",
+       keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com)
+  %>
 
 <div class="row">
 	<div class="small-12 medium-7 large-8 columns">
@@ -22,6 +22,7 @@ meta title: "hqx86.com builds, guides, news",
       <div class="excerpt">
         <%= markdown(truncate(post.body, omission: "...", length: 450){link_to "[continue reading]", post, class:"omission"}) %>
       </div>
+      
     </div>
     <% end %>
     

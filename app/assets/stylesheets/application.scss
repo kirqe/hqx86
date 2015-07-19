@@ -320,12 +320,12 @@ ul.item_show{
 
 .post_content {
   p, li, dt, dd{
-	  font-size: 13px;
+	  font-size: 14px;
   }
 }
 
 .excerpt p{
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .img_center{
@@ -338,7 +338,9 @@ ul.item_show{
 }
 /* end markdown styling */
 
-
+.about p, .contact p {
+  font-size: 13px;
+}
 
 /* tags */
 .tags, .tags_cloud{
@@ -375,7 +377,7 @@ input.search{
 
 /* footer */
 footer {
-  position: fixed;
+//  position: fixed;
   left: 0;
   bottom: 0;
   height: 30px;

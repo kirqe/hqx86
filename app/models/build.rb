@@ -1,10 +1,9 @@
 class Build < ActiveRecord::Base
-  include Tweets
   extend FriendlyId
   friendly_id :spec, use: :slugged
   
   before_validation :default_name
-  # after_create :post_to_twitter
+  after_create :post_to_twitter
 
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
@@ -48,6 +47,7 @@ class Build < ActiveRecord::Base
   end
   
   def post_to_twitter
-    tweet("[#{status.upcase}] #{name}: #{spec} #{Bitly.client.shorten('http://www.google.com').short_url}")  #add a few tags later
+    message = "[#{status.upcase}] #{name}: #{spec}"
+    TwitterWorker.perform_async(message, self.slug)
   end
 end

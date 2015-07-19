@@ -1,8 +1,7 @@
 class Post < ActiveRecord::Base
-  include Tweets
   extend FriendlyId
   
-  # after_create :post_to_twitter
+  after_create :post_to_twitter
   
   friendly_id :title, use: :slugged
   validates :title, presence: true, uniqueness: true, on: :create, length: {in: 5..150}
@@ -45,10 +44,13 @@ class Post < ActiveRecord::Base
     Tag.find_by_name!(name).posts.published
   end
   # end sitepoint.com/tagging-scratch-rails/
+
+  private
   
-  private  
+
   def post_to_twitter
-    tweet("#{title[0..120]} #{Bitly.client.shorten('http://www.google.com').short_url}")  #add a few tags later + replace google with real url
+    message = "#{self.title[0..120]} #hackintosh #mac #osx"
+    TwitterWorker.perform_async(message, self.slug)
   end
-  
+
 end

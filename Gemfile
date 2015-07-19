@@ -18,7 +18,8 @@ gem 'mail_form'
 gem 'jquery-turbolinks'
 gem 'rails_admin'
 gem 'metamagic'
-
+gem 'devise-async'
+gem 'sidekiq'
 
 
 gem 'omniauth-github'
