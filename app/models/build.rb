@@ -3,7 +3,9 @@ class Build < ActiveRecord::Base
   friendly_id :spec, use: :slugged
   
   before_validation :default_name
-  after_create :post_to_twitter
+  
+  after_create :tweet_with_condition
+  after_update :tweet_with_condition
 
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
@@ -45,6 +47,13 @@ class Build < ActiveRecord::Base
     username = User.find(user_id).username
     self.name = "#{username}'s build [#{self.id}]" unless name.present?
   end
+  
+  
+  def tweet_with_condition
+    if tweeted_changed? && tweeted.present?
+      post_to_twitter
+    end 
+  end 
   
   def post_to_twitter
     message = "[#{status.upcase}] #{name}: #{spec}"

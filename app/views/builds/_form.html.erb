@@ -103,6 +103,7 @@
 <div class="row">
   <div class="medium-12 columns">
     <%= f.input :published, inline_label: "Publish this build (make it visible for others)", as: :boolean %>
+    <%= f.input :tweeted, inline_label: "Tweet this (can be done only once)", as: :boolean if @build.new_record? or !@build.tweeted? %>
     <%= f.button :submit, "Submit", class: "button tiny" %>
     <small><%= link_to "Cancel", root_path, class: "button secondary tiny" %></small>	  
   </div>

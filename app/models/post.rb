@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
   
-  after_create :post_to_twitter
+  after_create :tweet_with_condition
+  after_update :tweet_with_condition
   
   friendly_id :title, use: :slugged
   validates :title, presence: true, uniqueness: true, on: :create, length: {in: 5..150}
@@ -47,9 +48,14 @@ class Post < ActiveRecord::Base
 
   private
   
-
+  def tweet_with_condition
+    if tweeted_changed? && tweeted.present?
+      post_to_twitter
+    end 
+  end 
+  
   def post_to_twitter
-    message = "#{self.title[0..120]} #hackintosh #mac #osx"
+    message = "#{self.title[0..120]}"
     TwitterWorker.perform_async(message, self.slug)
   end
 
