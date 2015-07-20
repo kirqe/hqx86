@@ -1,5 +1,6 @@
 ActionMailer::Base.smtp_settings = {
   authentication: :login,
+  enable_starttls_auto: true,
   address: 'smtp.mailgun.org',
   port: 587,
   domain: 'hqx86.com',

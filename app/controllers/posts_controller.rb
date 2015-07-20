@@ -7,11 +7,7 @@ class PostsController < ApplicationController
   def index
     if params[:search]
       @posts = Post.published.search(params[:search]).page params[:page]
-    else
-      @posts = Post.published.page params[:page]
-    end
-    
-    if params[:tag]
+    elsif params[:tag]
       @posts = Post.published.tagged_with(params[:tag]).page params[:page]
     else
       @posts = Post.published.page params[:page]
