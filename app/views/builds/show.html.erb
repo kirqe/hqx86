@@ -41,7 +41,7 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@bui
   
   <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
     <%= form_tag(builds_path, method: "get") do%>
-    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search"%>
+    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search", maxlength: 200, required: 'required' %>
     <% end %>
            
     <% if @build.user == current_user || current_user.try(:admin?)  %>

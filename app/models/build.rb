@@ -41,6 +41,16 @@ class Build < ActiveRecord::Base
   def should_generate_new_friendly_id?
     slug.blank? || spec_changed?
   end
+  
+  def self.get_builds(build_type)
+    case build_type
+    when "mini" then Build.published.mini
+    when "mid" then Build.published.mid
+    when "pro" then Build.published.pro
+    when "laptop" then Build.published.laptop
+    else Build.published
+    end
+  end
 
   private
   def default_name

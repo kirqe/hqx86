@@ -2,8 +2,8 @@
 <ul class="no-bullet comments">
   <% commentable.comments.each do |comment| %>
   <li class="comment" id="comment_<%=comment.id%>">
-    <!-- <b><%= link_to "#{comment.user.try(:username)}", user_path(comment.user)%>:</b> -->
-    <b><%= comment.user.try(:username) %>:</b>
+    <b><%= link_to "#{comment.user.try(:username)}", user_path(comment.user)%>:</b>
+    <!-- <b><%= comment.user.try(:username) %>:</b> -->
     <%= comment.body%>
     <% if current_user.try(:admin?) %>
     <span class="right">

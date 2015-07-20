@@ -260,9 +260,13 @@ ul.item_show{
   font-size: 12px;
   margin: 0px auto 3px auto;
   box-shadow: 0px 0px 5px #CFCFCF;
-
+  
   li{
     margin-left: 0.5rem;
+  }
+  
+  a{
+    color: #008CBA;
   }
 }
 
@@ -271,6 +275,10 @@ ul.item_show{
 
   h3.subheader a{
     color: #6f6f6f;
+  }
+  
+  .category{
+    background-color: #6e679f;
   }
   
 //  img{
@@ -309,6 +317,9 @@ ul.item_show{
   
   table{
     width: 100%;
+  }
+  a{
+    color: #008CBA;
   }
 }
 
@@ -377,7 +388,7 @@ input.search{
 
 /* footer */
 footer {
-//  position: fixed;
+  position: fixed;
   left: 0;
   bottom: 0;
   height: 30px;

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :builds do 
     resources :comments, module: :builds
   end
-
+  
+  get 'contact_us', to: 'contacts#new'
   resources :contacts, as: 'contacts', only: [:new, :create]
   
   namespace :admin do

@@ -32,11 +32,17 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
- $("#new_build").submit(function(e){
+ $("#new_post").submit(function(e){
       e.submit(function(){
           return false;
       });
   });
+  
+  $("#new_build").submit(function(e){
+       e.submit(function(){
+           return false;
+       });
+   });
 });
 
 $(document).ready(function(){
@@ -57,4 +63,7 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  $("#search").val('');
+});
 
