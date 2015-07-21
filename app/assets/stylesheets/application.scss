@@ -240,6 +240,11 @@ div.show {
   width: 100%;
 }
 
+.inline-list{
+  padding: 5px;
+}
+
+
 /* new and edit */
 #build_body{
   font-size: 13px;
@@ -264,10 +269,10 @@ ul.item_show{
   li{
     margin-left: 0.5rem;
   }
-  
-  a{
-    color: #008CBA;
-  }
+//
+//  a{
+//    color: #008CBA;
+//  }
 }
 
 .post_wrapper{
@@ -318,9 +323,6 @@ ul.item_show{
   table{
     width: 100%;
   }
-  a{
-    color: #008CBA;
-  }
 }
 
 .installation_notes {
@@ -329,9 +331,14 @@ ul.item_show{
   }
 }
 
+
 .post_content {
   p, li, dt, dd{
 	  font-size: 14px;
+  }
+  
+  a{
+    color: #008CBA;
   }
 }
 

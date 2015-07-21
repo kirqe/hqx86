@@ -14,18 +14,12 @@ module ApplicationHelper
 
     def lab(attr)
       case attr 
-      when "mini" 
-        "#44D1FF;"
-      when "mid" 
-        "#EB7A65;"
-      when "pro" 
-        "#F73753;"
-      when "laptop" 
-        "#6E68D1;"
-      when "success"
-        "#43AC6A;"
-      when "notice"
-        "#a0d3e8;"
+      when "mini" then "#44D1FF;"
+      when "mid" then "#EB7A65;"
+      when "pro" then "#F73753;"
+      when "laptop" then "#6E68D1;"
+      when "success" then "#43AC6A;"
+      when "notice" then "#a0d3e8;"
       else "#c6c6cf"
       end
     end
@@ -41,11 +35,10 @@ module ApplicationHelper
       tags.split(",").map{|tag| link_to tag.strip, tag_path(tag.strip) }.join(", ") 
     end
 
-    def tag_cloud(tags, classes)
-      max = tags.sort_by(&:count).last
+    def tag_cloud(tags)
+  
       tags.each do |tag|
-        index = tag.count.to_f / max.count * (classes.size-1)
-        yield(tag, classes[index.round])
+        yield(tag)
       end
     end      
   end

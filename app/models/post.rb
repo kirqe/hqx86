@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   extend FriendlyId
   
-  paginates_per 15
+  paginates_per 10
   
   after_create :tweet_with_condition
   after_update :tweet_with_condition

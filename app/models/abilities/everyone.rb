@@ -4,7 +4,7 @@ module Abilities
 
     def initialize(user)
       can :read, [Build, Comment, Post], published: true
-      can :read, User, admin: false
+      can :read, User #, admin: false
     end
   end
 end
