@@ -1,8 +1,8 @@
 class ContactWorker < ActionMailer::Base
   include Sidekiq::Worker
-  include Rails.application.routes.url_helpers
 
-  def perform(contact)
-
+  def perform(h, count)
+    h = JSON.load(h)
+    ContactMailer.contact_email(h['name'], h['email'], h['message']).deliver
   end
 end

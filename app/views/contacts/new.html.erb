@@ -7,18 +7,17 @@
       <%= f.input :request_type, label: false, prompt: "Please select what you need", collection: ["Contact Us", "Request a Build"]%>
           
       <div class="contact_forms" style="display:none;">    
+        <%= f.input :name, label: false, placeholder: "Name", required: true %>
+        <%= f.input :email, label: false, placeholder: "Email", required: true %>
+        
           <div class="contact_fields">     
-            <h4 class="subheader">Contact Us</h4>     
-            <%= f.input :name, label: false, placeholder: "Name", required: true %>
-            <%= f.input :email, label: false, placeholder: "Email", required: true %>
+   
             <%= f.input :message, label: false, placeholder: "Message", as: :text, required: false, input_html: {rows:10}%>
           </div>
           
           <div class="request_fields">
-            <h4 class="subheader">Request a build receipt</h4>
+
             <p class="callout panel edit_user">If you need help with picking up hardware for you build, please submit the form below and you'll receive a personal list of hardware that fits your budget for $15.</p>  
-            <%= f.input :name, label: false, placeholder: "Name", required: true %>
-            <%= f.input :email, label: false, placeholder: "Email", required: true %>            
             <%= f.input :budget, label: false, placeholder: "Budget", required: true %>
             <%= f.input :purpose, label: false, placeholder: "Main purpose of the build (e.g. Video Editing)", required: true %>
             <%= f.input :build_info, label: false, placeholder: "Any info about the build", as: :text, required: false, input_html: {rows:10} %>     

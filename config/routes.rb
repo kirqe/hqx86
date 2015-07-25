@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   
   get 'pages/about'
   get 'pages/notes'
-  get 'pages/contacts'
 
   get '*path', to: 'application#handle_404'
 
