@@ -16,7 +16,7 @@ class Build < ActiveRecord::Base
   validates :ram, allow_blank: true, length: {in: 3..150}
   validates :disk, allow_blank: true, length: {in: 3..150}
   validates :chassis, allow_blank: true, length: {in: 3..150}
-  validates :cost, presence: true, length: {in: 3..20}
+  validates :cost, presence: true, length: {in: 3..20}, :numericality => { :greater_than_or_equal_to => 0 }
   validates :os, presence: true, length: {in: 3..20}
   validates :im, presence: true, length: {in: 3..30}
   validates :status, presence: true, inclusion: {in: %w(other success notice), message: "the value is not allowed"}
@@ -50,6 +50,10 @@ class Build < ActiveRecord::Base
     when "laptop" then Build.published.laptop
     else Build.published
     end
+  end
+  
+  def title
+    "#{name}: #{spec}"
   end
 
   private

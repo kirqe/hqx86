@@ -1,9 +1,10 @@
+<!-- Nav Bar -->
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
       <h1><a href="/" ><span class="emphasize">hq</span>x86</a></h1>
     </li>
-     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#">menu<span></span></a></li>
   </ul>
 
@@ -15,39 +16,40 @@
       <li><%= link_to "Home", root_path %></li>
       <!-- <li><a href="/pages/info">Info</a></li> -->
       <li class="has-dropdown"><%= link_to "Hackintosh Builds", builds_path %>
-	      <ul class="dropdown">
+        <ul class="dropdown">
           <li><%= link_to "Mini", builds_path(t: "mini"), id: "mini"%></li>
           <li><%= link_to "Mid", builds_path(t: "mid"), id: "mid"%></li>
           <li><%= link_to "Pro", builds_path(t: "pro"), id: "pro"%></li>
           <li><%= link_to "Laptops", builds_path(t: "laptop"), id: "laptop"%></li>
-	      </ul>
-			</li>
+        </ul>
+      </li>
 
     </ul>
       
     <!-- Right Nav Section -->
     <ul class="right">
       <% if user_signed_in? %>
-        <% if current_user.admin? %>      
-          <li class="has-dropdown"><%= link_to "Actions", "#" %>
-            <ul class="dropdown">
-              <li><%= link_to "New Post", new_post_path %></li>
-              <li><%= link_to "New Build", new_build_path %></li>
-              <li><%= link_to "Simple Dashboard", admin_simple_dashboard_index_path %></li>
-              <li><%= link_to "Admin Dashboard", rails_admin_path %></li>
-            </ul>
-          </li>        
-        <% end %>
+      <% if current_user.admin? %>      
+      <li class="has-dropdown"><%= link_to "Actions", "#" %>
+        <ul class="dropdown">
+          <li><%= link_to "New Post", new_post_path %></li>
+          <li><%= link_to "New Build", new_build_path %></li>
+          <li><%= link_to "Simple Dashboard", admin_simple_dashboard_index_path %></li>
+          <li><%= link_to "Admin Dashboard", rails_admin_path %></li>
+        </ul>
+      </li>        
+      <% end %>
         
       <li class="has-dropdown"><%= link_to "#{current_user.username}", "#"%>
-  	    <ul class="dropdown">
+        <ul class="dropdown">
           <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-  	    </ul>
-  		</li>
+        </ul>
+      </li>
       <% else %>
       <li><%= link_to "Log in", new_user_session_path %></li>
       <% end %>
     </ul>
   </section>
 </nav>
+<!-- end Nav Bar -->

@@ -1,3 +1,4 @@
+
 <%
 meta title: "hqx86.com builds, guides, news",
 description: "hqx86.com builds, guides, news",
@@ -14,32 +15,11 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)
       <dd><%= bar_link "Mid", builds_path(:t => "mid") %></dd>
       <dd><%= bar_link "Pro", builds_path(:t => "pro") %></dd>
       <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>
-      <% if user_signed_in? %>    
-      <%= link_to "Add new build", new_build_path, class: "button tiny alert right"%>
-      <% end %>
+      <%= link_to "Add new build", new_build_path, class: "button tiny alert right" if user_signed_in?%>
     </dl>     
 
+    <%= render partial: "builds", locals:{ builds: @builds}%>
 
-    <% if @builds.present? %>
-    <% @builds.each do |build| %>    
-    <ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
-      <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
-      <li><span class="im"><%= build.im %></span></li>      
-      <li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
-      <li><span class="label info radius">~$<%= build.cost %></span></li>
-      <li><span class="title show-for-xlarge-up"><%= link_to "#{build.name}", build_path(build) %></span></li>      
-    </ul>
-    <% end %>
-    
-    <%= paginate @builds %>
-   
-    <% else %>
-    <div class="panel radius b30">
-      <h4>Nothing's here ¯\_(ツ)_/¯</h4>
-      But you can check <%= link_to "Home page", root_path %>  or  <%= link_to "Builds", builds_path %>
-    </div>
-    <% end %>
-    
     <%# render "shared/ad_300x250"%>
   </div>
   
@@ -47,10 +27,11 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)
     <%= form_tag(builds_path, method: "get") do%>
     <%= text_field_tag :search, params[:search], placeholder: "search", class: "search", maxlength: 200, required: 'required' %>
     <% end %>
- 
+    
+    <%= render "shared/ad_300x250"%>
     <%= render "shared/twitter_feed"%>
     <%= render "shared/ad_300x600"%>
-    <%= render "shared/ad_300x250"%>
+
   </div>
 </div>
 

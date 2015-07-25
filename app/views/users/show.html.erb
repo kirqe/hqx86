@@ -1,24 +1,4 @@
 <div class="row">
-	<div class="medium-5 large-4  columns show-for-medium-up sidebar">
-    <h5 class="subheader">Profile</h5>	      
-      <div class="panel radius callout user_info">
-          Username: <%= @user.username %><br/>          
-          Join Date: <%= @user.created_at.to_formatted_s(:long)%><br/>
-          <hr/>
-          <% if @user.current_build.present? %><%= @user.current_build %><br/><% else %>No current build.<% end %>
-          <hr/>
-          <% if @user.contact_details.present? %><%= @user.contact_details %><br/><% else %>No contact info yet.<% end %>
-          <hr/>
-          <% if @user.user_info.present? %><%= @user.user_info %><br/><% else %>This user hasn't shared any info yet.<% end %>
-          <hr/>
-           
-         <% if @user == current_user || current_user.try(:admin?) %>
-          <%= link_to "Edit Profile", edit_user_path %>
-          <%= link_to "(Edit Account)", edit_user_registration_path, class: "right",style:"color:rgb(216, 216, 216);" %>
-         <% end %>
-      </div>    
-  </div>
-
 	<div class="small-12 medium-7 large-8 columns">
     <h5 class="subheader">latest builds:</h5>
       <% if @user.builds.present? %>	
@@ -39,5 +19,24 @@
     <% else%>
     <h5 class="subheader">Nothing's here yet</h5>
     <% end %>
+  </div>
+  
+	<div class="medium-5 large-4  columns show-for-medium-up sidebar">
+    <h5 class="subheader">Profile</h5>	      
+      <div class="panel radius callout user_info">
+          Username: <%= @user.username %><br/>          
+          Join Date: <%= @user.created_at.to_formatted_s(:long)%><br/>
+          <hr/>
+  
+          <%= @user.current_build.present? ? @user.current_build : "No current build."%><hr/>
+          <%= @user.contact_details.present? ? @user.contact_details : "No contact info yet."%><hr/>
+          <%= @user.user_info.present? ? @user.user_info : "This user hasn't shared any info yet."%><hr/>
+           
+         <% if @user == current_user || current_user.try(:admin?) %>
+          <%= link_to "Edit Profile", edit_user_path %>
+          <%= link_to "(Edit Account)", edit_user_registration_path, class: "right", style:"color:rgb(216, 216, 216);" %>
+         <% end %>
+      </div>
+      <%= render "shared/ad_300x250"%>    
   </div>
 </div>

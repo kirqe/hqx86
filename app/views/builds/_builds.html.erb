@@ -1,0 +1,20 @@
+
+<% if builds.present? %>
+  <% builds.each do |build| %>
+    <ul class="inline-list items " style="	border-left: 3px solid <%= lab(build.b_type) %>">
+      <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
+      <li><span class="im"><%= build.im %></span></li>      
+      <li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
+      <li><span class="label info radius">~$<%= build.cost %></span></li>
+      <li><span class="title show-for-xlarge-up"><%= link_to "#{build.name}", build_path(build) %></span></li>      
+    </ul>
+  <% end %>
+  
+  <%= paginate builds %>
+  
+<% else %>
+<div class="panel radius b30">
+  <h4>Nothing's here ¯\_(ツ)_/¯</h4>
+  But you can check <%= link_to "Home page", root_path %>  or  <%= link_to "Builds", builds_path %>
+</div>
+<% end %>

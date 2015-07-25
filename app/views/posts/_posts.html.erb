@@ -1,0 +1,29 @@
+
+<% if posts.present? %>		  
+  <% posts.each do |post| %>
+    <div class="post_wrapper <%= 'not_published' if !post.published && current_user.try(:admin)%>">
+      <h3 class=""><%= link_to "#{post.title}", post%></h3>
+      
+      <ul class="inline-list post_info">
+        <li><%= post.user.username %></li>
+        <li><%= post.created_at.to_formatted_s(:long) %></li>
+        <li class="label category"><%= post.category.try(:name) || "uncategorized" %></li>
+      </ul>
+    
+      <%= image_tag "#{post.header_img_url}", class: "header_img" if post.header_img_url.present? %>
+      
+      <div class="excerpt">
+        <%= markdown(truncate(post.body, omission: "...", length: 450){link_to "[continue reading]", post, class:"omission"}) %>
+      </div>
+      
+    </div>
+  <% end %>
+    
+<%= paginate posts %>
+    
+<% else %>
+  <div class="panel radius b30">
+    <h4>Nothing's here ¯\_(ツ)_/¯</h4>
+    But you can check <%= link_to "Home page", root_path %>  or  <%= link_to "Builds", builds_path %>
+  </div>
+<% end %>

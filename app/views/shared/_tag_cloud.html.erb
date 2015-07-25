@@ -1,6 +1,9 @@
-<div class="tags_cloud" style="">
+
+<!-- Tag cloud -->
+<div class="tags_cloud">
   Tags:
   <% tag_cloud Tag.counts do |tag| %>
-    <%= link_to tag.name, tag_path(tag.name) %>
+  <%= link_to tag.name, tag_path(tag.name) %>
   <% end %>
 </div>
+<!-- end Tag cloud -->

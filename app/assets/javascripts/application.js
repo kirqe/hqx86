@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks  
 //= require jquery_ujs
-//= require foundation
 //= require_tree .
+//= require jquery.turbolinks    
+//= require foundation  
 //= require turbolinks
 
 $(function(){ $(document).foundation(); });
@@ -66,3 +66,4 @@ $(document).ready(function(){
 $(document).ready(function(){
   $("#search").val('');
 });
+
