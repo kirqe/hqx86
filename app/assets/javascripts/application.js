@@ -67,3 +67,16 @@ $(document).ready(function(){
   $("#search").val('');
 });
 
+$(document).ready(function(){
+  
+  $("#contact_request_type").change(function(){
+    if ($("#contact_request_type").val() == 'Contact Us'){
+      $("div.contact_forms, .contact_fields").show();
+      $(".request_fields").hide();
+    }
+    else if ($("#contact_request_type").val() == 'Request a Build'){
+      $("div.contact_forms, .request_fields").show();
+      $(".contact_fields").hide();
+    }     
+  });
+});
