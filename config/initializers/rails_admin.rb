@@ -17,6 +17,21 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
 
+  config.model "Build" do
+    list do
+      field :id
+      field :name
+      field :b_type
+      field :user do
+        pretty_value do
+          value.username
+        end
+      end
+      field :created_at
+      field :updated_at
+    end
+  end
+
   config.model "Comment" do
     list do
       field :id
