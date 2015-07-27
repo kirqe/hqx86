@@ -13,11 +13,11 @@ class Contact < MailForm::Base
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
-  def headers
-    {
-      :subject => "hqx86 #{request_type}",
-      :to => ENV['contact_email'],
-      :from => %("#{name}")
-    }
-  end
+  # def headers
+  #   {
+  #     :subject => "hqx86 #{request_type}",
+  #     :to => ENV['contact_email'],
+  #     :from => %("#{name}")
+  #   }
+  # end
 end

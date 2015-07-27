@@ -1,0 +1,25 @@
+
+<h4 style="text-decoration:underline">hqx86 <%= @request_type%></h4>  
+  
+  <p><b>Name: </b>
+    <%= @name %></p>
+  
+  <p><b>Email: </b>
+    <%= @email %></p>
+    
+<% if @request_type == "Contact Us"%>  
+
+  <p><b>Message: </b>
+    <%= @message %></p>
+    
+<% elsif @request_type == "Request a Build"%>
+  <p><b>Budget: </b>
+    <%= @budget %></p>
+
+  <p><b>Purpose: </b>
+    <%= @purpose %></p>
+
+  <p><b>Build info: </b>
+    <%= @build_info %></p>
+    
+<% end %>

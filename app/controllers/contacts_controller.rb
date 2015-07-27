@@ -5,14 +5,28 @@ class ContactsController < ApplicationController
   
   def create
     @contact = Contact.new(contact_params)
-    @contact.request = request    
+    @contact.request = request
+    # @contact.deliver
+    h = JSON.generate({
+      'name' => @contact.name,
+      'email' => @contact.email,
+      'message' => @contact.message,
+      'request_type' => @contact.request_type,
+      'budget' => @contact.budget,
+      'purpose' => @contact.purpose,
+      'build_info' => @contact.build_info
+
+      })
+      
+      #edit this 
     respond_to do |format|
-      if @contact.deliver
+      if ContactWorker.perform_async(h)
         format.html { redirect_to root_path, notice: "Thank you for your message."}
       else
         format.html {render :new, error: "There was a problem with sending your message."}
       end
     end
+
   end
   
   

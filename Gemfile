@@ -21,7 +21,6 @@ gem 'metamagic'
 gem 'devise-async'
 gem 'sidekiq'
 
-
 gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -58,6 +57,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'mailcatcher'
 end
 
 group :production do
