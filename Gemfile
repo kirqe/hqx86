@@ -20,6 +20,8 @@ gem 'rails_admin'
 gem 'metamagic'
 gem 'devise-async'
 gem 'sidekiq'
+gem 'dalli'
+
 
 gem 'omniauth-github'
 gem 'omniauth-facebook'

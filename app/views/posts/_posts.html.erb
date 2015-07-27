@@ -1,5 +1,5 @@
-
-<% if posts.present? %>		  
+<% if posts.present? %>
+		  
   <% posts.each do |post| %>
     <div class="post_wrapper <%= 'not_published' if !post.published && current_user.try(:admin)%>">
       <h3 class=""><%= link_to "#{post.title}", post%></h3>
@@ -18,7 +18,7 @@
       
     </div>
   <% end %>
-    
+
 <%= paginate posts %>
     
 <% else %>
