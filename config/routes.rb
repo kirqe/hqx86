@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   get '*path', to: 'application#handle_404'
 
-  root 'posts#index'
+  root 'builds#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -20,7 +20,8 @@ class ContactsController < ApplicationController
       
       #edit this 
     respond_to do |format|
-      if ContactWorker.perform_async(h)
+      if @contact.valid?
+        ContactWorker.perform_async(h)
         format.html { redirect_to root_path, notice: "Thank you for your message."}
       else
         format.html {render :new, error: "There was a problem with sending your message."}
