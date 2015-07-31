@@ -1,0 +1,9 @@
+User-agent: *
+<% @posts.each do |p| %>
+Disallow: <%= post_url(p) %>
+<% end %>
+<% @builds.each do |b| %>
+Disallow: <%= build_url(b) %>
+<% end %>
+Disallow: /admin/
+Sitemap: http://hqx86.com/sitemap.xml

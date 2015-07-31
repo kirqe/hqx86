@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
- 
+
+  root 'builds#index'
+  get 'sitemap' => 'home#sitemap'
+
+  
   devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
   resources :users, except:[:index, :new]
 
@@ -27,9 +31,9 @@ Rails.application.routes.draw do
   get 'pages/about'
   get 'pages/notes'
 
-  get '*path', to: 'application#handle_404'
 
-  root 'builds#index'
+  get 'robots' => 'home#robots', format: :text
+  get '*path', to: 'application#handle_404'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

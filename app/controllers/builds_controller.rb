@@ -13,6 +13,8 @@ class BuildsController < ApplicationController
       @builds = Build.get_builds(params[:t]).page params[:page]
     end
   end
+  
+
 
   # GET /builds/1
   # GET /builds/1.json

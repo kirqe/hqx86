@@ -21,6 +21,8 @@ gem 'metamagic'
 gem 'devise-async'
 gem 'sidekiq'
 gem 'dalli'
+gem 'dynamic_sitemaps'
+gem 'whenever', require: false
 
 # gem 'omniauth-github'
 # gem 'omniauth-facebook'
