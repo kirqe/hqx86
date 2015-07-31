@@ -22,20 +22,14 @@ gem 'devise-async'
 gem 'sidekiq'
 gem 'dalli'
 
-
-gem 'omniauth-github'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-
-
+# gem 'omniauth-github'
+# gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
 
 
 gem 'sass-rails', '~> 5.0'
-
 gem 'uglifier', '>= 1.3.0'
-
 gem 'coffee-rails', '~> 4.1.0'
-
 # gem 'therubyracer', platforms: :ruby
 
 
@@ -60,6 +54,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'mailcatcher'
+  gem 'quiet_assets'
 end
 
 group :production do

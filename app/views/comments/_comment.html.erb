@@ -1,4 +1,4 @@
 <li class="comment">
-  <b><%= comment.user.try(:username) %>:</b>
+  <b><%= link_to "#{comment.user.try(:username)}", user_path(comment.user)%>:</b>
   <%= comment.body%>
 </li>

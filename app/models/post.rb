@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   
   after_create :tweet_with_condition
   after_update :tweet_with_condition
+  after_commit :expire_cache
   
   friendly_id :title, use: :slugged
   validates :title, presence: true, uniqueness: true, on: :create, length: {in: 5..150}
@@ -47,6 +48,42 @@ class Post < ActiveRecord::Base
     Tag.find_by_name!(name).posts.published
   end
   # end sitepoint.com/tagging-scratch-rails/
+  
+  
+  #caching
+  
+  def self.cached_find(id)
+    Rails.cache.fetch([name, id], expires_in: 5.minutes){ find(id) }
+  end
+  
+  def expire_cache
+    Rails.cache.delete([self.class.name, id])
+  end
+  
+  def cached_comments
+    Rails.cache.fetch([self, "comments"]){ comments.to_a }
+  end
+  
+  def cached_tags
+    Rails.cache.fetch([self, "all_tags"]) { all_tags }
+  end
+  
+  def cached_category
+    Rails.cache.fetch([self, "category"]){ category.try(:name) }
+  end
+  
+  def cached_user
+    User.cached_find(user_id)
+  end
+  
+  def self.cached_published
+    Rails.cache.fetch([name, "published"]){published.to_a}
+  end
+  
+
+  
+  
+  #end caching
 
   private
   

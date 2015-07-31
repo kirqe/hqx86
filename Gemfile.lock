@@ -92,7 +92,6 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.6)
       tilt
-    hashie (3.4.2)
     hitimes (1.2.2)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
@@ -147,32 +146,16 @@ GEM
     nested_form (0.3.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (~> 1.2)
-    omniauth (1.2.2)
-      hashie (>= 1.2, < 4)
-      rack (~> 1.0)
-    omniauth-facebook (2.0.1)
-      omniauth-oauth2 (~> 1.2)
-    omniauth-github (1.1.2)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.1)
-    omniauth-oauth (1.1.0)
-      oauth
-      omniauth (~> 1.0)
-    omniauth-oauth2 (1.3.1)
-      oauth2 (~> 1.0)
-      omniauth (~> 1.2)
-    omniauth-twitter (1.2.0)
-      json (~> 1.3)
-      omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
     pg (0.18.2)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
     rack-mini-profiler (0.9.6)
       rack (>= 1.1.3)
@@ -322,10 +305,8 @@ DEPENDENCIES
   mail_form
   mailcatcher
   metamagic
-  omniauth-facebook
-  omniauth-github
-  omniauth-twitter
   pg
+  quiet_assets
   rack-mini-profiler
   rails (= 4.2.1)
   rails_admin

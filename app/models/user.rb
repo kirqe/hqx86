@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
-  
+  after_commit :expire_cache
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,6 +22,14 @@ class User < ActiveRecord::Base
   
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?
+  end
+  
+  def self.cached_find(id)
+    Rails.cache.fetch([name, id], expires_in: 5.minutes){ find(id) }
+  end
+  
+  def expire_cache
+    Rails.cache.delete([self.class.name, id])
   end
   
 end

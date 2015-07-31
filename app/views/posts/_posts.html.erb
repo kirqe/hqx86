@@ -5,9 +5,11 @@
       <h3 class=""><%= link_to "#{post.title}", post%></h3>
       
       <ul class="inline-list post_info">
-        <li><%= post.user.username %></li>
+        <li><%= post.cached_user.username %></li>
         <li><%= post.created_at.to_formatted_s(:long) %></li>
-        <li class="label category"><%= post.category.try(:name) || "uncategorized" %></li>
+        <% if post.cached_category %>
+        <li class="label category"><%= post.cached_category %></li>
+        <% end %>
       </ul>
     
       <%= image_tag "#{post.header_img_url}", class: "header_img" if post.header_img_url.present? %>

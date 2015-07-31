@@ -6,7 +6,8 @@ class Build < ActiveRecord::Base
   
   after_create :tweet_with_condition
   after_update :tweet_with_condition
-
+  after_commit :expire_cache
+  
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
@@ -55,6 +56,34 @@ class Build < ActiveRecord::Base
   def title
     "#{name}: #{spec}"
   end
+  
+  #caching
+  
+  def self.cached_find(id)
+    Rails.cache.fetch([name, id], expires_in: 5.minutes){ find(id) }
+  end
+  
+  def expire_cache
+    Rails.cache.delete([self.class.name, id])
+  end
+  
+  def cached_comments
+    Rails.cache.fetch([self, "comments"]){ comments.to_a }
+  end
+  
+  def cached_user
+    User.cached_find(user_id)
+  end
+  
+  def self.cached_published
+    Rails.cache.fetch([name, "published"]){published.to_a}
+  end
+  
+
+  
+  
+  #end caching
+  
 
   private
   def default_name
