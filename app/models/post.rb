@@ -76,12 +76,9 @@ class Post < ActiveRecord::Base
     User.cached_find(user_id)
   end
   
-  def self.cached_published
-    Rails.cache.fetch([name, "published"]){published.to_a}
-  end
-  
-
-  
+  # def self.cached_published
+  #   Rails.cache.fetch([name, "published"]){published.to_a}
+  # end
   
   #end caching
 
