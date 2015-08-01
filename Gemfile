@@ -23,6 +23,7 @@ gem 'sidekiq'
 gem 'dalli'
 gem 'dynamic_sitemaps'
 gem 'whenever', require: false
+gem 'newrelic_rpm'
 
 # gem 'omniauth-github'
 # gem 'omniauth-facebook'
