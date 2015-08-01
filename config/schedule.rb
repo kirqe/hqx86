@@ -2,8 +2,8 @@
 set :output, "#{path}/log/cron.log"
 
 
-every 1.minute do  
-  rake "sitemap:generate"                 
+every 1.day do  
+  rake "sitemap:generate"        
 end
 
 
