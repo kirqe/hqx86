@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719181416) do
+ActiveRecord::Schema.define(version: 20150801135432) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20150719181416) do
     t.text     "user_info"
     t.string   "current_build"
     t.string   "contact_details"
+    t.boolean  "banned",                 default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

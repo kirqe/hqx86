@@ -24,6 +24,7 @@
             <dd><%= link_to "All Builds", admin_simple_dashboard_builds_path %></dd>
             <dd><%= link_to "All Posts", admin_simple_dashboard_posts_path %></dd>
             <dd><%= link_to "All Users", admin_simple_dashboard_users_path %></dd>
+            <%= link_to "Admin Dashboard", rails_admin_path, class: "button tiny alert right" %>
           </dl>
           <%= yield %>
         </div>

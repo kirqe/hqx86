@@ -5,8 +5,9 @@ module Abilities
     def initialize(user)
       can [:create], [Build, Comment]
       can [:read, :update], Build, user_id: user.id
-      can [:update], User, id: user.id  #should probably be updated later
+      can :update, User do |u|
+         u.id == user.id
+      end
     end
   end
 end
-

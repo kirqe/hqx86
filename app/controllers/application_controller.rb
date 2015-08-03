@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout_by_resource
+  before_filter :banned?
+  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -15,6 +17,16 @@ class ApplicationController < ActionController::Base
   def handle_404
     redirect_to root_path
   end
+  
+  def banned?
+    if current_user.present? && current_user.banned?
+      sign_out current_user 
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'This account has been suspended....' }
+      end
+    end
+  end
+  
   
   protected
 
