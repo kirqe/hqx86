@@ -43,6 +43,12 @@ $(document).ready(function(){
            return false;
        });
    });
+   
+   $("#new_contact").submit(function(e){
+        e.submit(function(){
+            return false;
+        });
+    });
 });
 
 $(document).ready(function(){

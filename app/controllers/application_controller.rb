@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     handle_404
   end
   
+  rescue_from ActionView::MissingTemplate do
+    handle_404
+  end
+  
   def handle_404
     redirect_to root_path
   end

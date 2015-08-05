@@ -6,7 +6,7 @@
       
       <ul class="inline-list post_info">
         <li><%= post.cached_user.username %></li>
-        <li><%= post.created_at.to_formatted_s(:long) %></li>
+        <li><%= post.created_at.strftime("%d %b %Y") %></li>
         <% if post.cached_category %>
         <li class="label category"><%= post.cached_category %></li>
         <% end %>
