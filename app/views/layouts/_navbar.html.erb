@@ -17,10 +17,10 @@
       <!-- <li><a href="/pages/info">Info</a></li> -->
       <li class="has-dropdown"><%= link_to "Builds", builds_path %>
         <ul class="dropdown">
-          <li><%= link_to "Mini", builds_path(t: "mini"), id: "mini"%></li>
-          <li><%= link_to "Mid", builds_path(t: "mid"), id: "mid"%></li>
-          <li><%= link_to "Pro", builds_path(t: "pro"), id: "pro"%></li>
-          <li><%= link_to "Laptops", builds_path(t: "laptop"), id: "laptop"%></li>
+          <li><%= link_to "Mini", {controller: "builds", b_type: "mini"}, id: "mini" %></li>
+          <li><%= link_to "Mid", {controller: "builds", b_type: "mid"}, id: "mid" %></li>
+          <li><%= link_to "Pro", {controller: "builds", b_type: "pro"}, id: "pro" %></li>
+          <li><%= link_to "Laptop", {controller: "builds", b_type: "laptop"}, id: "laptop" %></li>
         </ul>
       </li>
 

@@ -10,11 +10,11 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)
   <div class="small-12 medium-7 large-8 columns">		  
     <dl class="sub-nav">
       <dt>Filter:</dt>
-      <dd><%= bar_link "All", builds_path(:t => "all") %></dd>
-      <dd><%= bar_link "Mini", builds_path(:t => "mini") %></dd>
-      <dd><%= bar_link "Mid", builds_path(:t => "mid") %></dd>
-      <dd><%= bar_link "Pro", builds_path(:t => "pro") %></dd>
-      <dd><%= bar_link "Laptop", builds_path(:t => "laptop") %></dd>
+      <dd><%= bar_link "All",{b_type: "all"} %></dd>
+      <dd><%= bar_link "Mini", {b_type: "mini"} %></dd>
+      <dd><%= bar_link "Mid", {b_type: "mid"} %></dd>
+      <dd><%= bar_link "Pro", {b_type: "pro"} %></dd>
+      <dd><%= bar_link "Laptop", {b_type: "laptop"} %></dd>
       <%= link_to "Add new build", new_build_path, class: "button tiny alert right" if user_signed_in?%>
     </dl>     
 

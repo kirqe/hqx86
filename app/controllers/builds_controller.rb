@@ -10,7 +10,7 @@ class BuildsController < ApplicationController
     if params[:search]
       @builds = Build.published.search(params[:search]).page params[:page]
     else
-      @builds = Build.get_builds(params[:t]).page params[:page]
+      @builds = Build.get_builds(params[:b_type]).page params[:page]
     end
   end
   

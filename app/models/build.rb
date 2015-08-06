@@ -45,11 +45,11 @@ class Build < ActiveRecord::Base
   
   def self.get_builds(build_type)
     case build_type
-    when "mini" then Build.published.mini
-    when "mid" then Build.published.mid
-    when "pro" then Build.published.pro
-    when "laptop" then Build.published.laptop
-    else Build.published
+    when "mini" then published.mini
+    when "mid" then published.mid
+    when "pro" then published.pro
+    when "laptop" then published.laptop
+    else published
     end
   end
   
@@ -58,13 +58,13 @@ class Build < ActiveRecord::Base
   end
   
   #caching
-  
   def self.cached_find(id)
     Rails.cache.fetch([name, id], expires_in: 5.minutes){ find(id) }
   end
   
   def expire_cache
     Rails.cache.delete([self.class.name, id])
+    Rails.cache.delete([self.class.name, "name"])
   end
   
   def cached_comments
@@ -78,10 +78,6 @@ class Build < ActiveRecord::Base
   def self.cached_published
     Rails.cache.fetch([name, "published"]){published.to_a}
   end
-  
-
-  
-  
   #end caching
   
 

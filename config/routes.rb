@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :comments, module: :posts
   end
   
+  get 'builds/type/:b_type', to: 'builds#index', as: "b_type"
   resources :builds do 
     resources :comments, module: :builds
   end
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     get 'simple_dashboard/users'
   end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
 
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
