@@ -64,7 +64,6 @@ class Build < ActiveRecord::Base
   
   def expire_cache
     Rails.cache.delete([self.class.name, id])
-    Rails.cache.delete([self.class.name, "name"])
   end
   
   def cached_comments

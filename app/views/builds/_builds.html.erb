@@ -1,7 +1,7 @@
 
 <% if builds.present? %>
   <% builds.each do |build| %>
-    <ul class="inline-list items " style="	border-left: 3px solid <%= lab(build.b_type) %>">
+    <ul class="inline-list items " style="border-left: 3px solid <%= lab(build.b_type) %>">
       <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
       <li><span class="im"><%= build.im %></span></li>      
       <li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
