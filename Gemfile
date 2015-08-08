@@ -22,6 +22,7 @@ gem 'dalli'
 gem 'dynamic_sitemaps'
 gem 'whenever', require: false
 gem 'newrelic_rpm'
+gem 'mina'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
