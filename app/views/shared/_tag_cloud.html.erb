@@ -3,7 +3,7 @@
 <div class="tags_cloud b30 ">
 <% cache(:name, expires_in: 5.minutes) do %>  
   Tags:
-  <% tag_cloud Tag.counts do |tag| %>
+  <% tag_cloud Tag.all do |tag| %>
   <%= link_to tag.name, tag_path(tag.name) %>
   <% end %>
   <% end %>
