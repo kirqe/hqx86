@@ -91,8 +91,6 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.6)
       tilt
-    heroku-deflater (0.5.3)
-      rack (>= 1.4.5)
     hitimes (1.2.2)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
@@ -298,7 +296,6 @@ DEPENDENCIES
   figaro
   foundation-rails
   friendly_id (~> 5.1.0)
-  heroku-deflater
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
