@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :user_info, presence: true, allow_blank: true, length: {in: 1..500} 
    
   has_many :builds, dependent: :destroy
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   
   default_scope {order('created_at DESC')}
