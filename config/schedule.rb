@@ -14,4 +14,3 @@ end
 # every :reboot do
 #   command "sidekiq -q mailer -q default"
 # end
-

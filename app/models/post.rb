@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments, as: :commentable, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   
   scope :published, -> {where(published: true)}
