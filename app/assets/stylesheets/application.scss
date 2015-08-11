@@ -86,10 +86,6 @@
   margin: auto;
 }
 
-body{
-  background-image: url(bg.png);
-}
-
 .uc{
   text-transform: uppercase;
 }
@@ -306,7 +302,7 @@ ul.item_show{
 
 body{
   color: #574a42;
-  //font-size: 14px;
+  background-image: asset_path('bg.png');
 }
 
 .post_content {
