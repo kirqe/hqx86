@@ -22,3 +22,5 @@
 
 # mina
 /config/deploy.rb
+
+/public/sitemaps/
