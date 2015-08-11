@@ -20,6 +20,6 @@ class Admin::SimpleDashboardController < ApplicationController
   end
     
   def users
-    @users = User.all.page params[:page]
+    @users = User.with_deleted.page params[:page]
   end
 end

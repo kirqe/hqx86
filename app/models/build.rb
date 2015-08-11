@@ -33,6 +33,10 @@ class Build < ActiveRecord::Base
   scope :laptop, -> { where('b_type = ?', "laptop")}
   scope :published, -> {where(published: true)}
   
+  def user
+    User.unscoped {super}
+  end
+  
   def self.search(search)
     where("name LIKE ?", "%#{search}%")
     where("spec LIKE ?", "%#{search}%")

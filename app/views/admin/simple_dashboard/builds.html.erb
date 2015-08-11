@@ -4,6 +4,9 @@
   <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>   
   <li><span class="stat_success">[<%= build.status %>]</span></li>      
   <li><span class="title"><%= link_to "#{build.name}", build_path(build) %></span></li>
+  <% if build.user.deleted_at %>
+  <li class="label warning">User soft deleted at: <%= build.user.deleted_at %></li>
+  <% end %>
   <li><%= link_to "edit", edit_build_path(build) %></li>
   <li><%= link_to "delete", build, method: :delete, data: {confirm: "Are you sure?"} %></li>
 </ul>

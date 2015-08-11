@@ -5,6 +5,9 @@
   <li><%= post.comments.size %></li>           
   <li><%= post.category.try(:name) %></li>     
   <li><%= link_to "#{post.title}", post %></li>
+  <% if post.user.deleted_at %>
+  <li class="label warning">User soft deleted at: <%= post.user.deleted_at %></li>
+  <% end %>
   <li><%= link_to "edit", edit_post_path(post) %></li>
   <li><%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %></li>
 </ul>

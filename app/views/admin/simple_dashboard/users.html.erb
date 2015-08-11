@@ -11,6 +11,9 @@
   <% if user.admin? %>
   <li class="label alert">Admin</li>
   <% end %>
+  <% if user.deleted_at %>
+  <li class="label warning">User soft deleted at: <%= user.deleted_at %></li>
+  <% end %>
 </ul>
 <% end %>
 <%= paginate @users %>

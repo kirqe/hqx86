@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  acts_as_paranoid
   extend FriendlyId
   friendly_id :username, use: :slugged
   after_commit :expire_cache
@@ -13,8 +14,8 @@ class User < ActiveRecord::Base
   validates :contact_details, presence: true, allow_blank: true, length: {in: 1..200} 
   validates :user_info, presence: true, allow_blank: true, length: {in: 1..500} 
    
-  has_many :builds, dependent: :destroy
-  has_many :posts, dependent: :destroy
+  has_many :builds#, dependent: :destroy
+  has_many :posts#, dependent: :destroy
   has_many :comments, dependent: :destroy
   
   default_scope {order('created_at DESC')}

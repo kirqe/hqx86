@@ -16,6 +16,60 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
+  config.model "User" do
+    list do 
+      field :id
+      field :username
+      field :email
+      field :admin
+      field :created_at
+      field :deleted_at
+      field :banned
+    end
+    show do
+      field :id
+      field :username
+      field :email
+      field :admin
+      field :created_at
+      field :deleted_at
+      field :banned
+      field :posts
+      field :builds
+      field :current_sign_in_ip
+    end
+    edit do
+      field :admin
+      field :banned
+      field :username
+      field :email
+      field :password
+      field :password_confirmation
+      field :confirmed_at
+      field :locked_at
+      field :slug
+      field :user_info
+      field :current_build
+      field :contact_details
+      field :builds
+      field :posts
+      field :comments
+    end
+  end
+
+
+  config.model "Post" do
+    list do
+      field :id
+      field :title
+      field :category
+      field :tags
+      field :published
+      field :tweeted
+      field :created_at
+    end
+      
+  end
 
   config.model "Build" do
     list do
@@ -27,8 +81,9 @@ RailsAdmin.config do |config|
           value.username
         end
       end
+      field :published
+      field :tweeted
       field :created_at
-      field :updated_at
     end
   end
 
@@ -43,7 +98,6 @@ RailsAdmin.config do |config|
        end      
       field :body
       field :created_at
-      field :updated_at
     end
     
     show do
@@ -57,6 +111,27 @@ RailsAdmin.config do |config|
       field :created_at
       field :updated_at
     end  
+  end
+  
+  config.model "Tag" do
+    field :id
+    field :name
+    field :created_at
+  end
+  
+  config.model "Tagging" do
+    list do
+      field :id
+      field :post
+      field :tag
+      field :created_at
+    end
+  end
+  
+  config.model "Category" do
+    field :id
+    field :name
+    field :created_at
   end
 
   config.actions do

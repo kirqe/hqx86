@@ -7,9 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# categories = %w(news guides apps ad promotion review)
-# categories.each{|c| Category.create(name: c)}
-#
+categories = %w(news guides apps ad promotion review)
+categories.each{|c| Category.create(name: c)}
+p "categories exported"
 
 # 100.times.each do |e|
 #  Build.create(

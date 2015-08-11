@@ -14,7 +14,6 @@ class Post < ActiveRecord::Base
   validates :body, presence: true, length: {in: 50..150000}
   validates :all_tags, presence: true, allow_blank: true, length: {in: 2..150}
   
-  
   default_scope {order('created_at DESC')}
   belongs_to :user
   belongs_to :category
@@ -23,6 +22,11 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :taggings
   
   scope :published, -> {where(published: true)}
+  
+  
+  def user
+    User.unscoped {super}
+  end
   
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
@@ -75,10 +79,6 @@ class Post < ActiveRecord::Base
   def cached_user
     User.cached_find(user_id)
   end
-  
-  # def self.cached_published
-  #   Rails.cache.fetch([name, "published"]){published.to_a}
-  # end
   
   #end caching
 
