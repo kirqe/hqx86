@@ -28,6 +28,10 @@ class Post < ActiveRecord::Base
     User.unscoped {super}
   end
   
+  def category
+    Category.unscoped {super}
+  end
+  
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
     where("body LIKE ?", "%#{search}%")
