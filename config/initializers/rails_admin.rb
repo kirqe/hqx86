@@ -110,7 +110,7 @@ RailsAdmin.config do |config|
       field :body
       field :created_at
       field :updated_at
-    end  
+    end
   end
   
   config.model "Tag" do
