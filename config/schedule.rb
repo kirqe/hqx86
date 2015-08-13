@@ -6,7 +6,7 @@ job_type :runner, "{ cd #{@current_path} > /dev/null; } && RAILS_ENV=:environmen
 
 set :output, "#{path}/log/cron.log"
 
-every 1.day do  
+every 1.day, :at => '5:30 am' do  
   rake "sitemap:generate"        
 end
 
