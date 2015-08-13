@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout_by_resource
   before_filter :banned?
+  before_filter :ensure_trailing_slash, :only => :index
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -19,7 +20,10 @@ class ApplicationController < ActionController::Base
   end
   
   def handle_404
-    redirect_to root_path
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404 }
+      format.any  { head :not_found }
+    end
   end
   
   def banned?
@@ -31,6 +35,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  private
+  def ensure_trailing_slash
+    redirect_to url_for(params.merge(:trailing_slash => true)), :status => 301 unless trailing_slash?
+  end
+  
+  def trailing_slash?
+    request.env['REQUEST_URI'].match(/[^\?]+/).to_s.last == '/'
+  end
   
   protected
 
