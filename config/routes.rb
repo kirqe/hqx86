@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: "tag"
   get 'pages/about'
   get 'pages/notes'
-  get 'sitemap' => 'home#sitemap'
+  get 'sitemap.xml' => 'home#sitemap', format: "xml", as: :sitemap
   get 'robots' => 'home#robots', format: :text#, defaults: { format: :text }
   get '*path', to: 'application#handle_404'
 end
