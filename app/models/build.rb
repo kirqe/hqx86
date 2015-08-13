@@ -73,17 +73,8 @@ class Build < ActiveRecord::Base
   def cached_comments
     Rails.cache.fetch([self, "comments"]){ comments.to_a }
   end
-  
-  def cached_user
-    User.cached_find(user_id)
-  end
-  
-  def self.cached_published
-    Rails.cache.fetch([name, "published"]){published.to_a}
-  end
   #end caching
   
-
   private
   def default_name
     username = User.find(user_id).username

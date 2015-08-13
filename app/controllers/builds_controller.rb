@@ -1,5 +1,4 @@
 class BuildsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_build, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
@@ -14,8 +13,6 @@ class BuildsController < ApplicationController
     end
   end
   
-
-
   # GET /builds/1
   # GET /builds/1.json
   def show

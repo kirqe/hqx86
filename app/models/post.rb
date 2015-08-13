@@ -79,11 +79,6 @@ class Post < ActiveRecord::Base
   def cached_category
     Rails.cache.fetch([self, "category"]){ category.try(:name) }
   end
-  
-  def cached_user
-    User.cached_find(user_id)
-  end
-  
   #end caching
 
   private
