@@ -1,4 +1,4 @@
-
+env :GEM_PATH, ENV['GEM_PATH'] #http://stackoverflow.com/questions/9482298/rails-cron-whenever-bundle-command-not-found
 
 job_type :rake, "{ cd #{@current_path} > /dev/null; } && RAILS_ENV=:environment bundle exec rake :task --silent :output"
 job_type :script, "{ cd #{@current_path} > /dev/null; } && RAILS_ENV=:environment bundle exec script/:task :output"
