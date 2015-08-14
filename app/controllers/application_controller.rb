@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout_by_resource
   before_filter :banned?
-  before_filter :ensure_trailing_slash, :only => :index
+  before_filter :ensure_trailing_slash
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
