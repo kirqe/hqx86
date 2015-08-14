@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     if current_user.present? && current_user.banned?
       sign_out current_user 
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'This account has been suspended....' }
+        format.any { redirect_to root_path, notice: 'This account has been suspended....' }
       end
     end
   end
