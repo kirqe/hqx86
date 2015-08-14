@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_filter :ensure_trailing_slash
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
+  
   # GET /posts
   # GET /posts.json
   def index

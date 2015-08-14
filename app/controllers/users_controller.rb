@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_filter :ensure_trailing_slash
   before_action :authenticate_user!, except:[:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
+  
   def index
     @users = User.all.page params[:page]
   end
