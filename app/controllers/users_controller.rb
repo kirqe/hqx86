@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :ensure_trailing_slash
+  before_filter :ensure_trailing_slash, only: [:index, :show]
   before_action :authenticate_user!, except:[:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource

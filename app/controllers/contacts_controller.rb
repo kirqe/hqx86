@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-  before_filter :ensure_trailing_slash
   
   def new
     @contact = Contact.new
