@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   before_filter :banned?
   before_filter :ensure_trailing_slash
-  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -36,8 +35,12 @@ class ApplicationController < ActionController::Base
   end
   
   private
+  
+  
   def ensure_trailing_slash
-    redirect_to url_for(params.merge(:trailing_slash => true)), :status => 301 unless trailing_slash?
+    unless controller_name == 'home'
+      redirect_to url_for(params.merge(:trailing_slash => true)), :status => 301 unless trailing_slash?
+    end
   end
   
   def trailing_slash?
