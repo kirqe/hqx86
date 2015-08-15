@@ -68,7 +68,6 @@ RailsAdmin.config do |config|
       field :tweeted
       field :created_at
     end
-      
   end
 
   config.model "Build" do
@@ -114,7 +113,11 @@ RailsAdmin.config do |config|
   end
   
   config.model "Tag" do
-    field :id
+    list do
+      field :id
+      field :name
+      field :created_at
+    end
     field :name
     field :created_at
   end
@@ -126,9 +129,17 @@ RailsAdmin.config do |config|
       field :tag
       field :created_at
     end
+    field :post
+    field :tag
+    field :created_at
   end
   
   config.model "Category" do
+    list do
+      field :id
+      field :name
+      field :created_at
+    end
     field :id
     field :name
     field :created_at

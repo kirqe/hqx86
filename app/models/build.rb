@@ -11,6 +11,7 @@ class Build < ActiveRecord::Base
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
+  validates :slug, uniqueness: true
   validates :mb, allow_blank: true, length: {in: 3..150}
   validates :cpu, allow_blank: true, length: {in: 3..150}
   validates :gpu, allow_blank: true, length: {in: 3..150}
