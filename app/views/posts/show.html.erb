@@ -6,7 +6,10 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@pos
 %>
 
 <div class="row">
-  <div class="small-12 medium-7 large-8 columns">		  
+  <div class="small-12 medium-7 large-8 columns">	
+    	
+    <%# cache(@build) do %><%# rd caching %>	  
+    
     <div class="post_wrapper">
       <h3 class="title"><%= @post.title %></h3>
       <ul class="inline-list post_info">
@@ -24,11 +27,13 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@pos
       </div>   
       
       <div class="tags">
-        tags: <%=raw tag_links(@post.cached_tags)%>
+        tags: <%=raw tag_links(@post.all_tags)%>
       </div>
       
       <%= render "shared/share_links"%>
       
+      <%# end %><%# end rd caching %>  
+          
       <hr/>
       <%= render partial: "comments/comments", locals: {commentable: @post} %>
       <%= render partial: "comments/form", locals: {commentable: @post}%>

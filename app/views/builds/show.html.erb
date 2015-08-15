@@ -4,8 +4,12 @@ description: "#{@build.name}: #{@build.spec}",
 keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@build.spec.split("/")
 %>
 
+
 <div class="row">
-  <div class="small-12 medium-7 large-8 columns">	
+  <div class="small-12 medium-7 large-8 columns">
+    
+    <%# cache(@build) do %><%# rd caching %>	
+    
     <h4 class="title"><%= @build.title %></h4>
     <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
       <li><span class="title"><%= @build.name %></span></li>
@@ -33,6 +37,9 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@bui
       <%= markdown(@build.body) %>
     </div>
     <%= render "shared/share_links"%>
+
+    <%# end %><%# end rd caching %>
+    
     <hr/>
     <%= render partial: "comments/comments", locals: {commentable: @build} %>
     <%= render partial: "comments/form", locals: {commentable: @build}%>
@@ -55,4 +62,3 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@bui
     
   </div>
 </div>			
-

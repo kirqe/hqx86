@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.request = request
-    # @contact.deliver
     h = JSON.generate({
       'name' => @contact.name,
       'email' => @contact.email,

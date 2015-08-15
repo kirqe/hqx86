@@ -2,10 +2,11 @@
 	<div class="small-12 medium-7 large-8 columns">
     <h5 class="subheader">latest builds:</h5>
       <% if @user.builds.present? %>	
-      <% @user_builds.each do |build| %>    
+      <% @user_builds.each do |build| %>
+        <% cache(build) do %><%# rd caching %>	    
         <% if build.published? || (build.user == current_user || current_user.try(:admin)) %>
     		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
-          <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
+          <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span><% end %></li>
     	  	<li><span class="im"><%= build.im %></span></li>      
     	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
     	  	<li><span class="label info radius">~$<%= build.cost %></span></li>
@@ -14,6 +15,7 @@
         <% end %>
     		</ul>
         <% end %>
+        <% end %><%# end rd caching %>
       <% end %>
       <%= paginate @user_builds %>
     <% else%>

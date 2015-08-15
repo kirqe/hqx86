@@ -1,31 +1,32 @@
 <% if posts.present? %>
 		  
-  <% posts.each do |post| %>
-    <div class="post_wrapper <%= 'not_published' if !post.published && current_user.try(:admin)%>">
-      <h3 class=""><%= link_to "#{post.title}", post%></h3>
-      
-      <ul class="inline-list post_info">
-        <li><%= post.user.username %></li>
-        <li><%= post.created_at.strftime("%d %b %Y") %></li>
-        <% if post.cached_category %>
-        <li class="label category"><%= post.cached_category %></li>
-        <% end %>
-      </ul>
-    
-      <%= image_tag "#{post.header_img_url}", class: "header_img" if post.header_img_url.present? %>
-      
-      <div class="excerpt">
-        <%= markdown(truncate(post.body, omission: "...", length: 450){link_to "[continue reading]", post, class:"omission"}) %>
-      </div>
-      
-    </div>
-  <% end %>
+<% posts.each do |post| %>
+<% cache(post) do %><%# rd caching %>
+<div class="post_wrapper <%= 'not_published' if !post.published && current_user.try(:admin)%>">
+  <h3><%= link_to "#{post.title}", post %></h3>
 
+  <ul class="inline-list post_info">
+    <li><%= post.user.username %></li>
+    <li><%= post.created_at.strftime("%d %b %Y") %></li>
+    <% if post.cached_category %>
+    <li class="label category"><%= post.cached_category %></li>
+    <% end %>
+  </ul>
+    
+  <%= image_tag "#{post.header_img_url}", class: "header_img" if post.header_img_url.present? %>
+      
+  <div class="excerpt">
+    <%= markdown(truncate(post.body, omission: "...", length: 450){link_to "[continue reading]", post, class:"omission"}) %>
+  </div>
+      
+</div>
+<% end %><%# rd caching %>
+<% end %>
 <%= paginate posts %>
     
 <% else %>
-  <div class="panel radius b30">
-    <h4>Nothing's here ¯\_(ツ)_/¯</h4>
-    But you can check <%= link_to "Posts", posts_path %>  or  <%= link_to "Builds", builds_path %>
-  </div>
+<div class="panel radius b30">
+  <h4>Nothing's here ¯\_(ツ)_/¯</h4>
+  But you can check <%= link_to "Posts", posts_path %>  or  <%= link_to "Builds", builds_path %>
+</div>
 <% end %>

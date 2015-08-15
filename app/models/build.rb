@@ -62,9 +62,9 @@ class Build < ActiveRecord::Base
   end
   
   #caching
-  def self.cached_find(id)
-    Rails.cache.fetch([name, id], expires_in: 5.minutes){ find(id) }
-  end
+  # def self.cached_find(id)
+  #   Rails.cache.fetch([name, id], expires_in: 5.minutes){ find(id) }
+  # end
   
   def expire_cache
     Rails.cache.delete([self.class.name, id])
