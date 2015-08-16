@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   get 'tags/:tag', to: 'posts#index', as: "tag"
-  get 'pages/about'
-  get 'pages/notes'
+  get 'about', to: 'pages#about'
+  get 'notes', to: 'pages#notes'
   get 'sitemap' => 'home#sitemap'
   get 'robots' => 'home#robots', format: :text#, defaults: { format: :text }
   get '*path', to: 'application#handle_404'
