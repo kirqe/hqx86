@@ -1,16 +1,19 @@
-#env :GEM_PATH, ENV['GEM_PATH'] #http://stackoverflow.com/questions/9482298/rails-cron-whenever-bundle-command-not-found
-
-job_type :rake, "{ cd #{@current_path} > /dev/null; } && RAILS_ENV=:environment bundle exec rake :task --silent :output"
-job_type :script, "{ cd #{@current_path} > /dev/null; } && RAILS_ENV=:environment bundle exec script/:task :output"
-job_type :runner, "{ cd #{@current_path} > /dev/null; } && RAILS_ENV=:environment bundle exec rails runner ':task' :output"
-
 set :output, "#{path}/log/cron.log"
+job_type :runner, "cd #{path} && RAILS_ENV=production /home/$USER/.rvm/wrappers/ruby-2.2.2/bundle exec rails runner ':task' :output"
 
-every 1.day, :at => '5:30 am' do  
-  rake "sitemap:generate"        
+every 1.day, :at => '4:30 am' do
+  rake "sitemap:generate"
 end
 
 
 # every :reboot do
 #   command "sidekiq -q mailer -q default"
 # end
+
+
+
+
+
+
+
+
