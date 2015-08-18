@@ -3,6 +3,7 @@ job_type :runner, "cd #{path} && RAILS_ENV=production /home/$USER/.rvm/wrappers/
 
 every 1.day, :at => '4:30 am' do
   rake "sitemap:generate"
+  command "ln -s #{path}/public/sitemaps/sitemap.xml #{path}/public/sitemap.xml"
 end
 
 
