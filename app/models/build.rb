@@ -27,7 +27,7 @@ class Build < ActiveRecord::Base
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
   
-  default_scope {order('updated_at DESC')}
+  default_scope {order('created_at DESC')}
   scope :mini, -> { where('b_type = ?', "mini")}
   scope :mid, -> { where('b_type = ?', "mid")}
   scope :pro, -> { where('b_type = ?', "pro")}
