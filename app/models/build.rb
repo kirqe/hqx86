@@ -91,6 +91,6 @@ class Build < ActiveRecord::Base
   
   def post_to_twitter
     message = "[#{status.upcase}] #{name}: #{spec}"
-    TwitterWorker.perform_async(message, self.slug)
+    TwitterWorker.perform_async(message, self.slug, self.class.to_s.underscore)
   end
 end

@@ -87,7 +87,7 @@ class Post < ActiveRecord::Base
   
   def post_to_twitter
     message = "#{self.title[0..120]}"
-    TwitterWorker.perform_async(message, self.slug)
+    TwitterWorker.perform_async(message, self.slug, self.class.to_s.underscore)
   end
 
 end
