@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   # GET /posts
   # GET /posts.json
   def index
@@ -71,6 +71,7 @@ class PostsController < ApplicationController
   end
 
   private
+  
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.friendly.find(params[:id])
