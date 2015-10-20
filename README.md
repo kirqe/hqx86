@@ -1,5 +1,3 @@
-hqx86
+[hqx86.com](http://hqx86.com/)
 
-todo:
-
-replace basic search with something better()
+1. replace basic search with something better()
