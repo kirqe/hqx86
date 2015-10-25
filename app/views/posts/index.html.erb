@@ -8,7 +8,6 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com)
 <div class="row">
   <div class="small-12 medium-7 large-8 columns">
     <%= render partial: "posts", locals:{posts: @posts}%>
-    <%# render "shared/ad_300x250"%>
   </div>
   
   <div class="medium-5 large-4  columns show-for-medium-up sidebar">    
@@ -16,12 +15,9 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com)
     <%= text_field_tag :search, params[:search], placeholder: "search", class: "search", maxlength: 200, required: 'required' %>
     <% end %>
     
-    <%# render "shared/ad_300x250"%>
     <%= render "shared/twitter_feed"%>
     <%= render "shared/tag_cloud" %>    
-    <%# render "shared/ad_300x600"%>
 
   </div>
 </div>
 
-<%# render "shared/ad_btm"%>
