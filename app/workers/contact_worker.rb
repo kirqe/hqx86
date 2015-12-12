@@ -7,9 +7,6 @@ class ContactWorker < MailForm::Base
       h['name'],
       h['email'],
       h['message'],
-      h['request_type'],
-      h['budget'],
-      h['purpose'],
-      h['build_info']).deliver
+      h['request_type']).deliver
   end
 end

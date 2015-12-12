@@ -1,54 +1,76 @@
 <!-- Nav Bar -->
-<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="/" ><span class="emphasize">hq</span>x86</a></h1>
-    </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
-  </ul>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">HQX86</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+	      <ul class="nav navbar-nav">
+          <li><%= link_to "Posts", posts_path %></li>
+	          <li class="dropdown">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Builds <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+                <li><%= link_to "All", builds_path %></li>
+                <li id="mini"><%= link_to "Mini", {controller: "/builds", b_type: "mini"}, id: "mini" %></li>
+                <li id="mid"><%= link_to "Mid", {controller: "/builds", b_type: "mid"}, id: "mid" %></li>
+                <li id="pro"><%= link_to "Pro", {controller: "/builds", b_type: "pro"}, id: "pro" %></li>
+                <li id="laptop"><%= link_to "Laptop", {controller: "/builds", b_type: "laptop"}, id: "laptop" %></li>
+	            </ul>
+	          </li>
+          <li><%= link_to "Showcase", "#" %></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            
+                 
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i style="color: #0DE074;" class="fa fa-plus"> add</i> </a>
+              <ul class="dropdown-menu">
+                <!-- Admin/mod user -->
+                <% if current_user.admin? %>    
+                <li><%= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Post'.html_safe, new_post_path %></li>
+                <% end %>
+                <!-- Regular user -->
+                <li><%= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Build'.html_safe, new_build_path %></li>
+                <li><%= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Showcase'.html_safe, "#" %></li>
+              </ul>
+            </li>
 
-  <section class="top-bar-section">
-
-
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><%= link_to "Posts", posts_path %></li>
-      <!-- <li><a href="/pages/info">Info</a></li> -->
-      <li class="has-dropdown"><%= link_to "Builds", builds_path %>
-        <ul class="dropdown">
-          <li><%= link_to "Mini", {controller: "/builds", b_type: "mini"}, id: "mini" %></li>
-          <li><%= link_to "Mid", {controller: "/builds", b_type: "mid"}, id: "mid" %></li>
-          <li><%= link_to "Pro", {controller: "/builds", b_type: "pro"}, id: "pro" %></li>
-          <li><%= link_to "Laptop", {controller: "/builds", b_type: "laptop"}, id: "laptop" %></li>
-        </ul>
-      </li>
-
-    </ul>
-      
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <% if user_signed_in? %>
-      <% if current_user.admin? %>      
-      <li class="has-dropdown"><%= link_to "Actions", "#" %>
-        <ul class="dropdown">
-          <li><%= link_to "New Post", new_post_path %></li>
-          <li><%= link_to "New Build", new_build_path %></li>
-          <li><%= link_to "Simple Dashboard", admin_simple_dashboard_index_path %></li>
-        </ul>
-      </li>        
-      <% end %>
-        
-      <li class="has-dropdown"><%= link_to "#{current_user.username}", "#"%>
-        <ul class="dropdown">
-          <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </li>
-      <% else %>
+       
+          
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=  "#{current_user.username}"%> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", user_path(current_user) %></li>
+                </li>
+                <% if current_user.admin? %> 
+                  <li><%= link_to "Admin", admin_simple_dashboard_index_path %></li>
+                <% end %>
+                </li>
+                <li class="divider"></li>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                </li>
+              </ul>
+            </li>
+            
+            <% else %>
+            
       <li><%= link_to "Log in", new_user_session_path %></li>
-      <% end %>
-    </ul>
-  </section>
-</nav>
+          
+          <% end %>
+          
+          
+        </ul>
+	    </div>
+	    <!-- /.navbar-collapse -->
+	</nav>
+
 <!-- end Nav Bar -->

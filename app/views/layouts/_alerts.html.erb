@@ -1,4 +1,8 @@
 
 <% flash.each do |key, value| %>
-<%= content_tag :div, value, :class => "alert-box info #{key}" unless value.blank? %>
+  <% if key == "notice" %>
+    <%= content_tag :div, value, :class => "alert alert-info t-alert" unless value.blank? %>
+    <% elsif key == "error" %>
+    <%= content_tag :div, value, :class => "alert alert-danger t-alert" unless value.blank? %>    
+  <% end %>
 <% end %>

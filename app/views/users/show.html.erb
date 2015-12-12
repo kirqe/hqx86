@@ -1,43 +1,153 @@
 <div class="row">
-	<div class="small-12 medium-7 large-8 columns">
-    <h5 class="subheader">latest builds:</h5>
-      <% if @user.builds.present? %>	
-      <% @user_builds.each do |build| %>
-        <% cache(build) do %><%# rd caching %>	    
-        <% if build.published? || (build.user == current_user || current_user.try(:admin)) %>
-    		<ul class="inline-list items" style="	border-left: 3px solid <%= lab(build.b_type) %>">
-          <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span><% end %></li>
-    	  	<li><span class="im"><%= build.im %></span></li>      
-    	  	<li><span class="stat_success">[<%= build.status %>]</span></li>      
-    	  	<li><span class="label info radius">~$<%= build.cost %></span></li>
-        <% unless build.published %>
-          <li><span class="label warning">Not Published</span></li>
-        <% end %>
-    		</ul>
-        <% end %>
-        <% end %><%# end rd caching %>
-      <% end %>
-      <%= paginate @user_builds %>
-    <% else%>
-    <h5 class="subheader">Nothing's here yet</h5>
-    <% end %>
-  </div>
-  
-	<div class="medium-5 large-4  columns show-for-medium-up sidebar">
-    <h5 class="subheader">Profile</h5>	      
-      <div class="panel radius callout user_info">
-          Username: <%= @user.username %><br/>          
-          Join Date: <%= @user.created_at.to_formatted_s(:long)%><br/>
-          <hr/>
-  
-          <%= @user.current_build.present? ? @user.current_build : "No current build."%><hr/>
-          <%= @user.contact_details.present? ? @user.contact_details : "No contact info yet."%><hr/>
-          <%= @user.user_info.present? ? @user.user_info : "This user hasn't shared any info yet."%><hr/>
-           
-         <% if @user == current_user || current_user.try(:admin?) %>
-          <%= link_to "Edit Profile", edit_user_path %>
-          <%= link_to "(Edit Account)", edit_user_registration_path, class: "right", style:"color:rgb(216, 216, 216);" %>
-         <% end %>
-      </div> 
-  </div>
+<div class="profile-env">
+			
+			<header class="row">
+				
+				<div class="col-sm-2">
+					
+					<a href="http://en.gravatar.com/" class="profile-picture">
+            <%= gravatar_image_tag( @user.email , alt: 'Github Default Gravatar', class: "img-responsive img-circle")%>
+					</a>
+					
+				</div>
+				
+				<div class="col-sm-7">
+					
+					<ul class="profile-info-sections">
+						<li>
+							<div class="profile-name">
+								<strong>
+									<a href="#"><%= @user.username %></a>
+									<a href="#" class="user-status is-online tooltip-primary" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a>
+									<!-- User statuses available classes "is-online", "is-offline", "is-idle", "is-busy" -->						</strong>
+								<span><a href="#">Co-Founder at Laborator</a></span>
+							</div>
+						</li>
+						
+						<li>
+							<div class="profile-stat">
+								<h3><%= @user.builds.size %></h3>
+								<span><a href="#">Builds</a></span>
+							</div>
+						</li>
+						<li>
+							<div class="profile-stat">
+								<h3><%= @user.posts.size %></h3>
+								<span><a href="#">Posts</a></span>
+							</div>
+						</li>
+						<li>
+							<div class="profile-stat">
+								<h3><%= @user.builds.size %></h3>
+								<span><a href="#">Showcases</a></span>
+							</div>
+						</li>
+
+					
+				</div>
+				
+
+				
+			</header>
+			
+			<section class="profile-info-tabs">
+				
+				<div class="row">
+					
+					<div class="col-sm-offset-2 col-sm-10">
+						
+						<ul class="user-details">
+							<li>
+								<a href="#">
+									<i class="entypo-location"></i>
+									Prishtina
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<i class="entypo-suitcase"></i>
+									Works as <span>Laborator</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<i class="entypo-calendar"></i>
+									Joined: <%= @user.created_at.to_formatted_s(:long)%>
+								</a>
+							</li>
+						</ul>
+						
+						
+						<!-- tabs for the profile links -->
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#profile-info">Profile</a></li>
+							<li><a href="#biography">Bio</a></li>
+              
+
+              <% if @user == current_user || current_user.try(:admin?) %>
+               <li><%= link_to "Edit Profile", edit_user_path %></li>
+               <li><%# link_to "(Edit Account)", edit_user_registration_path %></li>
+              <% end %>
+              
+              
+						</ul>
+						
+					</div>
+					
+				</div>
+				
+			</section>
+			
+			
+			<section class="profile-feed">
+				
+
+				
+				<!-- profile stories -->
+				<div class="profile-stories">
+					
+					<article class="story">
+						
+
+						
+						<div class="story-content">
+							
+							<!-- story header -->
+							<header>
+								
+								<div class="publisher">
+									<a href="#">Art Ramadani</a> posted a status update
+									<em>3 hours ago</em>
+								</div>
+								
+								<div class="story-type">
+									<i class="entypo-feather"></i>
+								</div>
+								
+							</header>
+							
+							<div class="story-main-content">
+								<p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may. </p>
+							</div>
+							
+						
+							<!-- separator -->
+							<hr>
+							
+						</div>
+						
+					</article>
+					
+					
+					
+
+					
+				</div>
+				
+			</section>
+		</div>
 </div>
+
+

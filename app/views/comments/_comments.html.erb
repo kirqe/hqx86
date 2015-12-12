@@ -1,17 +1,18 @@
-<h5 class="subheader">comments:</h5>			
-<ul class="no-bullet comments">
+<h5>comments:</h5>			
+
+<ul class="comments-list">
   <% commentable.cached_comments.each do |comment| %>
   <li class="comment" id="comment_<%=comment.id%>">
-    <b><%= link_to "#{comment.user.try(:username)}", user_path(comment.user)%>:</b>
-    <!-- <b><%= comment.user.try(:username) %>:</b> -->
-    <%= comment.body%>
+    <b>
     <% if current_user.try(:admin?) %>
-    <span class="right">
-      <%= link_to "x", [commentable,comment], method: :delete, data:{confirm: "Are you sure?"}, class:"del_link", remote: true %>
-    </span>
+    <%= link_to "-", [commentable,comment], method: :delete, data:{confirm: "Are you sure?"}, class:"delete", remote: true %>
     <% end %>
+      
+      <%= link_to "#{comment.user.try(:username)}:", user_path(comment.user)%></b>
+
+    <%= comment.body%>
+
   </li>
   <% end %>
 </ul>
-
-
+<br/>

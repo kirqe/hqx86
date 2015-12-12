@@ -1,6 +1,6 @@
 <% unless @comment.errors.any? %>
-$("ul.comments").append('<%= j render partial: "comments/comment", locals:{comment: @comment} %>')
-$("#new_comment")[0].reset();
+$("ul.comments-list").prepend('<%= j render partial: "comments/comment", locals:{comment: @comment} %>')
+$("#comment_body").val("");
 <% end %>
 
 

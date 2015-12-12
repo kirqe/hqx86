@@ -12,9 +12,6 @@ class ContactsController < ApplicationController
       'email' => @contact.email,
       'message' => @contact.message,
       'request_type' => @contact.request_type,
-      'budget' => @contact.budget,
-      'purpose' => @contact.purpose,
-      'build_info' => @contact.build_info
       })
            
     #edit this 
@@ -31,7 +28,7 @@ class ContactsController < ApplicationController
   private
   
   def contact_params
-    params.require(:contact).permit(:name, :email, :message, :request_type, :budget, :purpose, :build_info, :nickname)
+    params.require(:contact).permit(:name, :email, :message, :request_type, :nickname)
   end
   
 end

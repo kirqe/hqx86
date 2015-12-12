@@ -1,14 +1,14 @@
 class Build < ActiveRecord::Base
   extend FriendlyId
   friendly_id :spec, use: :slugged
-  
+  paginates_per 20
   before_validation :default_name
   
   after_create :tweet_with_condition
   after_update :tweet_with_condition
   after_commit :expire_cache
   
-  validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "selecte your build type"}
+  validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "select build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
   validates :slug, uniqueness: true
@@ -21,7 +21,7 @@ class Build < ActiveRecord::Base
   validates :cost, presence: true, length: {in: 3..20}, :numericality => { :greater_than_or_equal_to => 0 }
   validates :os, presence: true, length: {in: 3..20}
   validates :im, presence: true, length: {in: 3..30}
-  validates :status, presence: true, inclusion: {in: %w(other success notice), message: "the value is not allowed"}
+  validates :status, presence: true, inclusion: {in: %w(other success notice problem), message: "select build status"}
   validates :body, presence: true, length: {in: 50..150000}
   
   belongs_to :user
@@ -79,7 +79,7 @@ class Build < ActiveRecord::Base
   private
   def default_name
     username = User.find(user_id).username
-    self.name = "#{username}'s build [#{self.id}]" unless name.present?
+    self.name = "#{username}'s build #{self.id}" unless name.present?
   end
   
   

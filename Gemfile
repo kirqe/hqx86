@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
-gem 'foundation-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'gravatar_image_tag'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'rack-mini-profiler', require: false

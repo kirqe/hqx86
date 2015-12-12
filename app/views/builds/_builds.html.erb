@@ -1,22 +1,37 @@
 
 <% if builds.present? %>
-<% builds.each do |build| %>
-<% cache(build) do %><%# rd caching %>
-<ul class="inline-list items " style="border-left: 3px solid <%= lab(build.b_type) %>">
-  <li><%= link_to build_path(build) do %><span class="conf grayed"><%= build.spec %></span>    <% end %></li>
-  <li><span class="im"><%= build.im %></span></li>      
-  <li><span class="uc" style="color: <%= lab(build.status) %>">[<%= build.status %>]</span></li>      
-  <li><span class="label info radius">~$<%= build.cost %></span></li>
-  <li><span class="title show-for-xlarge-up"><%= link_to "#{build.name}", build_path(build) %></span></li>      
-</ul>
-<% end %>
-<% end %><%# end rd caching %>
+  <% builds.each do |build| %>
+    <% cache(build) do %><%# rd caching %>
+
+    	<div class="col-sm-6">				
+    		<article class="album">					
+    			<section class="album-info">
+    				<h4><%= link_to build_path(build) do %><span><%= build.name %>: <%= build.spec %></span><% end %></h4>
+				
+    				<ul>
+    					<li style="color: <%= lab(build.b_type) %>; font-weight: bold;"><%= build.b_type %></li>
+    					<li><%= build.im %></li>
+    					<li class="label label-success status" style="background-color: <%= lab(build.status) %>"><%= build.status %></li>
+    					<li>~$<%= build.cost %></li>
+    					<li><%= time_ago_in_words(build.created_at) + ' ago' %></li>
+    				</ul>							
+    			</section>
+    		</article>				
+    	</div>
+
+    <% end %>
+
+  <% end %><%# end rd caching %>
   
-<%= paginate builds %>
-  
-<% else %>
-<div class="panel radius b30">
-  <h4>Nothing here, yet ¯\_(ツ)_/¯</h4>
-  But you can check <%= link_to "Posts", posts_path %>
-</div>
+  <br/>
+
+    <div class="text-center">
+      <%= paginate builds %>
+    </div>
+
+  <% else %>
+  <div class="col-sm-12 text-center">
+    <h3>Nothing here, yet ¯\_(ツ)_/¯</h3>
+    But you can check <%= link_to "Posts", posts_path %>
+  </div>
 <% end %>
