@@ -23,7 +23,8 @@ class Build < ActiveRecord::Base
   validates :im, presence: true, length: {in: 3..30}
   validates :status, presence: true, inclusion: {in: %w(other success notice problem), message: "select build status"}
   validates :body, presence: true, length: {in: 50..150000}
-  
+  validates :other_hw, allow_blank: true, length: {in: 3..3000}
+
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
   

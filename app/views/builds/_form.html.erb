@@ -89,12 +89,9 @@
         <label for="field-1" class="col-sm-3 control-label">Other H/W</label>
 
         <div class="col-sm-5">
-            <%# f.input_field :chassis, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;", class:"form-control autogrow", placeholder: "Corsair 600T", label: false %>
+            <%= f.input_field :other_hw, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;", class:"form-control autogrow", placeholder: "", label: false %>
         </div>
     </div>
-                       
-
-
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:cost) %>">
         <label for="field-1" class="col-sm-3 control-label">Average cost</label>
