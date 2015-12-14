@@ -4,6 +4,18 @@
  *
 */
 
+:invalid {
+  box-shadow: none;
+}
+
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow:none;
+}
+
 #mini{color: #44D1FF;}
 #mid{color: #EB7A65;}
 #pro{color: #F73753;}

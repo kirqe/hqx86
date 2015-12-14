@@ -133,12 +133,11 @@
               <%= f.input_field :published, inline_label: 'Make public' %>                
             </div>
 
-
-
+            <% if @build.new_record? or !@build.tweeted? %>
             <div class="checkbox tooltip-primary" data-toggle="tooltip" data-placement="left" title="" data-original-title="You can do this only once on submit or update. Make sure you added build name and short specs." >
-              <%= f.input_field :tweeted, inline_label: "Tweet this (the build will be posted to @hxq86 twitter page)" if @build.new_record? or !@build.tweeted?%> 
+              <%= f.input_field :tweeted, inline_label: "Tweet this (the build will be posted to @hxq86 twitter page)" %> 
             </div>
- 
+            <% end %>
 
         </div>
     </div>

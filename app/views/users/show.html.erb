@@ -20,7 +20,7 @@
 									<%= @user.username %>
 
 						</strong>
-								<span><%= @user.current_build %></span>
+								<span><%= @user.current_build.blank? ? "n/a" : @user.current_build  %></span>
 							</div>
 						</li>
 						
@@ -63,14 +63,14 @@
 							<li>
 								<a href="#">
 									<i class="fa fa-envelope"></i>
-									<%= @user.contact_details.empty? ? "No contacts shared" : @user.contact_details %>
+									<%= @user.contact_details.blank? ? "No contacts shared" : @user.contact_details %>
 								</a>
 							</li>
               
 							<li>
 								<a href="#">
 									<i class="fa fa-info"></i>
-									<%= @user.user_info.empty? ? "No info shared" : @user.user_info %>
+									<%= @user.user_info.blank? ? "No info shared" : @user.user_info %>
 								</a>
 							</li>
 						</ul>
