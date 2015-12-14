@@ -6,7 +6,7 @@
 				<div class="col-sm-2">
 					
 					<a href="http://en.gravatar.com/" class="profile-picture">
-            <%= gravatar_image_tag( @user.email , alt: 'Github Default Gravatar', class: "img-responsive img-circle")%>
+            <%= gravatar_image_tag( @user.email, class: "img-responsive img-circle")%>
 					</a>
 					
 				</div>
@@ -17,10 +17,10 @@
 						<li>
 							<div class="profile-name">
 								<strong>
-									<a href="#"><%= @user.username %></a>
-									<a href="#" class="user-status is-online tooltip-primary" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a>
-									<!-- User statuses available classes "is-online", "is-offline", "is-idle", "is-busy" -->						</strong>
-								<span><a href="#">Co-Founder at Laborator</a></span>
+									<%= @user.username %>
+
+						</strong>
+								<span><%= @user.current_build %></span>
 							</div>
 						</li>
 						
@@ -30,20 +30,7 @@
 								<span><a href="#">Builds</a></span>
 							</div>
 						</li>
-						<li>
-							<div class="profile-stat">
-								<h3><%= @user.posts.size %></h3>
-								<span><a href="#">Posts</a></span>
-							</div>
-						</li>
-						<li>
-							<div class="profile-stat">
-								<h3><%= @user.builds.size %></h3>
-								<span><a href="#">Showcases</a></span>
-							</div>
-						</li>
-
-					
+            					
 				</div>
 				
 
@@ -57,24 +44,33 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						
 						<ul class="user-details">
-							<li>
-								<a href="#">
-									<i class="entypo-location"></i>
-									Prishtina
-								</a>
-							</li>
+
+							
+              <!-- <li>
+                <a href="#">
+                  <i class="entypo-suitcase"></i>
+                  <%# @user.current_build %>
+                </a>
+              </li> -->
 							
 							<li>
 								<a href="#">
-									<i class="entypo-suitcase"></i>
-									Works as <span>Laborator</span>
-								</a>
-							</li>
-							
-							<li>
-								<a href="#">
-									<i class="entypo-calendar"></i>
+									<i class="fa fa-calendar"></i>
 									Joined: <%= @user.created_at.to_formatted_s(:long)%>
+								</a>
+							</li>
+              
+							<li>
+								<a href="#">
+									<i class="fa fa-envelope"></i>
+									<%= @user.contact_details.empty? ? "No contacts shared" : @user.contact_details %>
+								</a>
+							</li>
+              
+							<li>
+								<a href="#">
+									<i class="fa fa-info"></i>
+									<%= @user.user_info.empty? ? "No info shared" : @user.user_info %>
 								</a>
 							</li>
 						</ul>
@@ -83,12 +79,9 @@
 						<!-- tabs for the profile links -->
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#profile-info">Profile</a></li>
-							<li><a href="#biography">Bio</a></li>
-              
 
               <% if @user == current_user || current_user.try(:admin?) %>
                <li><%= link_to "Edit Profile", edit_user_path %></li>
-               <li><%# link_to "(Edit Account)", edit_user_registration_path %></li>
               <% end %>
               
               
@@ -99,54 +92,8 @@
 				</div>
 				
 			</section>
+				
 			
-			
-			<section class="profile-feed">
-				
-
-				
-				<!-- profile stories -->
-				<div class="profile-stories">
-					
-					<article class="story">
-						
-
-						
-						<div class="story-content">
-							
-							<!-- story header -->
-							<header>
-								
-								<div class="publisher">
-									<a href="#">Art Ramadani</a> posted a status update
-									<em>3 hours ago</em>
-								</div>
-								
-								<div class="story-type">
-									<i class="entypo-feather"></i>
-								</div>
-								
-							</header>
-							
-							<div class="story-main-content">
-								<p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may. </p>
-							</div>
-							
-						
-							<!-- separator -->
-							<hr>
-							
-						</div>
-						
-					</article>
-					
-					
-					
-
-					
-				</div>
-				
-			</section>
 		</div>
 </div>
 

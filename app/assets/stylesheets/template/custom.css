@@ -19,7 +19,10 @@ body {
 	padding-top: 70px;
 	background-image: url(http://hqx86.com/assets/bg-c9b4a66a11793ca4a4fa9098d7e9d0449cba7924cf29f4800ef458ddb65c5ccb.png);
 }
-
+.au-form{
+  margin: 0 auto;
+  width:300px;
+}
 
 p,h1,h2,h3,h4,h5,h6{
   word-wrap: break-word;

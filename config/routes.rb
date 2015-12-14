@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'builds#index'
 
-  devise_for :users,  path_names: { sign_in: 'login', sign_out: 'logout' }  
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }  
   resources :users, except:[:index, :new]
 
   resources :posts do 
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'posts#index', as: "tag"
   get 'about', to: 'pages#about'
-  get 'notes', to: 'pages#notes'
   get 'sitemap' => 'home#sitemap'
   get 'robots' => 'home#robots', format: :text#, defaults: { format: :text }
   get '*path', to: 'application#handle_404'
