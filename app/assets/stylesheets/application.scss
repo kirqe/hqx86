@@ -1,10 +1,10 @@
 @import "bootstrap-sprockets";
 @import "template/bootstrap.css";
-//@import "css/neon-core.css";
+@import "template/neon-core.css";
 @import "template/neon-theme.css";
 @import "template/neon-forms.css";
 @import "template/font-icons/font-awesome/css/font-awesome.min.css";
-@import "template/custom.css";
+@import "custom.css";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
