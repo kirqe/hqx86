@@ -5,56 +5,68 @@ description: "hqx86.com hackintosh builds, guides, news",
 keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@post.all_tags
 %>
 
-<div class="row">
-  <div class="small-12 medium-7 large-8 columns">	
-    	
-    <%# cache(@build) do %><%# rd caching %>	  
-    
-    <div class="post_wrapper">
-      <h3 class="title"><%= @post.title %></h3>
-      <ul class="inline-list post_info">
-        <li><%= @post.user.username %></li>
-        <li><%= @post.created_at.to_formatted_s(:long) %></li>
-        <% if @post.cached_category %>
-        <li class="label category"><%= @post.cached_category  %></li>
+  <div class="row">
+    <div class="col-md-12">      	
+
+      <h1>
+        <%= @post.title %>      
+        <% if current_user.try(:admin?)  %>
+          <span style="font-size: 12px;">                
+            <%= link_to '<i class="fa fa-pencil-square-o"> edit</i>'.html_safe, edit_post_path(@post) if current_user.try(:admin?) || current_user.try(:id) == @post.user_id%>	 </span>
         <% end %>
-      </ul>
+      </h1>
+
       
-      <%= image_tag "#{@post.header_img_url}", class: "header_img" if @post.header_img_url.present? %><%  %>
+      
+      
+      
+      <div class="row">
+        <div class="col-sm-12">
+          <%= @post.user.username %>
+          <%= @post.created_at.to_formatted_s(:long) %>
      
-      <div class="post_content">
-        <%= markdown(@post.body) %>
-      </div>   
+          <% if @post.cached_category %>
+            <div class="label label-info"><%= @post.cached_category  %></div>
+          <% end %>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-sm-7">
+          <%= markdown(@post.body) %>
+        </div>
+        <div class="col-sm-5">
+             <%= image_tag "#{@post.header_img_url}", class: "img-responsive" if @post.header_img_url.present? %>
+        </div>
+      </div>
+     
+
+<br/>
+
+        
+
       
       <div class="tags">
         tags: <%=raw tag_links(@post.all_tags)%>
       </div>
       
+      <br/>
+      
       <%= render "shared/share_links"%>
       
-      <%# end %><%# end rd caching %>  
+
+  
           
       <hr/>
-      <%= render partial: "comments/comments", locals: {commentable: @post} %>
       <%= render partial: "comments/form", locals: {commentable: @post}%>
+      <%= render partial: "comments/comments", locals: {commentable: @post} %>
+      <br/>
     </div>
   </div>
   
-  <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
-    <%= form_tag(posts_path, method: "get") do%>
-    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search", maxlength: 200, required: 'required' %>
-    <% end %>
-    
-    <% if current_user.try(:admin?)  %>
-    <div class="panel radius callout">
-      <%= link_to "Owner? Edit this post", edit_post_path(@post) %>
-    </div>
-    <% end %>
 
-    <%= render "shared/twitter_feed"%>
-    <%= render "shared/tag_cloud" %>    
     
-  </div>
-</div>
+
+
 
 

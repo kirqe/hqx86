@@ -1,21 +1,50 @@
-<div class="center-v">
-  <div class="auth-box">
+<div class="row">
+  <div class="au-form">
     <h4>Sign up</h4>
     
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>    
+   
+			<div class="form-group <%= "has-error" if f.object.errors.include?(:username) %>">
+				<div class="input-group">
+					<div class="input-group-addon">
+						<i class="fa fa-user"></i>
+					</div>
+          <%= f.input_field :username, class:"form-control", required: true, label: false, autofocus: true, placeholder: "username"  %> 
+        </div>
+         <span class="help-block"> <%= f.object.errors[:username].join(", ") %></span>
+      </div>
+     
+   
+    	<div class="form-group <%= "has-error" if f.object.errors.include?(:email) %>">		
+    		<div class="input-group">
+    			<div class="input-group-addon">
+    				<i class="fa fa-envelope"></i>
+    			</div>
+    			<%= f.input_field :email, class:"form-control", required: true, label: false, autofocus: false, placeholder: "email"  %>
+    		</div>
+		    <span class="help-block"> <%= f.object.errors[:email].join(", ") %></span>
+    	</div>
+   
+      
+    	<div class="form-group <%= "has-error" if f.object.errors.include?(:password) %>">
 
-    <div class="form-inputs">
-      <%= f.input :username, required: true, label: false, autofocus: true, placeholder: "username"  %>
-      <%= f.input :email, required: true, label: false, autofocus: false, placeholder: "email"  %>
-      <%= f.input :password, required: true, label: false, placeholder: "password", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-      <%= f.input :password_confirmation, required: true, label: false, placeholder: "password confirmation" %>
-    </div>
+    			<%= f.input_field :password, class:"form-control", required: true, label: false, placeholder: "password", hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+   
+          <span class="help-block"> <%= f.object.errors[:password].join(", ") %></span>
+    	</div>
+      
+      
+      
+    	<div class="form-group <%= "has-error" if f.object.errors.include?(:password_confirmation) %>">
+          <%= f.input_field :password_confirmation, class:"form-control", required: true, label: false, placeholder: "password confirmation" %>
+<span class="help-block"> <%= f.object.errors[:password_confirmation].join(", ") %></span>
+    	</div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "button tiny expand"  %>
+      <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
     </div>
     <% end %>
-
+    
     <%= render "devise/shared/links" %>
-  </div>
+  </div>  
 </div>

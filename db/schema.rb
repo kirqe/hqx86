@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811180458) do
+ActiveRecord::Schema.define(version: 20151212202052) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150811180458) do
     t.string   "slug"
     t.boolean  "published",  default: true
     t.boolean  "tweeted"
+    t.text     "other_hw"
   end
 
   add_index "builds", ["slug"], name: "index_builds_on_slug", unique: true

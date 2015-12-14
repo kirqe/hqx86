@@ -1,34 +1,24 @@
 <div class="row">
-   <div class="medium-7 large-centered columns form_wrapper p_t10">
-    <p class="callout panel rb">
-      If you need help with picking up hardware for you build, please select "Request a Build" in the select menu below and you'll receive a personal list of hardware that fits your budget for $15 fee.
+   <div class="col-sm-6 col-sm-offset-3">
+    <p class="alert alert-info">
+      If you need help with picking up hardware for you build, please select "Request a Build" in the select menu below and you'll receive a personal list of hardware that fits your budget for $10 fee. (dont forget to add your budget, and purpose of the build)
     </p>    
       
       <%= simple_form_for @contact do |f|%>
           
       <%= f.input :request_type,
        label: false,
-       prompt: "Please select what you need",
        collection: ["Contact Us", "Request a Build"],
        selected: "Contact Us"%>
-          
-      <div class="contact_forms" >    
-        <%= f.input :name, label: false, placeholder: "Name", required: true %>
-        <%= f.input :email, label: false, placeholder: "Email", required: true %>
+        <%= f.input :name, class:"form-control", label: false, placeholder: "Name", required: true %>
+        <%= f.input :email, class:"form-control", label: false, placeholder: "Email", required: true %>
         
-      <div class="contact_fields">     
-        <%= f.input :message, label: false, placeholder: "Message", as: :text, required: false, input_html: {rows:10}%>
-      </div>
-          
-      <div class="request_fields" style="display:none;">
-        <%= f.input :budget, label: false, placeholder: "Budget", required: true %>
-        <%= f.input :purpose, label: false, placeholder: "Main purpose of the build (e.g. Video Editing)", required: true %>
-        <%= f.input :build_info, label: false, placeholder: "Any info about the build", as: :text, required: false, input_html: {rows:10} %>     
-      </div>     
+        <%= f.input :message, class:"form-control", label: false, placeholder: "Message", as: :text, required: false, input_html: {rows:10}%>
+            
           
         <%= f.input :nickname, hint: "Leave this field blank!", wrapper_html: {class:"hidden"}%>
-        <%= f.button :submit, "Send message", class:"button tiny"%>
-      </div>
+        <%= f.button :submit, "Send message", class:"btn btn-primary"%>
+
       <% end %>
     </div>
   </div>

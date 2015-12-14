@@ -4,61 +4,78 @@ description: "#{@build.name}: #{@build.spec}",
 keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@build.spec.split("/")
 %>
 
-
-<div class="row">
-  <div class="small-12 medium-7 large-8 columns">
-    
-    <%# cache(@build) do %><%# rd caching %>	
-    
-    <h4 class="title"><%= @build.title %></h4>
-    <ul class="inline-list items" style="	border-left: 3px solid <%= lab(@build.b_type) %>">
-      <li><span class="title"><%= @build.name %></span></li>
-      <li><span style="color: <%= lab(@build.b_type) %>"><%= @build.b_type %></span></li>
-      <li><span class="conf grayed"><%= @build.spec %></span></li>
-      <li><span class="cost"><%= @build.im %></span></li>
-      <li><span class="uc" style="color: <%= lab(@build.status) %>">[<%= @build.status %>]</span></li>
-      <li><span class="cost">~$<%= @build.cost %></span></li>
-    </ul>
-    
-    <% unless @build.b_type == "laptop" %>
-    <div id="specs">
-      <ul class="item_show no-bullet">
-        <li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
-        <li id="cpu"><b>CPU(s):</b> <%= @build.cpu %></li>
-        <li id="ram"><b>Memory:</b> <%= @build.ram %></li>
-        <li id="gpu"><b>GPU(s):</b> <%= @build.gpu %></li>
-        <li id="disk"><b>HDD/SSD(s):</b> <%= @build.disk %></li>		
-        <li id="os"><b>OS:</b> <%= @build.os %></li>
-      </ul>
+  <div class="row">
+    <div class="col-md-12">      
+			<div class="gallery-env">
+				<div class="row">	
+        	<div class="col-sm-12">				
+        		<article class="album">					
+        			<section class="album-info">
+        				<h4><%= link_to build_path(@build) do %><span><%= @build.name %>: <%= @build.spec %></span><% end %></h4>
+				
+        				<ul>
+        					<li style="color: <%= lab(@build.b_type) %>; font-weight: bold;"><%= @build.b_type %></li>
+        					<li><%= @build.im %></li>
+        					<li class="label label-success status" style="background-color: <%= lab(@build.status) %>"><%= @build.status %></li>
+        					<li>~$<%= @build.cost %></li>
+        					<li><%= time_ago_in_words(@build.created_at) + ' ago' %></li>
+                  <span style="float: right">                
+                  <%= link_to '<i class="fa fa-pencil-square-o"> edit</i>'.html_safe, edit_build_path(@build) if current_user.try(:admin?) || current_user.try(:id) == @build.user_id%>	 </span>
+        				</ul>
+						
+             
+        			</section>
+        		</article>
+            
+            <div class="row build_info">
+              <div class="col-sm-6">
+                <div id="specs">
+                  <ul class="build_hw">
+                    <strong>Essentials:</strong>
+                    
+                    <li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
+                    <li id="cpu"><b>CPU(s):</b> <%= @build.cpu %></li>
+                    <li id="gpu"><b>GPU(s):</b> <%= @build.gpu %></li>
+                    <li id="ram"><b>RAM:</b> <%= @build.ram %></li>
+                    <li id="disk"><b>HDD/SSD(s):</b> <%= @build.disk %></li>
+                    <li id="os"><b>CHASSIS:</b> <%= @build.chassis %></li>
+                    <li id="os"><b>OS:</b> <%= @build.os %></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <strong>Other hardware and peripherials:</strong>
+                <%= markdown(@build.other_hw) if @build.other_hw %>
+              </div>
+            </div>
+            
+            <div class="installation_notes">
+              <%= markdown(@build.body) %>
+            </div>
+            			
+            <%= render "shared/share_links"%> 
+            
+            
+            
+            <hr/>
+            <%= render partial: "comments/form", locals: {commentable: @build}%>
+            <%= render partial: "comments/comments", locals: {commentable: @build} %>
+          
+         
+                 	
+        	</div>   
+        </div>
+      </div>        
     </div>
-    <% end %>
-
-    <div class="installation_notes">
-      <%= markdown(@build.body) %>
-    </div>
-    <%= render "shared/share_links"%>
-
-    <%# end %><%# end rd caching %>
-    
-    <hr/>
-    <%= render partial: "comments/comments", locals: {commentable: @build} %>
-    <%= render partial: "comments/form", locals: {commentable: @build}%>
   </div>
-  
-  
-  <div class="medium-5 large-4  columns show-for-medium-up sidebar">      
-    <%= form_tag(builds_path, method: "get") do%>
-    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search", maxlength: 200, required: 'required' %>
-    <% end %>
+    	
+      
+      
+
            
-    <% if @build.user == current_user || current_user.try(:admin?)  %>
+    <!-- <% if @build.user == current_user || current_user.try(:admin?)  %>
     <div class="panel radius callout">
       <%= link_to "Owner? Edit this post", edit_build_path(@build) %>
     </div>
-    <% end %>
-    <%# render "shared/ad_300x250"%> 
-    <%= render "shared/twitter_feed"%>
-    <%# render "shared/ad_300x600"%>
-    
-  </div>
-</div>			
+    <% end %> -->
+

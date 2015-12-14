@@ -1,33 +1,42 @@
 
 <%
-meta title: "hqx86 builds, guides, news",
-description: "hqx86.com hackintosh builds, guides, news",
+meta title: "hqx86",
+description: "hqx86.com hackintosh builds",
 keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)
 %>
 
 <div class="row">
-  
-  <div class="small-12 medium-7 large-8 columns">		  
-    <dl class="sub-nav">
-      <dt>Filter:</dt>
-      <dd><%= bar_link "All",{b_type: "all"} %></dd>
-      <dd><%= bar_link "Mini", {b_type: "mini"} %></dd>
-      <dd><%= bar_link "Mid", {b_type: "mid"} %></dd>
-      <dd><%= bar_link "Pro", {b_type: "pro"} %></dd>
-      <dd><%= bar_link "Laptop", {b_type: "laptop"} %></dd>
-      <%= link_to "Add new build", new_build_path, class: "button tiny alert right" if user_signed_in?%>
-    </dl>     
+		<div class="form-group text-center">
+			<div class="col-sm-6 col-sm-offset-3">
+				<div class="input-group">
+          <%= form_tag(builds_path, method: "get", id:"search_build") do%>
+			
+					<%= text_field_tag :search, params[:search], placeholder: "Search for builds...", class: "form-control", maxlength: 200, required: 'required' %>
+          
+              <% end %>
+          <span class="input-group-btn">
+						<button class="btn btn-primary", type="submit button", form="search_build">Go!</button>
+					</span>
+				</div>
+				<br>				
+			</div>
+		</div>
+  </div>
 
-    <%= render partial: "builds", locals:{ builds: @builds}%>
+
+
+
+  <div class="row">
+    <div class="col-md-12">      
+			<div class="gallery-env">
+				<div class="row">	
+          <%= render partial: "builds", locals:{ builds: @builds}%>    
+        </div>
+      </div>        
+    </div>
   </div>
   
-  <div class="medium-5 large-4  columns show-for-medium-up sidebar">     
-    <%= form_tag(builds_path, method: "get") do%>
-    <%= text_field_tag :search, params[:search], placeholder: "search", class: "search", maxlength: 200, required: 'required' %>
-    <% end %>
-    
-    <%= render "shared/twitter_feed"%>
+  
+<%= render 'shared/info_sec'%>
 
-  </div>
-</div>
 

@@ -1,36 +1,141 @@
-<%= simple_form_for(@post) do |f| %>
-<div class="row">
-  <div class="medium-8 columns">
-    <%= f.input :title, placeholder: "Installations tips" %>
-  </div>
-  <div class="medium-4 columns">
-    <%= f.association :category %>
-  </div>
-</div>
+
+		<style>
+		.ms-container .ms-list {
+			width: 135px;
+			height: 205px;
+		}
+		
+		.post-save-changes {
+			float: right;
+		}
+		
+		@media screen and (max-width: 789px)
+		{
+			.post-save-changes {
+				float: none;
+				margin-bottom: 20px;
+			}
+		}
+		</style>
+  <%= simple_form_for @post do |f| %>	
+		<div class="row">
+			<div class="col-sm-2 post-save-changes">
+        <%= button_tag(type: "submit", class:"btn btn-green btn-lg btn-block btn-icon") do %>
+          Publish
+          <i class="fa fa-check"></i>
+        <% end %>
+			</div>
+			
+			<div class="col-sm-10">
+        <%= f.input_field :title, class:"form-control input-lg", placeholder:"Post title", type:"text"%>
+			</div>
+		</div>
+		
+		<br />
     
-<div class="row">
-  <div class="medium-6 columns">    
-    <%= f.input :header_img_url, label: "Post header image URL" , placeholder: "http://i.imgur.com/qwerty.png" %>
-  </div>
-  <div class="medium-6 columns">
-    <%= f.input :all_tags, label: "Tags(separated by comma)" , placeholder: "lorem, ipsum"%>
-  </div>
-</div>
+		<div class="row">
+			<div class="col-sm-12">
+        <%= f.input_field :body, as: :text, class:"form-control autogrow", rows:"18" %>
+			</div>
+		</div>
+    
+		<br />
+    
+		<div class="row">		
+			<div class="col-sm-4">
+				
+				<div class="panel panel-primary" data-collapsed="0">
+			
+					<div class="panel-heading">
+						<div class="panel-title">
+							Publish Settings
+						</div>
+						
 
-<div class="row">
-  <div class="medium-12 columns">
-    <%= link_to "Notes", notes_path, class: "label-link", target: "_blank" %>
-    <%= link_to "Markdown-Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", class: "label-link", target: "_blank" %> 
-    <%= f.input :body, placeholder: "use markdown", input_html: {rows: 30} %>
-  </div>
-</div>
+					</div>
+					
+					<div class="panel-body">
+						
+						<div class="checkbox ">
+              <%= f.input_field :published, inline_label: 'Make public' %>   
+						</div>
+            
+						<div class="checkbox ">
+              <%= f.input_field :tweeted, inline_label: 'Tweet to @hqx86' %>   
+						</div>
+						   
 
-<div class="row">
-  <div class="medium-12 columns">
-    <%= f.input :published, inline_label: "Publish this post (make it visible for others)", as: :boolean %>
-    <%= f.input :tweeted, inline_label: "Tweet this (can be done only once on create or update)", as: :boolean if @post.new_record? or !@post.tweeted? %>
-    <%= f.button :submit, "Submit", class: "button tiny" %>
-    <small><%= link_to "Cancel", root_path, class: "button secondary tiny" %></small>	  
-  </div>
-</div>
-<% end %>
+						
+
+
+				
+            <!-- <p>Publish Date</p>
+            <div class="input-group">
+              <input type="text" class="form-control datepicker" value="Tue, 09 December 2014" data-format="D, dd MM yyyy">
+
+              <div class="input-group-addon">
+                <a href="#"><i class="entypo-calendar"></i></a>
+              </div>
+            </div> -->
+							
+	
+						
+
+						
+					</div>
+				
+				</div>
+				
+			</div>
+			<div class="col-sm-4">
+				
+				<div class="panel panel-primary" data-collapsed="0">
+					<div class="panel-heading">
+						<div class="panel-title">
+							Featured Image
+						</div>
+					</div>
+					
+					<div class="panel-body">		
+						<%= f.input_field :header_img_url, class:"form-control", placeholder: "http://i.imgur.com/qwerty.png"  %>
+					</div>
+				</div>
+				<div class="panel panel-primary" data-collapsed="0">
+			
+					<div class="panel-heading">
+						<div class="panel-title">
+							Category
+						</div>
+						
+						<div class="panel-options">
+							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+						</div>
+					</div>
+					
+					<div class="panel-body">
+						
+            <%= f.association :category, class:"form-control", label:false,  selected: @post.category || "news"  %>
+						
+					</div>
+				
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="panel panel-primary" data-collapsed="0">
+					<div class="panel-heading">
+						<div class="panel-title">
+							Tags
+						</div>
+					</div>
+					
+					<div class="panel-body">						
+						<p>Add Post Tags</p>
+						<%= f.input :all_tags, label: "Tags(separated by comma)" , placeholder: "lorem, ipsum", label:false%>
+					</div>					
+				</div>
+			</div>
+    </div>
+	<% end %>
+	
+
+

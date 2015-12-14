@@ -1,10 +1,11 @@
+<div class="panel panel-primary panel-custom" data-collapsed="0">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Editing: <%= @user.username %>
+        </div>
+    </div>
 
-<div class="row">  
-  	<div class="row">
-  		<div class="medium-6 medium-offset-3 columns">
-  	    <h5 class="subheader">Editing: <%= @user.username %></h5>
-        <p class="callout panel edit_user">This info will be publicly displayed in your profile. If you willing to help people, you can add your contact details so they can contact you.</p>  
-  		</div>
-  	</div>
-    <%= render 'form' %>
+    <div class="panel-body">
+      <%= render 'form' %>
+    </div>
 </div>

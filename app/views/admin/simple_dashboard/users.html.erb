@@ -1,19 +1,38 @@
-<% @users.each do |user| %>
-<ul class="inline-list items admin-items">
-  <li><%= user.id %>.</li>
-  <li class="label secondary"><%= user.created_at %></li>
-  <li><%= link_to "#{user.username}", user %></li>
-  <li><%= user.email %></li>
-  <li><%= link_to "edit profile", edit_user_path(user) %></li>
-  <% unless user == current_user && current_user.admin? %>
-  <li><%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %></li>
-  <% end %>
-  <% if user.admin? %>
-  <li class="label alert">Admin</li>
-  <% end %>
-  <% if user.deleted_at %>
-  <li class="label warning">User soft deleted at: <%= user.deleted_at %></li>
-  <% end %>
-</ul>
-<% end %>
+  <h3> Users</h3>    
+    
+  <table class="table table-bordered responsive">
+		<thead>
+			<tr>
+				<th width="2%">ID</th>
+				<th width="10%">CreatedAt</th>
+				<th>Username</th>
+        <th>Email</th>
+        <th>Options</th>
+        <th>Admin</th>
+        <th>IsSoftDeleted</th>
+			</tr>
+		</thead>
+    <% @users.each do |user| %> 
+		<tbody>
+			<tr>
+				<td><%= user.id %></td>
+				<td><span  class="label label-secondary"><%= user.created_at %></span></td>
+				<td><%= link_to "#{user.username}", user %></td>
+        <td><%= user.email %></td>
+				<td>
+          <%= link_to "edit profile", edit_user_path(user) %> /
+          <% unless user == current_user && current_user.admin? %> 
+          <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+        </td>
+        <td><% if user.admin? %><span class="label label-info">Admin</span><% end %></td>
+        <td>
+         <% if user.deleted_at %>
+          <span><%= user.deleted_at %></span>
+        <% end %>
+        </td>
+			</tr>
+    </tbody>
+    <% end %>
+  </table>
 <%= paginate @users %>

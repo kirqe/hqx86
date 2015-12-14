@@ -1,15 +1,39 @@
-<% @posts.each do |post| %>    
-<ul class="inline-list items admin-items">
-  <li><%= post.id %>.</li>
-  <li class="label alert"><%= post.published ? "published" : "not published" %></li>
-  <li><%= post.comments.size %></li>           
-  <li><%= post.category.try(:name) %></li>     
-  <li><%= link_to "#{post.title}", post %></li>
-  <% if post.user.deleted_at %>
-  <li class="label warning">User soft deleted at: <%= post.user.deleted_at %></li>
-  <% end %>
-  <li><%= link_to "edit", edit_post_path(post) %></li>
-  <li><%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"} %></li>
-</ul>
-<% end %>
+<h3>Posts</h3>  
+  <table class="table table-bordered responsive">
+		<thead>
+			<tr>
+				<th width="2%">ID</th>
+				<th width="10%">Published</th>
+				<th>Title</th>
+        <th>Category</th>
+		    <th>User</th>
+        <th>Comments</th>
+				<th width="10%">Options</th>
+        <th>IsSoftDeleted</th>
+			</tr>
+		</thead>
+    <% @posts.each do |post| %> 
+		<tbody>
+			<tr>
+				<td><%= post.id %></td>
+				<td><span  class="label label-secondary"><%= post.published ? "published" : "not published" %></span></td>
+				<td><%= link_to "#{post.title}", post %></td>
+        <td><%= post.category.try(:name) %></td>
+        <td><%= link_to "#{post.user.username}", user_path(post.user)%></td>
+        <th><%= post.comments.size %></th>
+				<td>
+          <%= link_to "edit", edit_post_path(post) %> / 
+          <%= link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"}%>
+        </td>
+        <td>
+        <% if post.user.deleted_at %>
+          <span><%= post.user.deleted_at %></span>
+        <% end %>
+        </td>
+			</tr>
+    </tbody>
+    <% end %>
+  </table>
+
+
 <%= paginate @posts %>

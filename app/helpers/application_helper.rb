@@ -18,8 +18,9 @@ module ApplicationHelper
       when "mid" then "#EB7A65;"
       when "pro" then "#F73753;"
       when "laptop" then "#6E68D1;"
-      when "success" then "#43AC6A;"
-      when "notice" then "#a0d3e8;"
+      when "success" then "#00a651;"
+      when "notice" then "#FF9600;"
+      when "problem" then "#CC2424;"
       else "#c6c6cf"
       end
     end
@@ -32,6 +33,12 @@ module ApplicationHelper
     end
 
     def tag_links(tags)
-      tags.split(",").map{|tag| link_to tag.strip, tag_path(tag.strip) }.join(", ") 
-    end        
+      tags.split(",").map do |tag|
+         content_tag(:div, class:"label label-info tag") do
+           link_to tag.strip, tag_path(tag.strip) 
+         end
+       end.join(", ") 
+    end 
+    
+    
 end

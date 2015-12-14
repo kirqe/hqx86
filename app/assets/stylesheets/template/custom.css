@@ -1,0 +1,101 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+#mini{color: #44D1FF;}
+#mid{color: #EB7A65;}
+#pro{color: #F73753;}
+#laptop{color: #6E68D1;}
+#success{color: #00a651;}
+#notice{color: #FF9600;}
+#problem{color: #CC2424;}
+#other{color: #c6c6cf;}
+.tag a{color: #fff;}
+
+
+body {
+	padding-top: 70px;
+	background-image: url(http://hqx86.com/assets/bg-c9b4a66a11793ca4a4fa9098d7e9d0449cba7924cf29f4800ef458ddb65c5ccb.png);
+}
+.au-form{
+  margin: 0 auto;
+  width:300px;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+  word-wrap: break-word;
+}
+.build_info{
+  color: #5D5D5D;
+  border: 1px solid #DCDCDC;
+  padding: 7px 7px 7px 0px;    
+  margin: 0px 0px 10px 0px;
+}
+
+.installation_notes{
+  color: #5D5D5D;  
+}
+.installation_notes a, .post_content a{
+    color: #21a9e1;
+}
+.installation_notes img{
+  width: 70%;
+  height: auto;
+}
+
+.panel-custom{
+  background-color: #F5F5F5;
+}
+
+ul.build_hw{
+  list-style: none;
+  padding-left: 0px;      
+}
+
+.comments-list > li{
+  padding: 15px 15px 15px 0px;
+}
+
+
+.item{
+
+}
+
+.album{
+	
+}
+
+.gallery-env article.album .album-info {
+    padding: 7px; /* can be replaced to 10 */
+/*     border-right: 5px solid #EF7753; */
+}
+
+.gallery-env article.album .album-info .label, .tag{
+	padding: 1px 10px;
+}
+
+.gallery-env article.album .album-info h4{
+	margin: 0px;
+}
+.gallery-env article.album .album-info ul{
+	margin: 5px 0px 0px 0px;
+	padding: 0px;
+}
+.gallery-env article.album .album-info li{
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.gallery-env article.album {
+    margin-bottom: 10px;
+}
+
+.gallery-env article.album {
+    border: 1px solid #DCDCDC;
+}
+
+li.status{
+  text-transform: uppercase;
+}
