@@ -17,7 +17,7 @@
 
 body {
 	padding-top: 70px;
-	background-image: image-url("bg.png");
+	background-image: url(bg.png);
 }
 .au-form{
   margin: 0 auto;
