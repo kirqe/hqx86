@@ -3461,9 +3461,9 @@ float: left;
   -o-transform: scale(0.8);
   -ms-transform: scale(0.8);
   transform: scale(0.8);
-  -webkit-transform: scale(0.8, );
-  -ms-transform: scale(0.8, );
-  transform: scale(0.8, );
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
 }
 .page-container.sidebar-collapsed .sidebar-user-info .user-link span,
 .page-container.sidebar-collapsed .sidebar-user-info .user-link strong {
@@ -3496,9 +3496,9 @@ float: left;
   -o-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
-  -webkit-transform: scale(1, );
-  -ms-transform: scale(1, );
-  transform: scale(1, );
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 .page-container.sidebar-collapsed .sidebar-menu {
   z-index: 100;
@@ -3681,9 +3681,9 @@ float: left;
   -o-transform: scale(0.8);
   -ms-transform: scale(0.8);
   transform: scale(0.8);
-  -webkit-transform: scale(0.8, );
-  -ms-transform: scale(0.8, );
-  transform: scale(0.8, );
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
 }
 .page-container.sidebar-is-collapsing .sidebar-menu #main-menu li#search .search-input {
   -webkit-opacity: 0;
@@ -6541,9 +6541,9 @@ textareatable .replace-inputs input {
   -o-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
-  -webkit-transform: scale(0, );
-  -ms-transform: scale(0, );
-  transform: scale(0, );
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
 }
 #chat .chat-header .chat-close {
   position: absolute;
@@ -6643,9 +6643,9 @@ textareatable .replace-inputs input {
   -o-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
-  -webkit-transform: scale(0, );
-  -ms-transform: scale(0, );
-  transform: scale(0, );
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
 }
 #chat .chat-group > a em {
   font-style: normal;
