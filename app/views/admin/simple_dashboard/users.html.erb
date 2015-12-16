@@ -28,7 +28,9 @@
         <td><% if user.admin? %><span class="label label-info">Admin</span><% end %></td>
         <td>
          <% if user.deleted_at %>
-          <span><%= user.deleted_at %></span>
+          <span><%= user.deleted_at %><small>
+            <%= link_to 'really delete', user_path(user, type: :forever), method: :delete, class: 'badge' %>
+          </small></span>
         <% end %>
         </td>
 			</tr>

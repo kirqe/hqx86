@@ -5,11 +5,10 @@ a{
 </style>
 <br/>
 
-
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-blue btn-block" do %>
-         <i class="fa fa-facebook"></i> Sign in with <%= "#{provider.to_s.titleize}" %>
+         <i class="fa fa-facebook"></i> Log in with <%= "#{provider.to_s.titleize}" %>
     <% end %><br />
   <% end -%>
 <% end -%>
@@ -34,11 +33,3 @@ a{
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
-
-
-
-
-
-<!--<%= link_to user_omniauth_authorize_path(:facebook), class: "btn btn-blue btn-block"  do %>
- <i class="fa fa-facebook"></i> Sign in with Facebook
-<% end %> -->

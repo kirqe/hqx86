@@ -25,12 +25,12 @@ class User < ActiveRecord::Base
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = auth.info.email
+        user.username = auth.info.name
         user.password = Devise.friendly_token[0,20]
+        user.skip_confirmation!
       end
   end
-  
-  
-  
+   
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?
   end
