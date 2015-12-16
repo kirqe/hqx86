@@ -4,16 +4,9 @@
  *
 */
 
-:invalid {
-  box-shadow: none;
-}
-
-:-moz-submit-invalid {
-  box-shadow: none;
-}
-
-:-moz-ui-invalid {
-  box-shadow:none;
+input:invalid {
+    box-shadow:none;
+    -moz-box-shadow: none;
 }
 
 #mini{color: #44D1FF;}
@@ -46,10 +39,10 @@ p,h1,h2,h3,h4,h5,h6{
   margin: 0px 0px 10px 0px;
 }
 
-.installation_notes{
+.installation_notes, .about{
   color: #5D5D5D;  
 }
-.installation_notes a, .post_content a{
+.installation_notes a, .post_content a, .about a, footer a{
     color: #21a9e1;
 }
 .installation_notes img{
@@ -70,6 +63,10 @@ ul.build_hw{
   padding: 15px 15px 15px 0px;
 }
 
+
+.about p{
+  font-size: 14px;
+}
 
 .item{
 
