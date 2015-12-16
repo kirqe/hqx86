@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'builds#index'
 
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }  
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { omniauth_callbacks: "callbacks" }
   resources :users, except:[:index, :new]
 
   resources :posts do 

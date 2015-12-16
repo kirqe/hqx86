@@ -7,6 +7,7 @@ gem 'simple_form'
 gem 'redcarpet'
 gem 'rack-mini-profiler', require: false
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'cancancan', '~> 1.10'
 gem 'kaminari'
 gem 'friendly_id', '~> 5.1.0'

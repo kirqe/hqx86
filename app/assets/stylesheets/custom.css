@@ -26,8 +26,12 @@ body {
 }
 .au-form{
   margin: 0 auto;
-  width:300px;
+  width:300px; margin-top: 150px;
 }
+.au-form-marg{
+ 
+}
+
 
 p,h1,h2,h3,h4,h5,h6{
   word-wrap: break-word;

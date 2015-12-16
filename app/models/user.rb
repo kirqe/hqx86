@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable,  :async, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :lockable,  :async, :confirmable, :omniauthable, :omniauth_providers => [:facebook]
  
   validates :username, presence: true, uniqueness: true, length: {in: 3..50}
   validates :user_info, presence: true, allow_blank: true, length: {in: 1..500}
@@ -19,6 +19,17 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   
   default_scope {order('created_at DESC')}
+  
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+      end
+  end
+  
+  
   
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?

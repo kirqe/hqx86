@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212202052) do
+ActiveRecord::Schema.define(version: 20151216190334) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -132,12 +132,16 @@ ActiveRecord::Schema.define(version: 20151212202052) do
     t.string   "contact_details"
     t.boolean  "banned",                 default: false
     t.datetime "deleted_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["provider"], name: "index_users_on_provider"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true
+  add_index "users", ["uid"], name: "index_users_on_uid"
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
