@@ -11,7 +11,7 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@bui
         	<div class="col-sm-12">				
         		<article class="album">					
         			<section class="album-info">
-        				<h4><%= link_to build_path(@build) do %><span><%= @build.name %>: <%= @build.spec %></span><% end %></h4>
+        				<h4><%= link_to build_path(@build) do %><span><%= @build.title %></span><% end %></h4>
 				
         				<ul>
         					<li style="color: <%= lab(@build.b_type) %>; font-weight: bold;"><%= @build.b_type %></li>
@@ -30,9 +30,8 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@bui
             <div class="row build_info">
               <div class="col-sm-6">
                 <div id="specs">
-                  <ul class="build_hw">
-                    <strong>Essentials:</strong>
-                    
+                  <strong>Essentials:</strong>
+                  <ul class="build_hw">  
                     <li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
                     <li id="cpu"><b>CPU(s):</b> <%= @build.cpu %></li>
                     <li id="gpu"><b>GPU(s):</b> <%= @build.gpu %></li>
@@ -45,7 +44,9 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@bui
               </div>
               <div class="col-sm-6">
                 <strong>Other hardware and peripherials:</strong>
-                <%= markdown(@build.other_hw) if @build.other_hw %>
+                <div class="other_hw">
+                  <%= markdown(@build.other_hw) if @build.other_hw %>
+                </div>
               </div>
             </div>
             

@@ -50,9 +50,18 @@ p,h1,h2,h3,h4,h5,h6{
     color: #21a9e1;
 }
 .installation_notes img{
-  width: 70%;
+  max-width: 70%;
   height: auto;
 }
+
+
+.other_hw img{
+  display: none;
+}
+.other_hw *{
+  font-size: 12px;
+}
+
 
 .panel-custom{
   background-color: #F5F5F5;
@@ -111,4 +120,37 @@ ul.build_hw{
 
 li.status{
   text-transform: uppercase;
+}
+
+/* bootstrap custom */
+.tt-menu{
+    width: 100%;
+    min-width: 160px;
+    margin-top: 2px;
+    padding: 5px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+.input-group-addon, .input-group-btn{
+  vertical-align:top;
+}
+.tt-suggestion{
+  color: #373e4a;
+}
+div.tt-selectable:hover{
+  background-color: #2292D8;
+  color: #fff;
 }

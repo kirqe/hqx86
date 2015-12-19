@@ -8,16 +8,14 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)
 <div class="row">
 		<div class="form-group text-center">
 			<div class="col-sm-6 col-sm-offset-3">
-				<div class="input-group">
-          <%= form_tag(builds_path, method: "get", id:"search_build") do%>
-			
-					<%= text_field_tag :search, params[:search], placeholder: "Search for builds...", class: "form-control", maxlength: 200, minlength: 3, required: "required" %>
-          
-              <% end %>
+             
+        <%= form_tag builds_path, method: :get, class:"input-group" do %>
+          <%= text_field_tag :query, params[:query], class: "form-control typeahead", id: "build_search", placeholder: "Search for builds e.g GA-Z97-...",  maxlength: 200, minlength: 3, required: "required" %>
           <span class="input-group-btn">
-						<button class="btn btn-primary", type="submit button", form="search_build">Go!</button>
-					</span>
-				</div>
+            <%= button_tag "Go!", class:"btn btn-primary" %>
+          </span>
+        <% end %>
+     
 				<br>				
 			</div>
 		</div>

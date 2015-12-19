@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     resources :comments, module: :posts
   end
   
+  resources :builds, only: :index do
+    collection do
+      post :import
+      get :autocomplete # <= add this line
+    end
+  end
+  
   get 'builds/t/:b_type', to: 'builds#index', as: "b_type"
   resources :builds do
     resources :comments, module: :builds

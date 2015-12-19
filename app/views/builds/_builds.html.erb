@@ -6,7 +6,7 @@
     	<div class="col-sm-6">				
     		<article class="album">					
     			<section class="album-info">
-    				<h4><%= link_to build_path(build) do %><span><%= build.name %>: <%= build.spec %></span><% end %></h4>
+    				<h4><%= link_to build_path(build) do %><span><%= build.title %></span><% end %></h4>
 				
     				<ul>
     					<li style="color: <%= lab(build.b_type) %>; font-weight: bold;"><%= build.b_type %></li>

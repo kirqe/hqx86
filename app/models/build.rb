@@ -2,6 +2,7 @@ class Build < ActiveRecord::Base
   extend FriendlyId
   friendly_id :spec, use: :slugged
   paginates_per 20
+  searchkick autocomplete: ['title'] 
   before_validation :default_name
   
   after_create :tweet_with_condition
@@ -39,11 +40,19 @@ class Build < ActiveRecord::Base
     User.unscoped {super}
   end
   
-  def self.search(search)
-    where("name LIKE ?", "%#{search}%")
-    where("spec LIKE ?", "%#{search}%")
-    where("body LIKE ?", "%#{search}%")
+  def search_data
+    {
+      title: title,
+      name: name,
+      spec: spec,
+      b_type: b_type
+    }
   end
+  # def self.search(search)
+  #   where("name LIKE ?", "%#{search}%")
+  #   where("spec LIKE ?", "%#{search}%")
+  #   where("body LIKE ?", "%#{search}%")
+  # end
 
   def should_generate_new_friendly_id?
     slug.blank? || spec_changed?

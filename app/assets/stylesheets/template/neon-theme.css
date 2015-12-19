@@ -5622,6 +5622,15 @@ fieldset[disabled] .calendar-env .calendar-body .fc-content .fc-view table tbody
   padding-left: 0;
   list-style: none;
 }
+
+@media (max-width: 768px) {
+  .profile-env section.profile-info-tabs .user-details {
+    padding-left: 15px;
+    padding-right: 15px;
+    list-style: none;
+  }
+}
+
 .profile-env section.profile-info-tabs .user-details li {
   margin-bottom: 10px;
 }
@@ -5930,7 +5939,7 @@ fieldset[disabled] .calendar-env .calendar-body .fc-content .fc-view table tbody
 }
 @media (max-width: 992px) {
   .profile-env > header .profile-picture img {
-    width: 90%;
+    max-width: 90%;
   }
   .profile-env > header .profile-buttons {
     margin-top: 18px;
@@ -5953,15 +5962,22 @@ fieldset[disabled] .calendar-env .calendar-body .fc-content .fc-view table tbody
     width: 10%;
   }
   .profile-env section.profile-feed .profile-stories article.story .story-content {
-    width: 90%;
+    max-width: 90%;
   }
 }
 @media (max-width: 768px) {
   .profile-env section.profile-info-tabs {
     margin-top: 30px;
   }
+  .profile-env > header .profile-picture {
+    text-align: center;
+    display: block;
+  }
   .profile-env > header .profile-picture img {
+    width: auto;
     float: none;
+    display: inline-block;
+    margin-bottom: 15px;
   }
   .profile-env > header .profile-buttons a {
     margin-bottom: 5px;

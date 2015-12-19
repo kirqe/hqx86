@@ -6,12 +6,17 @@ class BuildsController < ApplicationController
   
   # GET /builds
   # GET /builds.json
+
   def index
-    if params[:search]
-      @builds = Build.published.search(params[:search]).page params[:page]
+    if params[:query].present?
+      @builds = Build.published.search(params[:query], page: params[:page], per_page: 20)
     else
       @builds = Build.get_builds(params[:b_type]).page params[:page]
     end
+  end
+
+  def autocomplete
+    render json: Build.search(params[:query], autocomplete: false, limit: 10).map(&:title)
   end
   
   # GET /builds/1

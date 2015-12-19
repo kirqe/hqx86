@@ -78,7 +78,6 @@
 						
 						<!-- tabs for the profile links -->
 						<ul class="nav nav-tabs">
-							<li class="active"><a href="#profile-info">Profile</a></li>
 
               <% if @user == current_user || current_user.try(:admin?) %>
                <li><%= link_to "Edit Profile", edit_user_path %></li>
