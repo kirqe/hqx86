@@ -1,6 +1,6 @@
 class BuildsController < ApplicationController
   before_filter :ensure_trailing_slash, only: [:index, :show]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :autocomplete]
   before_action :set_build, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   
@@ -16,7 +16,7 @@ class BuildsController < ApplicationController
   end
 
   def autocomplete
-    render json: Build.search(params[:query], autocomplete: false, limit: 10).map(&:title)
+    render json: Build.search(params[:query], autocomplete: false, limit: 10)#(&:title)
   end
   
   # GET /builds/1

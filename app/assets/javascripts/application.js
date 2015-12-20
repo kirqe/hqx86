@@ -51,7 +51,7 @@ jQuery(function($) {
     "minLength": 3,
     "highlight": true
   },
-  {
+  {  displayKey: function(build){ return build.name+': '+build.spec},
     "source": engine.ttAdapter()
     }); 
 });
