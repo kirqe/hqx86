@@ -46,7 +46,7 @@ p,h1,h2,h3,h4,h5,h6{
 .installation_notes, .about{
   color: #5D5D5D;  
 }
-.installation_notes a, .post_content a, .about a, footer a{
+.installation_notes a, .post_content a, .about a, .sc-content a, footer a{
     color: #21a9e1;
 }
 .installation_notes img{

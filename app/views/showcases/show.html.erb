@@ -16,9 +16,6 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@sho
       </h1>
 
       
-      
-      
-      
       <div class="row">
         <div class="col-sm-12">
           <%= @showcase.created_at.to_formatted_s(:long) %>
@@ -28,18 +25,17 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@sho
       <br/>
       <div class="row">
         <div class="col-sm-5">
-             <%= image_tag "#{@showcase.header_img_url}", class: "img-responsive" if @showcase.header_img_url.present? %>
+          <%= image_tag "#{@showcase.header_img_url}", class: "img-responsive" %>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-7 sc-content">
+          Image: <%= link_to @showcase.header_img_url, @showcase.header_img_url %><br/>
+          Album: <%= link_to @showcase.album_url, @showcase.album_url %>
+          <hr/>
           <%= markdown(@showcase.description) %>
         </div>
 
       </div>
-     
 
-<br/>
-
-      
       <br/>
       
       <%= render "shared/share_links"%>
