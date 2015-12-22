@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
    
   has_many :builds#, dependent: :destroy
   has_many :posts#, dependent: :destroy
+  has_many :showcases
   has_many :comments, dependent: :destroy
   
   default_scope {order('created_at DESC')}

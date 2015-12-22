@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216190334) do
+ActiveRecord::Schema.define(version: 20151222121120) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -87,6 +87,20 @@ ActiveRecord::Schema.define(version: 20151216190334) do
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "showcases", force: :cascade do |t|
+    t.string   "name"
+    t.string   "header_img_url"
+    t.string   "album_url"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "slug"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "showcases", ["slug"], name: "index_showcases_on_slug", unique: true
+  add_index "showcases", ["user_id"], name: "index_showcases_on_user_id"
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "post_id"

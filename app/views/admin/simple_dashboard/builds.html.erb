@@ -8,14 +8,14 @@
 				<th>Name</th>
 		    <th>User</th>
 				<th width="10%">Options</th>
-        <th>IsSoftDeleted</th>
+        <th>UserSoftDeleted</th>
 			</tr>
 		</thead>
     <% @builds.each do |build| %> 
 		<tbody>
 			<tr>
 				<td><%= build.id %></td>
-				<td><%= link_to build_path(build) do %><%= build.spec %> <% end %></td>
+				<td><%= link_to "#{build.spec}", build_path(build)%> </td>
 				<td><%= link_to "#{build.name}", build_path(build) %></td>
         <td><%= link_to "#{build.user.username}", user_path(build.user)%></td>
 				<td>

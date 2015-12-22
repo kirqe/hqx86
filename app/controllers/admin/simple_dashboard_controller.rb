@@ -9,6 +9,7 @@ class Admin::SimpleDashboardController < ApplicationController
     @users = User.limit(10)
     @builds = Build.limit(10)
     @posts = Post.limit(10)
+    @showcases = Showcase.limit(10)
   end
   
   def posts
@@ -21,5 +22,9 @@ class Admin::SimpleDashboardController < ApplicationController
     
   def users
     @users = User.with_deleted.page params[:page]
+  end
+  
+  def showcases
+    @showcases = Showcase.all.page params[:page]
   end
 end

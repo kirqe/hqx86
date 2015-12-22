@@ -9,7 +9,7 @@
         <th>Email</th>
         <th>Options</th>
         <th>Admin</th>
-        <th>IsSoftDeleted</th>
+        <th>UserSoftDeleted</th>
 			</tr>
 		</thead>
     <% @users.each do |user| %> 
@@ -29,7 +29,7 @@
         <td>
          <% if user.deleted_at %>
           <span><%= user.deleted_at %><small>
-            <%= link_to 'really delete', user_path(user, type: :forever), method: :delete, class: 'badge' %>
+            <%# link_to 'really delete', user_path(user, type: :forever), method: :delete, class: 'badge' %>
           </small></span>
         <% end %>
         </td>

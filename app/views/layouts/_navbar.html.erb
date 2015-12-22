@@ -25,7 +25,7 @@
                 <li id="laptop"><%= link_to "Laptop", {controller: "/builds", b_type: "laptop"}, id: "laptop" %></li>
 	            </ul>
 	          </li>
-          <li><%= link_to "Showcase", "#" %></li>
+          <li><%= link_to "Showcase", showcases_path %></li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
@@ -40,7 +40,7 @@
                 <% end %>
                 <!-- Regular user -->
                 <li><%= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Build'.html_safe, new_build_path %></li>
-                <li><%= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Showcase'.html_safe, "#" %></li>
+                <li><%= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Showcase'.html_safe, new_showcase_path %></li>
               </ul>
             </li>
 

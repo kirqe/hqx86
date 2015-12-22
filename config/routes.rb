@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   root 'builds#index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { omniauth_callbacks: "callbacks" }
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :builds, only: :index do
     collection do
       post :import
-      get :autocomplete # <= add this line
+      get :autocomplete
     end
   end
   
@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   resources :builds do
     resources :comments, module: :builds
   end
+  
+  resources :showcases
+  resources :showcases do 
+    resources :comments, module: :showcases
+  end
+  
   
   get 'contact_us', to: 'contacts#new'
   resources :contacts, as: 'contacts', only: [:new, :create]
@@ -29,6 +35,7 @@ Rails.application.routes.draw do
     get 'simple_dashboard/posts'
     get 'simple_dashboard/builds'
     get 'simple_dashboard/users'
+    get 'simple_dashboard/showcases'
   end
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

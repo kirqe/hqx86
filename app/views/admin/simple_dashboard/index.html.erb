@@ -18,7 +18,7 @@
 		<tbody>
 			<tr>
 				<td><%= build.id %></td>
-				<td><%= link_to build_path(build) do %><%= build.spec %> <% end %></td>
+				<td><%= link_to "#{build.spec}", build_path(build)%> </td>
 				<td><%= link_to "#{build.name}", build_path(build) %></td>
         <td><%= link_to "#{build.user.username}", user_path(build.user)%></td>
 				<td>
@@ -61,6 +61,37 @@
     </tbody>
     <% end %>
   </table>
+  
+  <h3>Showcase Items</h3>
+ 
+  <table class="table table-bordered responsive">
+		<thead>
+			<tr>
+				<th width="2%">ID</th>
+				<th width="20%">Name</th>
+				<th width="10%">HeaderImgUrl</th>
+		    <th width="10%">AlbumUrl</th>
+		    <th width="10%">User</th>
+				<th width="10%">Options</th>
+			</tr>
+		</thead>
+    <% @showcases.each do |showcase| %> 
+		<tbody>
+			<tr>
+				<td><%= showcase.id %></td>
+				<td><%= link_to "#{showcase.name}", showcase%> </td>
+				<td><%= link_to "#{showcase.header_img_url}", showcase.header_img_url %></td>
+				<td><%= link_to "#{showcase.album_url}", showcase.album_url %></td>
+        <td><%= link_to "#{showcase.user.username}", user_path(showcase.user)%></td>
+				<td>
+          <%= link_to "edit", edit_showcase_path(showcase) %> / 
+          <%= link_to "delete", showcase, method: :delete, data: {confirm: "Are you sure?"}%>
+        </td>
+			</tr>
+    </tbody>
+    <% end %>
+  </table>
+  
   
   <h3>Latest Users</h3>    
     
