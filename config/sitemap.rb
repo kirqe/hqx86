@@ -1,6 +1,6 @@
 # Change this to your host. See the readme at https://github.com/lassebunk/dynamic_sitemaps
 # for examples of multiple hosts and folders.
-host "hqx86.com"
+host ENV['domain']
 
 sitemap :site do
   url root_url, last_mod: Time.now, change_freq: "daily", priority: 1.0
@@ -8,6 +8,8 @@ sitemap :site do
   Post.all.each { |post| url post }
   url builds_url
   Build.all.each { |build| url build }
+  url showcases_url
+  Showcase.all.each { |showcase| url showcase }
 end
 
 # You can have multiple sitemaps like the above – just make sure their names are different.
