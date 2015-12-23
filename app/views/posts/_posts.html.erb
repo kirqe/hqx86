@@ -30,7 +30,7 @@
             <footer> 
               <div class="album-images-count"> 
         				<i class="fa fa-calendar"> </i>
-                <%= time_ago_in_words(post.created_at) + ' ago' %>
+                <%= "#{post.created_at.to_formatted_s(:long)}" %>
               </div>
 
                <div class="album-options"> 

@@ -36,7 +36,7 @@
             <footer> 
               <div class="album-images-count"> 
         				<i class="fa fa-calendar"> </i>
-                <%= time_ago_in_words(showcase.created_at) + ' ago' %> by <%= showcase.user.username %>
+                <%= "#{showcase.created_at.to_formatted_s(:short)}" %> by <%= showcase.user.username %>
               </div>
 
             </footer>
