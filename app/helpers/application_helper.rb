@@ -34,10 +34,8 @@ module ApplicationHelper
 
     def tag_links(tags)
       tags.split(",").map do |tag|
-         content_tag(:div, class:"label label-info tag") do
-           link_to tag.strip, tag_path(tag.strip) 
-         end
-       end.join(", ") 
+        link_to tag.strip, tag_path(tag.strip) 
+      end.join(", ") 
     end 
     
     

@@ -22,18 +22,15 @@ keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com instructions)<<@pos
       
       <div class="row">
         <div class="col-sm-12">
-          <%= @post.user.username %>
-          <%= @post.created_at.to_formatted_s(:long) %>
-     
-          <% if @post.cached_category %>
-            <div class="label label-info"><%= @post.cached_category  %></div>
-          <% end %>
+          <%= @post.created_at.to_formatted_s(:long) %> by <%= @post.user.username %>
         </div>
       </div>
       <br/>
       <div class="row">
         <div class="col-sm-7">
-          <%= markdown(@post.body) %>
+          <div class="post-content">
+            <%= markdown(@post.body) %>
+          </div>
         </div>
         <div class="col-sm-5">
              <%= image_tag "#{@post.header_img_url}", class: "img-responsive" if @post.header_img_url.present? %>
