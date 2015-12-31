@@ -1,99 +1,68 @@
-<div class="row">
-<div class="profile-env">
+
+  <div class="profile-env">		
+		<header class="row">
+			<div class="col-sm-2">		
+				<a href="http://en.gravatar.com/" class="profile-picture">
+          <%= gravatar_image_tag( @user.email, class: "img-responsive img-circle")%>
+				</a>					
+			</div>
+				
+			<div class="col-sm-7">				
+				<ul class="profile-info-sections">
+					<li>
+						<div class="profile-name">
+							<strong><%= @user.username %></strong>
+							<span><%= @user.current_build.blank? ? "n/a" : @user.current_build  %></span>
+						</div>
+					</li>
+						
+					<li>
+						<div class="profile-stat">
+							<h3><%= @user.builds.size %></h3>
+							<span><a href="#">Builds</a></span>
+						</div>
+					</li>            					
+        </ul>
+			</div>		
+		</header>
 			
-			<header class="row">
-				
-				<div class="col-sm-2">
-					
-					<a href="http://en.gravatar.com/" class="profile-picture">
-            <%= gravatar_image_tag( @user.email, class: "img-responsive img-circle")%>
-					</a>
-					
-				</div>
-				
-				<div class="col-sm-7">
-					
-					<ul class="profile-info-sections">
+		<section class="profile-info-tabs">
+      <div class="row">		
+				<div class="col-sm-offset-2 col-sm-10">
+					<ul class="user-details">							
 						<li>
-							<div class="profile-name">
-								<strong>
-									<%= @user.username %>
-
-						</strong>
-								<span><%= @user.current_build.blank? ? "n/a" : @user.current_build  %></span>
-							</div>
+							<a href="#">
+								<i class="fa fa-calendar"></i>
+								Joined: <%= @user.created_at.to_formatted_s(:long)%>
+							</a>
 						</li>
-						
+              
 						<li>
-							<div class="profile-stat">
-								<h3><%= @user.builds.size %></h3>
-								<span><a href="#">Builds</a></span>
-							</div>
+							<a href="#">
+								<i class="fa fa-envelope"></i>
+								<%= @user.contact_details.blank? ? "No contacts shared" : @user.contact_details %>
+							</a>
 						</li>
-            					
+              
+						<li>
+							<a href="#">
+								<i class="fa fa-info"></i>
+								<%= @user.user_info.blank? ? "No info shared" : @user.user_info %>
+							</a>
+						</li>
+					</ul>
+						
+					<ul class="nav nav-tabs">
+            <% if @user == current_user || current_user.try(:admin?) %>
+             <li><%= link_to "Edit Profile", edit_user_path %></li>
+            <% end %>              
+					</ul>
 				</div>
-				
+			</div>
+		</section>							
+	</div>    
 
-				
-			</header>
-			
-			<section class="profile-info-tabs">
-				
-				<div class="row">
-					
-					<div class="col-sm-offset-2 col-sm-10">
-						
-						<ul class="user-details">
 
-							
-              <!-- <li>
-                <a href="#">
-                  <i class="entypo-suitcase"></i>
-                  <%# @user.current_build %>
-                </a>
-              </li> -->
-							
-							<li>
-								<a href="#">
-									<i class="fa fa-calendar"></i>
-									Joined: <%= @user.created_at.to_formatted_s(:long)%>
-								</a>
-							</li>
-              
-							<li>
-								<a href="#">
-									<i class="fa fa-envelope"></i>
-									<%= @user.contact_details.blank? ? "No contacts shared" : @user.contact_details %>
-								</a>
-							</li>
-              
-							<li>
-								<a href="#">
-									<i class="fa fa-info"></i>
-									<%= @user.user_info.blank? ? "No info shared" : @user.user_info %>
-								</a>
-							</li>
-						</ul>
-						
-						
-						<!-- tabs for the profile links -->
-						<ul class="nav nav-tabs">
-
-              <% if @user == current_user || current_user.try(:admin?) %>
-               <li><%= link_to "Edit Profile", edit_user_path %></li>
-              <% end %>
-              
-              
-						</ul>
-						
-					</div>
-					
-				</div>
-				
-			</section>
-				
-			
-		</div>
-</div>
+<%= render partial: "user_builds"%>
 
 
