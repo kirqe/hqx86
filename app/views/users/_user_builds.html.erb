@@ -3,8 +3,7 @@
     <div class="gallery-env">
 			<div class="row">	
         <% if @user_builds.present? %>
-          <% @user_builds.each do |build| %>
-            <% cache(build) do %><%# rd caching %>                       
+          <% @user_builds.each do |build| %>                  
               <% if build.published || build.user==current_user %>
                 	<div class="col-sm-6">				
                 		<article class="album">					
@@ -27,7 +26,6 @@
                 	</div>
               <% end %>       
             <% end %>
-          <% end %><%# end rd caching %>    
         <% end %>
       </div>
       <%= paginate @user_builds %>
