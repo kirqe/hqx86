@@ -1,35 +1,35 @@
-  <h3>Builds</h3>
- 
-  <table class="table table-bordered responsive">
-		<thead>
-			<tr>
-				<th width="2%">ID</th>
-				<th >Spec</th>
-				<th>Name</th>
-		    <th>User</th>
-				<th width="10%">Options</th>
-        <th>UserSoftDeleted</th>
-			</tr>
-		</thead>
-    <% @builds.each do |build| %> 
-		<tbody>
-			<tr>
-				<td><%= build.id %></td>
-				<td><%= link_to "#{build.spec}", build_path(build)%> </td>
-				<td><%= link_to "#{build.name}", build_path(build) %></td>
+<h3>Builds</h3>
+
+<table class="table table-bordered responsive">
+  <thead>
+  <tr>
+    <th width="2%">ID</th>
+    <th >Spec</th>
+    <th>Name</th>
+    <th>User</th>
+    <th width="10%">Options</th>
+    <th>UserSoftDeleted</th>
+  </tr>
+  </thead>
+  <% @builds.each do |build| %>
+      <tbody>
+      <tr>
+        <td><%= build.id %></td>
+        <td><%= link_to "#{build.spec}", build_path(build)%> </td>
+        <td><%= link_to "#{build.name}", build_path(build) %></td>
         <td><%= link_to "#{build.user.username}", user_path(build.user)%></td>
-				<td>
-          <%= link_to "edit", edit_build_path(build) %> / 
+        <td>
+          <%= link_to "edit", edit_build_path(build) %> /
           <%= link_to "delete", build, method: :delete, data: {confirm: "Are you sure?"}%>
         </td>
-        
+
         <td>
-        <% if build.user.deleted_at %>
-          <span><%= build.user.deleted_at %></span>
-        <% end %>
+          <% if build.user.deleted_at %>
+              <span><%= build.user.deleted_at %></span>
+          <% end %>
         </td>
-			</tr>
-    </tbody>
-    <% end %>
-  </table>
-  <%= paginate @builds %>
+      </tr>
+      </tbody>
+  <% end %>
+</table>
+<%= paginate @builds %>

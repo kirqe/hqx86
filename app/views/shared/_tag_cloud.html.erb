@@ -1,11 +1,11 @@
 
 <!-- Tag cloud -->
 <div class="tags_cloud b30 ">
-  <% cache(:name, expires_in: 5.minutes) do %>  
-    Tags:
-    <% Tag.all.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag.name) %>
-    <% end %>
+  <% cache(:name, expires_in: 5.minutes) do %>
+      Tags:
+      <% Tag.all.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag.name) %>
+      <% end %>
   <% end %>
 </div>
 <!-- end Tag cloud -->

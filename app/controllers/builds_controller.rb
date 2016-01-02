@@ -3,7 +3,7 @@ class BuildsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :autocomplete]
   before_action :set_build, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   # GET /builds
   # GET /builds.json
 
@@ -18,7 +18,7 @@ class BuildsController < ApplicationController
   def autocomplete
     render json: Build.search(params[:query], autocomplete: false, limit: 10)#(&:title)
   end
-  
+
   # GET /builds/1
   # GET /builds/1.json
   def show

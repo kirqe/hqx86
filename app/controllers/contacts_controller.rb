@@ -1,19 +1,19 @@
 class ContactsController < ApplicationController
-  
+
   def new
     @contact = Contact.new
   end
-  
+
   def create
     @contact = Contact.new(contact_params)
     @contact.request = request
-    h = JSON.generate({  
+    h = JSON.generate({
       'name' => @contact.name,
       'email' => @contact.email,
       'message' => @contact.message,
       'request_type' => @contact.request_type,
       })
-           
+
     #edit this 
     respond_to do |format|
       if @contact.valid?
@@ -24,11 +24,11 @@ class ContactsController < ApplicationController
       end
     end
   end
-  
+
   private
-  
+
   def contact_params
     params.require(:contact).permit(:name, :email, :message, :request_type, :nickname)
   end
-  
+
 end

@@ -3,7 +3,7 @@ class ShowcasesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_showcase, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   # GET /showcases
   # GET /showcases.json
   def index
@@ -65,13 +65,13 @@ class ShowcasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_showcase
-      @showcase = Showcase.friendly.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_showcase
+    @showcase = Showcase.friendly.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def showcase_params
-      params.require(:showcase).permit(:name, :header_img_url, :album_url, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def showcase_params
+    params.require(:showcase).permit(:name, :header_img_url, :album_url, :description)
+  end
 end

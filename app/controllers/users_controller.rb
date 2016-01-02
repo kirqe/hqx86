@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except:[:show]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  
+
   def index
     @users = User.all.page params[:page]
   end
@@ -11,10 +11,10 @@ class UsersController < ApplicationController
   def show
     @user_builds = @user.builds.page params[:page]
   end
-  
+
   def edit
   end
-  
+
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -33,9 +33,9 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "#{@user.username} was deleted"}
     end
   end
-  
+
   private
-  
+
   def set_user
     @user = User.friendly.find(params[:id])
   end

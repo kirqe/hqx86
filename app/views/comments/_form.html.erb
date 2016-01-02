@@ -1,12 +1,12 @@
 <div id="user-comment-content">
   <% if user_signed_in? %>
-    <div class="autogrow" id="new_comment">
-      <%= simple_form_for([commentable, Comment.new], remote: true) do |f| %>
-        <%= f.input :body, label: false, placeholder: "Write a comment..."%>
-        <%= f.button :submit, "Submit", class: "btn btn-default btn btn-primary" %>
-      <% end %>
-    </div>
+      <div class="autogrow" id="new_comment">
+        <%= simple_form_for([commentable, Comment.new], remote: true) do |f| %>
+            <%= f.input :body, label: false, placeholder: "Write a comment..."%>
+            <%= f.button :submit, "Submit", class: "btn btn-default btn btn-primary" %>
+        <% end %>
+      </div>
   <% else %>
-    <h6 class="subheader"><%= link_to "Log in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %> to comment</h6>
+      <h6 class="subheader"><%= link_to "Log in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %> to comment</h6>
   <% end %>
 </div>

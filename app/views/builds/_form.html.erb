@@ -1,145 +1,145 @@
 <%= simple_form_for @build, html: {class:"form-horizontal form-groups-bordered"} do |f| %>
     <div class="form-group <%= "has-error" if f.object.errors.include?(:b_type) %>">
-        <label class="col-sm-3 control-label">Build type</label>
+      <label class="col-sm-3 control-label">Build type</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :b_type, class:"form-control", label: false, collection: ["n/a", "mini", "mid", "pro", "laptop"],
-                selected: @build.b_type || "n/a"  %>
-        </div>       
+      <div class="col-sm-5">
+        <%= f.input_field :b_type, class:"form-control", label: false, collection: ["n/a", "mini", "mid", "pro", "laptop"],
+                          selected: @build.b_type || "n/a"  %>
+      </div>
     </div>
 
     <div class="form-group">
-        <label class="col-sm-3 control-label">Build status</label>
+      <label class="col-sm-3 control-label">Build status</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :status, class:"form-control", label: false,
-                collection: ["other", "success", "notice", "problem"],
-                selected: @build.status || "other"  %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :status, class:"form-control", label: false,
+                          collection: ["other", "success", "notice", "problem"],
+                          selected: @build.status || "other"  %>
+      </div>
     </div>
 
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:spec) %>">
-        <label class="col-sm-3 control-label">Short specs or laptop name</label>
+      <label class="col-sm-3 control-label">Short specs or laptop name</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :spec, class:"form-control", placeholder: "GA-P55A-UD3 / i5-750 / 12GB / GTX460 / 10.9.4", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :spec, class:"form-control", placeholder: "GA-P55A-UD3 / i5-750 / 12GB / GTX460 / 10.9.4", label: false %>
+      </div>
     </div>
-    
+
     <div class="form-group">
-        <label class="col-sm-3 control-label">Give a name to your build</label>
+      <label class="col-sm-3 control-label">Give a name to your build</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :name, class:"form-control", placeholder: "home build-1", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :name, class:"form-control", placeholder: "home build-1", label: false %>
+      </div>
     </div>
-    
 
-  
+
+
     <div class="form-group <%= "has-error" if f.object.errors.include?(:mb) %>">
-        <label class="col-sm-3 control-label">Motherboard</label>
+      <label class="col-sm-3 control-label">Motherboard</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :mb, class:"form-control", placeholder: "Gigabyte GA-P55A-UD3 rev. 1 Bios F11", label: false %>
-        </div>
-    </div>    
+      <div class="col-sm-5">
+        <%= f.input_field :mb, class:"form-control", placeholder: "Gigabyte GA-P55A-UD3 rev. 1 Bios F11", label: false %>
+      </div>
+    </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:cpu) %>">
-        <label class="col-sm-3 control-label">CPU</label>
+      <label class="col-sm-3 control-label">CPU</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :cpu, class:"form-control", placeholder: "Intel Core i5 750 2,66Ghz overclocked @ 3,66Ghz/183x20", label: false %>
-        </div>
-    </div> 
-    
+      <div class="col-sm-5">
+        <%= f.input_field :cpu, class:"form-control", placeholder: "Intel Core i5 750 2,66Ghz overclocked @ 3,66Ghz/183x20", label: false %>
+      </div>
+    </div>
+
     <div class="form-group <%= "has-error" if f.object.errors.include?(:gpu) %>">
-        <label class="col-sm-3 control-label">GPU</label>
+      <label class="col-sm-3 control-label">GPU</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :gpu, class:"form-control", placeholder: "Gigabyte GTX560Ti 1GB Superoverclock GV-N560SO-1GI-950", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :gpu, class:"form-control", placeholder: "Gigabyte GTX560Ti 1GB Superoverclock GV-N560SO-1GI-950", label: false %>
+      </div>
     </div>
-    
+
     <div class="form-group <%= "has-error" if f.object.errors.include?(:ram) %>">
-        <label class="col-sm-3 control-label">RAM</label>
+      <label class="col-sm-3 control-label">RAM</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :ram, class:"form-control", placeholder: "2x4GB DDR3 Kingston HyperX Blue 1600Mhz overclocked @ 1830Mhz", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :ram, class:"form-control", placeholder: "2x4GB DDR3 Kingston HyperX Blue 1600Mhz overclocked @ 1830Mhz", label: false %>
+      </div>
     </div>
-    
+
     <div class="form-group <%= "has-error" if f.object.errors.include?(:disk) %>">
-        <label class="col-sm-3 control-label">HDD/SSD</label>
+      <label class="col-sm-3 control-label">HDD/SSD</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :disk, class:"form-control", placeholder: "Samsung 840 Basic 120GB", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :disk, class:"form-control", placeholder: "Samsung 840 Basic 120GB", label: false %>
+      </div>
     </div>
-    
+
     <div class="form-group <%= "has-error" if f.object.errors.include?(:chassis) %>">
-        <label class="col-sm-3 control-label">CHASSIS</label>
+      <label class="col-sm-3 control-label">CHASSIS</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :chassis, class:"form-control", placeholder: "Corsair 600T", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :chassis, class:"form-control", placeholder: "Corsair 600T", label: false %>
+      </div>
     </div>
-    
-    <div class="form-group">
-        <label class="col-sm-3 control-label">Other H/W</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :other_hw, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;", class:"form-control autogrow", placeholder: "Here you can share any info about your other hardware and peripherals if you want", label: false %>
-        </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Other H/W</label>
+
+      <div class="col-sm-5">
+        <%= f.input_field :other_hw, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;", class:"form-control autogrow", placeholder: "Here you can share any info about your other hardware and peripherals if you want", label: false %>
+      </div>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:cost) %>">
-        <label class="col-sm-3 control-label">Average cost</label>
+      <label class="col-sm-3 control-label">Average cost</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :cost, class:"form-control", placeholder: "$", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :cost, class:"form-control", placeholder: "$", label: false %>
+      </div>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:os) %>">
-        <label class="col-sm-3 control-label">OS</label>
+      <label class="col-sm-3 control-label">OS</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :os, class:"form-control", placeholder: "10.9.5 Mavericks", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :os, class:"form-control", placeholder: "10.9.5 Mavericks", label: false %>
+      </div>
     </div>
-    
+
     <div class="form-group <%= "has-error" if f.object.errors.include?(:im) %>">
-        <label class="col-sm-3 control-label">Installation method</label>
+      <label class="col-sm-3 control-label">Installation method</label>
 
-        <div class="col-sm-5">
-            <%= f.input_field :im, class:"form-control", placeholder: "clover", label: false %>
-        </div>
+      <div class="col-sm-5">
+        <%= f.input_field :im, class:"form-control", placeholder: "clover", label: false %>
+      </div>
     </div>
-          
+
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:body) %>">
-        <label class="col-sm-3 col-md-3 control-label">Installation notes, instructions, photos...<br/>
+      <label class="col-sm-3 col-md-3 control-label">Installation notes, instructions, photos...<br/>
         <%= link_to "Markdown-Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", class: "label-link", target: "_blank" %></label>
 
-        <div class="col-sm-9 col-md-9">
-            <%= f.input_field :body, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: vertical; height: 148px;", class:"form-control autogrow", placeholder: "use markdown", label: false %>
-        </div>
+      <div class="col-sm-9 col-md-9">
+        <%= f.input_field :body, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: vertical; height: 148px;", class:"form-control autogrow", placeholder: "use markdown", label: false %>
+      </div>
     </div>
 
     <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-5">
-            <div class="checkbox tooltip-primary" data-toggle="tooltip" data-placement="left" title="" data-original-title="If you want to keep your build private or you're working on text don't check this.">
-              <%= f.input_field :published, inline_label: 'Make public' %>                
-            </div>
-
-            <% if @build.new_record? or !@build.tweeted? %>
-            <div class="checkbox tooltip-primary" data-toggle="tooltip" data-placement="left" title="" data-original-title="You can do this only once on submit or update. Make sure you added build name and short specs." >
-              <%= f.input_field :tweeted, inline_label: "Tweet this (the build will be posted to @hxq86 twitter page)" %> 
-            </div>
-            <% end %>
-
+      <div class="col-sm-offset-3 col-sm-5">
+        <div class="checkbox tooltip-primary" data-toggle="tooltip" data-placement="left" title="" data-original-title="If you want to keep your build private or you're working on text don't check this.">
+          <%= f.input_field :published, inline_label: 'Make public' %>
         </div>
+
+        <% if @build.new_record? or !@build.tweeted? %>
+            <div class="checkbox tooltip-primary" data-toggle="tooltip" data-placement="left" title="" data-original-title="You can do this only once on submit or update. Make sure you added build name and short specs." >
+              <%= f.input_field :tweeted, inline_label: "Tweet this (the build will be posted to @hxq86 twitter page)" %>
+            </div>
+        <% end %>
+
+      </div>
     </div>
 
     <div class="form-group">

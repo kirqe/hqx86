@@ -8,7 +8,7 @@ module Abilities
       can :read, Showcase
 #      can [:read, :update], Post, user_id: user.id
       can :update, User do |u|
-         u.id == user.id
+        u.id == user.id
       end
     end
   end

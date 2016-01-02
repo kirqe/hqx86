@@ -6,14 +6,14 @@ module ApplicationHelper
       autolink: true,
       tables: true,
       no_intraemphasis: true,
-      hard_wrap: true    
+      hard_wrap: true
       })
       markdown.render(text).html_safe
-    end
+  end
 
 
-    def lab(attr)
-      case attr 
+  def lab(attr)
+    case attr
       when "mini" then "#44D1FF;"
       when "mid" then "#EB7A65;"
       when "pro" then "#F73753;"
@@ -22,21 +22,21 @@ module ApplicationHelper
       when "notice" then "#FF9600;"
       when "problem" then "#CC2424;"
       else "#c6c6cf"
-      end
     end
+  end
 
-    def bar_link(text, path)
-      options = current_page?(path) ? { class: "active"} : {}
-      content_tag(:dd, options) do 
-        link_to text, path
-      end
+  def bar_link(text, path)
+    options = current_page?(path) ? { class: "active"} : {}
+    content_tag(:dd, options) do
+      link_to text, path
     end
+  end
 
-    def tag_links(tags)
-      tags.split(",").map do |tag|
-        link_to tag.strip, tag_path(tag.strip) 
-      end.join(", ") 
-    end 
-    
-    
+  def tag_links(tags)
+    tags.split(",").map do |tag|
+      link_to tag.strip, tag_path(tag.strip)
+    end.join(", ")
+  end
+
+
 end

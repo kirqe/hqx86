@@ -1,37 +1,34 @@
 
 <% if builds.present? %>
-  <% builds.each do |build| %>
-    <% cache(build) do %><%# rd caching %>
+    <% builds.each do |build| %>
+        <% cache(build) do %><%# rd caching %>
+            <div class="col-sm-6">
+              <article class="album">
+                <section class="album-info">
+                  <h4><%= link_to build_path(build) do %><span><%= build.title %></span><% end %></h4>
 
-    	<div class="col-sm-6">				
-    		<article class="album">					
-    			<section class="album-info">
-    				<h4><%= link_to build_path(build) do %><span><%= build.title %></span><% end %></h4>
-				
-    				<ul>
-    					<li style="color: <%= lab(build.b_type) %>; font-weight: bold;"><%= build.b_type %></li>
-    					<li><%= build.im %></li>
-    					<li class="label label-success status" style="background-color: <%= lab(build.status) %>"><%= build.status %></li>
-    					<li>~$<%= build.cost %></li>
-    					<li><%= time_ago_in_words(build.created_at) + ' ago' %></li>
-    				</ul>							
-    			</section>
-    		</article>				
-    	</div>
+                  <ul>
+                    <li style="color: <%= lab(build.b_type) %>; font-weight: bold;"><%= build.b_type %></li>
+                    <li><%= build.im %></li>
+                    <li class="label label-success status" style="background-color: <%= lab(build.status) %>"><%= build.status %></li>
+                    <li>~$<%= build.cost %></li>
+                    <li><%= time_ago_in_words(build.created_at) + ' ago' %></li>
+                  </ul>
+                </section>
+              </article>
+            </div>
+        <% end %>
+    <% end %><%# end rd caching %>
 
-    <% end %>
-
-  <% end %><%# end rd caching %>
-  
-  <br/>
+    <br/>
 
     <div class="text-center">
       <%= paginate builds %>
     </div>
 
-  <% else %>
-  <div class="col-sm-12 text-center">
-    <h3>Nothing here, yet ¯\_(ツ)_/¯</h3>
-    But you can check <%= link_to "Posts", posts_path %> or <%= link_to "Showcase section", showcases_path %>
-  </div>
+<% else %>
+    <div class="col-sm-12 text-center">
+      <h3>Nothing here, yet ¯\_(ツ)_/¯</h3>
+      But you can check <%= link_to "Posts", posts_path %> or <%= link_to "Showcase section", showcases_path %>
+    </div>
 <% end %>

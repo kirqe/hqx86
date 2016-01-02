@@ -1,40 +1,40 @@
-  <h3> Users</h3>    
-    
-  <table class="table table-bordered responsive">
-		<thead>
-			<tr>
-				<th width="2%">ID</th>
-				<th width="10%">CreatedAt</th>
-				<th>Username</th>
-        <th>Email</th>
-        <th>Options</th>
-        <th>Admin</th>
-        <th>UserSoftDeleted</th>
-			</tr>
-		</thead>
-    <% @users.each do |user| %> 
-		<tbody>
-			<tr>
-				<td><%= user.id %></td>
-				<td><span  class="label label-secondary"><%= user.created_at %></span></td>
-				<td><%= link_to "#{user.username}", user %></td>
+<h3> Users</h3>
+
+<table class="table table-bordered responsive">
+  <thead>
+  <tr>
+    <th width="2%">ID</th>
+    <th width="10%">CreatedAt</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Options</th>
+    <th>Admin</th>
+    <th>UserSoftDeleted</th>
+  </tr>
+  </thead>
+  <% @users.each do |user| %>
+      <tbody>
+      <tr>
+        <td><%= user.id %></td>
+        <td><span  class="label label-secondary"><%= user.created_at %></span></td>
+        <td><%= link_to "#{user.username}", user %></td>
         <td><%= user.email %></td>
-				<td>
+        <td>
           <%= link_to "edit profile", edit_user_path(user) %> /
-          <% unless user == current_user && current_user.admin? %> 
-          <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %>
+          <% unless user == current_user && current_user.admin? %>
+              <%= link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
         </td>
         <td><% if user.admin? %><span class="label label-info">Admin</span><% end %></td>
         <td>
-         <% if user.deleted_at %>
+          <% if user.deleted_at %>
           <span><%= user.deleted_at %><small>
             <%# link_to 'really delete', user_path(user, type: :forever), method: :delete, class: 'badge' %>
           </small></span>
-        <% end %>
+          <% end %>
         </td>
-			</tr>
-    </tbody>
-    <% end %>
-  </table>
+      </tr>
+      </tbody>
+  <% end %>
+</table>
 <%= paginate @users %>
