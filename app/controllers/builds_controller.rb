@@ -9,7 +9,7 @@ class BuildsController < ApplicationController
 
   def index
     if params[:query].present?
-      @builds = Build.published.search(params[:query], page: params[:page], per_page: 20)
+      @builds = Build.published.search(params[:query], page: params[:page], per_page: 15)
     else
       @builds = Build.get_builds(params[:b_type]).page params[:page]
     end

@@ -1,8 +1,7 @@
-
 <% if builds.present? %>
     <% builds.each do |build| %>
         <% cache(build) do %><%# rd caching %>
-            <div class="col-sm-6">
+            <div class="col-lg-10 col-centered">
               <article class="album">
                 <section class="album-info">
                   <h4><%= link_to build_path(build) do %><span><%= build.title %></span><% end %></h4>

@@ -153,3 +153,8 @@ div.tt-selectable:hover{
   background-color: #2292D8;
   color: #fff;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
