@@ -1,7 +1,7 @@
 class Build < ActiveRecord::Base
   extend FriendlyId
   friendly_id :spec, use: :slugged
-  paginates_per 15
+  paginates_per 20
   searchkick autocomplete: ['title'] 
   before_validation :default_name
   
