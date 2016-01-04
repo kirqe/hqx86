@@ -1,7 +1,7 @@
 class Showcase < ActiveRecord::Base
   extend FriendlyId
 
-  paginates_per 16
+  paginates_per 12
 
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy

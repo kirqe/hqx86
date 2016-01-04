@@ -5,11 +5,11 @@
       <% if @user_builds.present? %>
           <% @user_builds.each do |build| %>
               <% if build.published || build.user==current_user %>
-                  <div class="col-sm-6">
+                  <div class="col-lg-6">
                     <article class="album">
                       <section class="album-info">
                         <h4>
-                          <%= link_to build_path(build) do %><span><%= build.title %></span><% end %>
+                          <%= link_to build_path(build) do %><span><%= build.spec %></span><% end %>
                           <span class="label label-danger"><%= "Not published" if !build.published? && (build.user == current_user) %></span>
                         </h4>
 
