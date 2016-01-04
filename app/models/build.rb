@@ -20,8 +20,8 @@ class Build < ActiveRecord::Base
   validates :disk, allow_blank: true, length: {in: 3..150}
   validates :chassis, allow_blank: true, length: {in: 3..150}
   validates :cost, presence: true, length: {in: 3..20}, :numericality => { :greater_than_or_equal_to => 0 }
-  validates :os, presence: true, length: {in: 2..20}
-  validates :im, presence: true, length: {in: 2..30}
+  validates :os, presence: true, length: {in: 2..50}
+  validates :im, presence: true, length: {in: 2..50}
   validates :status, presence: true, inclusion: {in: %w(other success notice problem), message: "select build status"}
   validates :body, presence: true, length: {in: 50..150000}
   validates :other_hw, allow_blank: true, length: {in: 3..3000}
