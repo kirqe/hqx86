@@ -23,3 +23,4 @@
 # mina
 /config/deploy.rb
 
+lib/logs/
