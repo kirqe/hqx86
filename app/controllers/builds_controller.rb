@@ -81,6 +81,6 @@ class BuildsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def build_params
-    params.require(:build).permit(:b_type, :name, :spec, :mb, :cpu, :gpu, :ram, :disk, :chassis, :cost, :os, :im, :status, :body, :other_hw, :user_id, :published, :tweeted)
+    params.require(:build).permit(:b_type, :name, :spec, :mb, :cpu, :gpu, :ram, :disk, :chassis, :cost, :os, :im, :status, :body, :other_hw, :mb_url, :cpu_url, :gpu_url, :ram_url, :disk_url, :chassis_url, :user_id, :published, :tweeted)
   end
 end

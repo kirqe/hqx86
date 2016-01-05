@@ -32,12 +32,12 @@
               <div id="specs">
                 <strong>Essentials:</strong>
                 <ul class="build_hw">
-                  <li id="mb"><b>Motherboard:</b> <%= @build.mb %></li>
-                  <li id="cpu"><b>CPU(s):</b> <%= @build.cpu %></li>
-                  <li id="gpu"><b>GPU(s):</b> <%= @build.gpu %></li>
-                  <li id="ram"><b>RAM:</b> <%= @build.ram %></li>
-                  <li id="disk"><b>HDD/SSD(s):</b> <%= @build.disk %></li>
-                  <li id="os"><b>CHASSIS:</b> <%= @build.chassis %></li>
+                  <li id="mb"><b>Motherboard:</b> <%= item_url(@build.mb, @build.mb_url) %></li>
+                  <li id="cpu"><b>CPU:</b> <%= item_url(@build.cpu, @build.cpu_url) %></li>
+                  <li id="gpu"><b>GPU:</b> <%= item_url(@build.gpu, @build.gpu_url) %></li>
+                  <li id="ram"><b>RAM:</b> <%= item_url(@build.ram, @build.ram_url) %></li>
+                  <li id="disk"><b>HDD/SSD:</b> <%= item_url(@build.disk, @build.disk_url) %></li>
+                  <li id="os"><b>CHASSIS:</b> <%= item_url(@build.chassis, @build.chassis_url) %></li>
                   <li id="os"><b>OS:</b> <%= @build.os %></li>
                 </ul>
               </div>

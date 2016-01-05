@@ -38,5 +38,12 @@ module ApplicationHelper
     end.join(", ")
   end
 
+  def item_url(build, url)
+    if url.present?
+      link_to build, url, target: "_blank"
+    else 
+      build
+    end
+  end
 
 end

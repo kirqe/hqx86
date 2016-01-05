@@ -1,4 +1,6 @@
 <%= simple_form_for @build, html: {class:"form-horizontal form-groups-bordered"} do |f| %>
+
+<%= render 'shared/error_messages', object: f.object %>
     <div class="form-group <%= "has-error" if f.object.errors.include?(:b_type) %>">
       <label class="col-sm-3 control-label">Build type</label>
 
@@ -18,7 +20,6 @@
       </div>
     </div>
 
-
     <div class="form-group <%= "has-error" if f.object.errors.include?(:spec) %>">
       <label class="col-sm-3 control-label">Short specs or laptop name</label>
 
@@ -35,14 +36,14 @@
       </div>
     </div>
 
-
-
     <div class="form-group <%= "has-error" if f.object.errors.include?(:mb) %>">
       <label class="col-sm-3 control-label">Motherboard</label>
 
       <div class="col-sm-5">
         <%= f.input_field :mb, class:"form-control", placeholder: "Gigabyte GA-P55A-UD3 rev. 1 Bios F11", label: false %>
       </div>
+
+      <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default"><i class="fa fa-link"></i></a>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:cpu) %>">
@@ -51,6 +52,7 @@
       <div class="col-sm-5">
         <%= f.input_field :cpu, class:"form-control", placeholder: "Intel Core i5 750 2,66Ghz overclocked @ 3,66Ghz/183x20", label: false %>
       </div>
+      <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default"><i class="fa fa-link"></i></a>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:gpu) %>">
@@ -59,6 +61,7 @@
       <div class="col-sm-5">
         <%= f.input_field :gpu, class:"form-control", placeholder: "Gigabyte GTX560Ti 1GB Superoverclock GV-N560SO-1GI-950", label: false %>
       </div>
+      <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default"><i class="fa fa-link"></i></a>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:ram) %>">
@@ -67,6 +70,7 @@
       <div class="col-sm-5">
         <%= f.input_field :ram, class:"form-control", placeholder: "2x4GB DDR3 Kingston HyperX Blue 1600Mhz overclocked @ 1830Mhz", label: false %>
       </div>
+      <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default"><i class="fa fa-link"></i></a>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:disk) %>">
@@ -75,6 +79,7 @@
       <div class="col-sm-5">
         <%= f.input_field :disk, class:"form-control", placeholder: "Samsung 840 Basic 120GB", label: false %>
       </div>
+      <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default"><i class="fa fa-link"></i></a>
     </div>
 
     <div class="form-group <%= "has-error" if f.object.errors.include?(:chassis) %>">
@@ -83,6 +88,7 @@
       <div class="col-sm-5">
         <%= f.input_field :chassis, class:"form-control", placeholder: "Corsair 600T", label: false %>
       </div>
+      <a href="javascript:;" onclick="jQuery('#modal-6').modal('show', {backdrop: 'static'});" class="btn btn-default"><i class="fa fa-link"></i></a>
     </div>
 
     <div class="form-group">
@@ -148,5 +154,88 @@
         <%= link_to "Cancel", builds_path, class: "btn btn-default" %>
       </div>
     </div>
+
+<!-- modal -->
+<div class="modal fade in" id="modal-6" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">Share links to where you made your purcheses</h4>
+        </div>
+        
+        <div class="modal-body">
+        
+
+        
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group <%= "has-error" if f.object.errors.include?(:mb_url) %>">
+                <%= f.input_field :mb_url, class:"form-control", placeholder: "store link to MOBO", label: false %>
+              </div>  
+              
+            </div>
+          </div>
+        
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group <%= "has-error" if f.object.errors.include?(:cpu_url) %>">
+                <%= f.input_field :cpu_url, class:"form-control", placeholder: "store link to CPU", label: false %>
+              </div>  
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group <%= "has-error" if f.object.errors.include?(:gpu_url) %>">
+                <%= f.input_field :gpu_url, class:"form-control", placeholder: "store link to GPU", label: false %>
+              </div>  
+              
+            </div>
+          </div>          
+          
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group <%= "has-error" if f.object.errors.include?(:ram_url) %>">
+                <%= f.input_field :ram_url, class:"form-control", placeholder: "store link to RAM", label: false %>
+              </div>  
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group <%= "has-error" if f.object.errors.include?(:disk_url) %>">
+                <%= f.input_field :disk_url, class:"form-control", placeholder: "store link to  DISK", label: false %>
+              </div>  
+              
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              
+              <div class="form-group <%= "has-error" if f.object.errors.include?(:chassis_url) %>">
+                <%= f.input_field :chassis_url, class:"form-control", placeholder: "store link to  CHASSIS", label: false %>
+              </div>  
+              
+            </div>
+          </div>                              
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal -->
 
 <% end %>

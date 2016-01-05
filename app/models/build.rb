@@ -8,23 +8,29 @@ class Build < ActiveRecord::Base
   after_create :tweet_with_condition
   after_update :tweet_with_condition
   after_commit :expire_cache
+
+  URL_REGEX = /\A(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?\z/i
   
   validates :b_type, presence: true, inclusion: {in: %w(mini mid pro laptop), message: "select build type"}
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
   validates :slug, uniqueness: true
-  validates :mb, allow_blank: true, length: {in: 3..150}
-  validates :cpu, allow_blank: true, length: {in: 3..150}
-  validates :gpu, allow_blank: true, length: {in: 3..150}
-  validates :ram, allow_blank: true, length: {in: 3..150}
-  validates :disk, allow_blank: true, length: {in: 3..150}
-  validates :chassis, allow_blank: true, length: {in: 3..150}
+  validates :mb, allow_blank: true, length: {in: 3..150, message: "is too short"}
+  validates :cpu, allow_blank: true, length: {in: 3..150, message: "is too short"}
+  validates :gpu, allow_blank: true, length: {in: 3..150, message: "is too short"}
+  validates :ram, allow_blank: true, length: {in: 3..150, message: "is too short"}
+  validates :disk, allow_blank: true, length: {in: 3..150, message: "is too short"}
+  validates :chassis, allow_blank: true, length: {in: 3..150, message: "is too short"}
   validates :cost, presence: true, length: {in: 3..20}, :numericality => { :greater_than_or_equal_to => 0 }
   validates :os, presence: true, length: {in: 2..50}
   validates :im, presence: true, length: {in: 2..50}
   validates :status, presence: true, inclusion: {in: %w(other success notice problem), message: "select build status"}
-  validates :body, presence: true, length: {in: 50..150000}
+  validates :body, presence: true, length: {in: 50..150000, message: "is too short"}
   validates :other_hw, allow_blank: true, length: {in: 3..3000}
+
+  validates :mb_url, :cpu_url, :gpu_url, :ram_url, :disk_url, :chassis_url, format: {with: URL_REGEX, message: " is invalid"}, length:{in: 3..500, message: "is too short"}, allow_blank: true
+
+
 
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222121120) do
+ActiveRecord::Schema.define(version: 20160104222900) do
 
   create_table "builds", force: :cascade do |t|
     t.string   "b_type"
@@ -28,13 +28,19 @@ ActiveRecord::Schema.define(version: 20151222121120) do
     t.string   "im"
     t.string   "status"
     t.text     "body"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "user_id"
     t.string   "slug"
-    t.boolean  "published",  default: true
+    t.boolean  "published",   default: true
     t.boolean  "tweeted"
     t.text     "other_hw"
+    t.string   "mb_url"
+    t.string   "cpu_url"
+    t.string   "gpu_url"
+    t.string   "ram_url"
+    t.string   "disk_url"
+    t.string   "chassis_url"
   end
 
   add_index "builds", ["slug"], name: "index_builds_on_slug", unique: true

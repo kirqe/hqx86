@@ -44,7 +44,7 @@ p,h1,h2,h3,h4,h5,h6{
   color: #5D5D5D;  
 }
 
-.installation_notes a, .post-content a, .about a, .sc-content a, footer a, .tags a{
+.installation_notes a, .post-content a, .about a, .sc-content a, footer a, .tags a, .build_info a{
     color: #21a9e1;
 }
 
@@ -72,6 +72,10 @@ ul.build_hw{
 
 .comments-list > li{
   padding: 15px 15px 15px 0px;
+}
+
+.err-list ul{
+  list-style: none;
 }
 
 
