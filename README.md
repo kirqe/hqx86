@@ -6,3 +6,13 @@
 Other screenshots can found [here](/public)
 
 ![home page](public/Screen Shot 2016-03-20 at 3.37.54 PM.png)
+
+
+---
+
+td:
+
+- add editor role
+- add file upload
+- add active admin
+
