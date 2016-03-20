@@ -3,9 +3,9 @@
 
 ###Screenshots
 
-Other screenshots can found [here](/public)
+Other screenshots can found [here](/screenshots)
 
-![home page](public/Screen Shot 2016-03-20 at 3.37.54 PM.png)
+![home page](screenshots/Screen Shot 2016-03-20 at 3.37.54 PM.png)
 
 
 ---
