@@ -41,9 +41,9 @@ group :development, :test do
   gem 'spring'
   gem 'mailcatcher'
   gem 'quiet_assets'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :production do
   gem 'pg'
 end
-

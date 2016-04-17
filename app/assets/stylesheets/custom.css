@@ -36,12 +36,12 @@ p,h1,h2,h3,h4,h5,h6{
 .build_info{
   color: #5D5D5D;
   border: 1px solid #DCDCDC;
-  padding: 7px 7px 7px 0px;    
+  padding: 7px 7px 7px 0px;
   margin: 0px 0px 10px 0px;
 }
 
 .installation_notes, .post-content, .about{
-  color: #5D5D5D;  
+  color: #5D5D5D;
 }
 
 .installation_notes a, .post-content a, .about a, .sc-content a, footer a, .tags a, .build_info a{
@@ -67,7 +67,7 @@ p,h1,h2,h3,h4,h5,h6{
 
 ul.build_hw{
   list-style: none;
-  padding-left: 0px;      
+  padding-left: 0px;
 }
 
 .comments-list > li{
@@ -88,7 +88,7 @@ ul.build_hw{
 }
 
 .album{
-	
+
 }
 
 .gallery-env article.album .album-info {
@@ -160,4 +160,8 @@ div.tt-selectable:hover{
 .col-centered{
     float: none;
     margin: 0 auto;
+}
+
+#do-ref{
+  width: 150px;
 }
