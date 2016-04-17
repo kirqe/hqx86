@@ -3,7 +3,7 @@
 
 ###Screenshots
 
-Other screenshots can found [here](/screenshots)
+Other screenshots can be found [here](/screenshots)
 
 ![home page](screenshots/home.png)
 
