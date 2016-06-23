@@ -14,5 +14,6 @@ td:
 
 - add editor role
 - add file upload
-- add active admin
+- update admin panel
+- haml
 
