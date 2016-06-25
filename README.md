@@ -12,7 +12,7 @@ Other screenshots can be found [here](/screenshots)
 
 td:
 
-- add editor role
+- add more roles(rolify?)
 - add file upload
 - update admin panel
 - haml
