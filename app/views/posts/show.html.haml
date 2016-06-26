@@ -1,0 +1,31 @@
+- meta title: "#{@post.title}",
+  description: "hqx86.com hackintosh builds board",
+  keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com)<<@post.all_tags
+.row
+  .col-md-12
+    %h1
+      = @post.title
+      - if current_user.try(:admin?)
+        %span{:style => "font-size: 12px;"}
+          = link_to '<i class="fa fa-pencil-square-o"> edit</i>'.html_safe, edit_post_path(@post) if current_user.try(:admin?) || current_user.try(:id) == @post.user_id
+    .row
+      .col-sm-12
+        = @post.created_at.to_formatted_s(:long)
+        by #{@post.user.username}
+    %br/
+    .row
+      .col-sm-7
+        .post-content
+          = markdown(@post.body)
+      .col-sm-5
+        = image_tag "#{@post.header_img_url}", class: "img-responsive" if @post.header_img_url.present?
+    %br/
+    .tags
+      tags: #{raw tag_links(@post.all_tags)}
+    %br/
+    = render "shared/share_links"
+    %hr/
+    = render partial: "comments/form", locals: {commentable: @post}
+    = render partial: "comments/comments", locals: {commentable: @post}
+    %br/
+    = render "shared/info_sec"

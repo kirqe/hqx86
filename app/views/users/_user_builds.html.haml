@@ -1,0 +1,21 @@
+.col-sm-12
+  .gallery-env
+    .row
+      - if @user_builds.present?
+        - @user_builds.each do |build|
+          - if build.published || build.user==current_user
+            .col-lg-6
+              %article.album
+                %section.album-info
+                  %h4
+                    = link_to build_path(build) do
+                      %span= build.spec
+                    %span.label.label-danger= "Not published" if !build.published? && (build.user == current_user)
+                  %ul
+                    %li{:style => "color: #{lab(build.b_type)}; font-weight: bold;"}= build.b_type
+                    %li= build.im
+                    %li.label.label-success.status{:style => "background-color: #{lab(build.status)}"}= build.status
+                    %li
+                      \~$#{build.cost}
+                    %li= time_ago_in_words(build.created_at) + ' ago'
+    = paginate @user_builds

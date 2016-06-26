@@ -1,0 +1,65 @@
+:css
+  .ms-container .ms-list {
+    width: 135px;
+    height: 205px;
+  }
+
+  .post-save-changes {
+    float: right;
+  }
+
+  @media screen and (max-width: 789px)
+  {
+    .post-save-changes {
+      float: none;
+      margin-bottom: 20px;
+    }
+  }
+= simple_form_for @post do |f|
+  .row
+    .col-sm-2.post-save-changes
+      = button_tag(type: "submit", class:"btn btn-green btn-lg btn-block btn-icon") do
+        Publish
+        %i.fa.fa-check
+    .col-sm-10
+      = f.input_field :title, class:"form-control input-lg", placeholder:"Post title", type:"text"
+  %br/
+  .row
+    .col-sm-12
+      = f.input_field :body, as: :text, class:"form-control autogrow", rows:"18"
+  %br/
+  .row
+    .col-sm-4
+      .panel.panel-primary{"data-collapsed" => "0"}
+        .panel-heading
+          .panel-title
+            Publish Settings
+        .panel-body
+          .checkbox
+            = f.input_field :published, inline_label: 'Make public'
+          .checkbox
+            = f.input_field :tweeted, inline_label: 'Tweet to @hqx86'
+    .col-sm-4
+      .panel.panel-primary{"data-collapsed" => "0"}
+        .panel-heading
+          .panel-title
+            Featured Image
+        .panel-body
+          = f.input_field :header_img_url, class:"form-control", placeholder: "http://i.imgur.com/qwerty.png"
+      .panel.panel-primary{"data-collapsed" => "0"}
+        .panel-heading
+          .panel-title
+            Category
+          .panel-options
+            %a{"data-rel" => "collapse", :href => "#"}
+              %i.entypo-down-open
+        .panel-body
+          = f.association :category, class:"form-control", label:false,  selected: @post.category || "news"
+    .col-sm-4
+      .panel.panel-primary{"data-collapsed" => "0"}
+        .panel-heading
+          .panel-title
+            Tags
+        .panel-body
+          %p Add Post Tags
+          = f.input :all_tags, label: "Tags(separated by comma)" , placeholder: "lorem, ipsum", label:false

@@ -1,0 +1,21 @@
+= simple_form_for @user, html: {class:"form-horizontal form-groups-bordered"} do |f|
+  .form-group
+    %label.col-sm-3.control-label{:for => "field-1"} Current build
+    .col-sm-5
+      = f.input_field :current_build, class:"form-control", placeholder: "GA-P55A-UD3 / i5-750 / 12GB / GTX460 / 10.9.4", label: false
+  .form-group
+    %label.col-sm-3.control-label{:for => "field-1"} Contact details
+    .col-sm-5
+      = f.input_field :contact_details, class:"form-control", placeholder: "skype, icq, whatsapp, viber...", label: false
+  .form-group
+    %label.col-sm-3.control-label{:for => "field-ta"} Info
+    .col-sm-5
+      = f.input_field :user_info, class:"form-control autogrow",                                                                             |
+        as: :text,                                                                                                                           |
+        placeholder: "Here you can write something about yourself (interests, services, offers that you can provide...  anything you want.", |
+        style:"overflow: hidden; word-wrap: break-word; resize: horizontal; min-height: 100px;",                                             |
+        label: false                                                                                                                         |
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      = f.button :submit, "Save", class: "btn btn-primary"
+      = link_to "Cancel", @user, class: "btn btn-default"

@@ -1,0 +1,23 @@
+%hr/
+.row
+  .col-sm-3
+    = render "shared/twitter_feed"
+  .col-sm-4.col-sm-offset-1.res
+    %h4 Helpfull Mac  Hackintosh resources
+    :css
+      .res a{
+        color:#21a9e1;
+      }
+    %h4= link_to 'reddit.com/r/mac', 'https://www.reddit.com/r/mac/', target: '_blank'
+    %h4= link_to 'reddit.com/r/macsetups', 'https://www.reddit.com/r/macsetups/', target: '_blank'
+    %h4= link_to 'reddit.com/r/hackintosh', 'https://www.reddit.com/r/hackintosh/', target: '_blank'
+  .col-sm-4.res
+    %h4 Contacts
+    %h5 If you have any questions or offers use one of the following contact methods:
+    %h5= link_to '@hqx86', 'https://twitter.com/hqx86'
+    %h5
+      = link_to 'Contact us', contact_us_path
+      page
+    %hr/
+    #do-ref
+      %a{:href => "https://m.do.co/c/f56af9eef5cc"}= image_tag('do1.png', class: 'img-responsive')

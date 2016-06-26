@@ -1,0 +1,14 @@
+.row
+  .col-sm-6.col-sm-offset-3.about
+    %h2 About
+    %p
+      Here you can find hackintosh builds, submitted by other users. It supposed to save your time if you decide to build one. If you build something unique, please share your experience with others by #{link_to "adding your build to collection", new_build_path}.
+    %p
+      You can always find the git repo of this site over here -
+      = succeed "." do
+        %a{:href => "https://github.com/railsr/hqx86"} github.com/railsr/hqx86
+    %p
+      If you have any questions or offers, #{link_to "use this form", contact_us_path}.
+.row
+  .col-sm-12
+    = render "shared/info_sec"

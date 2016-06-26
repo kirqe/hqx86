@@ -28,8 +28,9 @@
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         %li.dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %i.fa.fa-plus{:style => "color: #0DE074;"} add
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :style => "color: #0DE074;"}
+            %i.fa.fa-plus
+            add
           %ul.dropdown-menu
             / Admin/mod user
             - if current_user.admin?

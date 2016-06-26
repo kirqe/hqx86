@@ -1,0 +1,21 @@
+- if posts.present?
+  - posts.each do |post|
+    - cache(post) do
+      - if post.published?
+        .col-sm-4
+          %article.album
+            %section.album-info
+              %h3= link_to "#{post.title}", post
+              %p= truncate(post.body, omission: "...", length: 450)
+            %footer
+              .album-images-count
+                %i.fa.fa-calendar
+                = "#{post.created_at.to_formatted_s(:long)}"
+              .album-options
+                %span.label.label-info= post.cached_category if post.cached_category
+  .text-center
+    = paginate posts
+- else
+  .col-sm-12.text-center
+    %h3 Nothing here, yet ¯\_(ツ)_/¯
+    But you can check #{link_to "Builds", builds_path} or #{link_to "Showcase section", showcases_path}

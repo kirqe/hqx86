@@ -1,0 +1,36 @@
+.profile-env
+  %header.row
+    .col-sm-2
+      %a.profile-picture{:href => "http://en.gravatar.com/"}
+        = gravatar_image_tag( @user.email, class: "img-responsive img-circle")
+    .col-sm-7
+      %ul.profile-info-sections
+        %li
+          .profile-name
+            %strong= @user.username
+            %span= @user.current_build.blank? ? "n/a" : @user.current_build
+        %li
+          .profile-stat
+            %h3= @user.builds.size
+            %span
+              %a{:href => "#"} Builds
+  %section.profile-info-tabs
+    .row
+      .col-sm-offset-2.col-sm-10
+        %ul.user-details
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-calendar
+              Joined: #{@user.created_at.to_formatted_s(:long)}
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-envelope
+              = @user.contact_details.blank? ? "No contacts shared" : @user.contact_details
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-info
+              = @user.user_info.blank? ? "No info shared" : @user.user_info
+        %ul.nav.nav-tabs
+          - if @user == current_user || current_user.try(:admin?)
+            %li= link_to "Edit Profile", edit_user_path
+= render partial: "user_builds"

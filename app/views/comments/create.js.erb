@@ -1,4 +1,4 @@
 <% unless @comment.errors.any? %>
-$("ul.comments-list").prepend('<%= j render partial: "comments/comment", locals:{comment: @comment} %>')
-$("#comment_body").val("");
+$('ul.comments-list').prepend("<%= j render 'comment', comment: @comment %>")
+$('#comment_body').val("");
 <% end %>
