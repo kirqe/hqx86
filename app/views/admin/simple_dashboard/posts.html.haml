@@ -1,0 +1,30 @@
+%h3 Posts
+%table.table.table-bordered.responsive
+  %thead
+    %tr
+      %th{:width => "2%"} ID
+      %th{:width => "10%"} Published
+      %th Title
+      %th Category
+      %th User
+      %th Comments
+      %th{:width => "10%"} Options
+      %th UserSoftDeleted
+  - @posts.each do |post|
+    %tbody
+      %tr
+        %td= post.id
+        %td
+          %span.label.label-secondary= post.published ? "published" : "not published"
+        %td= link_to "#{post.title}", post
+        %td= post.category.try(:name)
+        %td= link_to "#{post.user.username}", user_path(post.user)
+        %th= post.comments.size
+        %td
+          = link_to "edit", edit_post_path(post)
+          \/
+          \#{link_to "delete", post, method: :delete, data: {confirm: "Are you sure?"}}
+        %td
+          - if post.user.deleted_at
+            %span= post.user.deleted_at
+= paginate @posts

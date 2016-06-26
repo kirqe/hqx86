@@ -1,0 +1,27 @@
+%h3 Showcase Items
+%table.table.table-bordered.responsive
+  %thead
+    %tr
+      %th{:width => "2%"} ID
+      %th Name
+      %th HeaderImgUrl
+      %th AlbumUrl
+      %th User
+      %th{:width => "10%"} Options
+      %th UserSoftDeleted
+  - @showcases.each do |showcase|
+    %tbody
+      %tr
+        %td= showcase.id
+        %td= link_to "#{showcase.name}", showcase
+        %td= link_to "#{showcase.header_img_url}", showcase.header_img_url
+        %td= link_to "#{showcase.album_url}", showcase.album_url
+        %td= link_to "#{showcase.user.username}", user_path(showcase.user)
+        %td
+          = link_to "edit", edit_showcase_path(showcase)
+          \/
+          \#{link_to "delete", showcase, method: :delete, data: {confirm: "Are you sure?"}}
+        %td
+          - if showcase.user.deleted_at
+            %span= showcase.user.deleted_at
+= paginate @showcases

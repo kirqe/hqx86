@@ -1,0 +1,33 @@
+%h3 Users
+%table.table.table-bordered.responsive
+  %thead
+    %tr
+      %th{:width => "2%"} ID
+      %th{:width => "10%"} CreatedAt
+      %th Username
+      %th Email
+      %th Options
+      %th Admin
+      %th UserSoftDeleted
+  - @users.each do |user|
+    %tbody
+      %tr
+        %td= user.id
+        %td
+          %span.label.label-secondary= user.created_at
+        %td= link_to "#{user.username}", user
+        %td= user.email
+        %td
+          = link_to "edit profile", edit_user_path(user)
+          \/
+          - unless user == current_user && current_user.admin?
+            = link_to "delete", user, method: :delete, data: {confirm: "Are you sure?"}
+        %td
+          - if user.admin?
+            %span.label.label-info Admin
+        %td
+          - if user.deleted_at
+            %span
+              = user.deleted_at
+              %small
+= paginate @users
