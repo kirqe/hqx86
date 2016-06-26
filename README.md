@@ -3,7 +3,7 @@
 
 ###Screenshots
 
-Other screenshots can found [here](/screenshots)
+Other screenshots can be found [here](/screenshots)
 
 ![home page](screenshots/home.png)
 
@@ -12,7 +12,9 @@ Other screenshots can found [here](/screenshots)
 
 td:
 
-- add editor role
+- add more roles(rolify?)
 - add file upload
-- add active admin
+- update admin panel
+- haml
+- tests tests tests
 
