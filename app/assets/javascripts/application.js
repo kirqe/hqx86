@@ -13,13 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require jquery.turbolinks    
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require ns-autogrow
 //= require typeahead.bundle.min
 //= require turbolinks
-  
-$(document).ready(function(){
+
+jQuery(function($) {
   $('#build_body').autogrow({vertical: true, horizontal: false});
 });
 
@@ -35,10 +35,10 @@ $(document).ready(function(){
   $("#search").val('');
 });
 
-jQuery(function($) {  
+jQuery(function($) {
   var $vartypeahead = $('#build_search');
   var engine = new Bloodhound({
-    remote: { 
+    remote: {
         url: "/builds/autocomplete?query=%QUERY",
         wildcard: "%QUERY"
     },
@@ -53,7 +53,7 @@ jQuery(function($) {
   },
   {  displayKey: function(build){ return build.name+': '+build.spec},
     "source": engine.ttAdapter()
-    }); 
+    });
 });
 // $(document).ready(function(){
 //  $("#new_post").submit(function(e){
