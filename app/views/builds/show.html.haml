@@ -1,0 +1,59 @@
+- meta title: "#{@build.name}: #{@build.spec}",
+- description: "#{@build.name}: #{@build.spec}",
+- keywords: %w(hackintosh macos mac osx86 osx builds hqx86.com)<<@build.spec.split("/")
+.row
+  .col-md-12
+    .gallery-env
+      .row
+        .col-sm-12
+          %article.album
+            %section.album-info
+              %h4
+                = link_to build_path(@build) do
+                  %span= @build.title
+              %ul
+                %li{:style => "color: #{lab(@build.b_type)}; font-weight: bold;"}= @build.b_type
+                %li= @build.im
+                %li.label.label-success.status{:style => "background-color: #{lab(@build.status)}"}= @build.status
+                %li
+                  \~$#{@build.cost}
+                %li= time_ago_in_words(@build.created_at) + ' ago'
+                %span{:style => "float: right"}
+                  = link_to '<i class="fa fa-pencil-square-o"> edit</i>'.html_safe, edit_build_path(@build) if current_user.try(:admin?) || current_user.try(:id) == @build.user_id
+          .row.build_info
+            .col-sm-6
+              #specs
+                %strong Essentials:
+                %ul.build_hw
+                  %li#mb
+                    %b Motherboard:
+                    = item_url(@build.mb, @build.mb_url)
+                  %li#cpu
+                    %b CPU:
+                    = item_url(@build.cpu, @build.cpu_url)
+                  %li#gpu
+                    %b GPU:
+                    = item_url(@build.gpu, @build.gpu_url)
+                  %li#ram
+                    %b RAM:
+                    = item_url(@build.ram, @build.ram_url)
+                  %li#disk
+                    %b HDD/SSD:
+                    = item_url(@build.disk, @build.disk_url)
+                  %li#os
+                    %b CHASSIS:
+                    = item_url(@build.chassis, @build.chassis_url)
+                  %li#os
+                    %b OS:
+                    = @build.os
+            .col-sm-6
+              %strong Other hardware and peripherials:
+              .other_hw
+                = markdown(@build.other_hw) if @build.other_hw
+          .installation_notes
+            = markdown(@build.body)
+          = render "shared/share_links"
+          %hr/
+          = render partial: "comments/form", locals: {commentable: @build}
+          = render partial: "comments/comments", locals: {commentable: @build}
+    = render "shared/info_sec"

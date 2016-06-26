@@ -1,0 +1,126 @@
+= simple_form_for @build, html: {class:"form-horizontal form-groups-bordered"} do |f|
+  = render 'shared/error_messages', object: f.object
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:b_type)}"}
+    %label.col-sm-3.control-label Build type
+    .col-sm-5
+      = f.input_field :b_type, class:"form-control", label: false, collection: ["n/a", "mini", "mid", "pro", "laptop"], |
+        selected: @build.b_type || "n/a"                                                                                |
+  .form-group
+    %label.col-sm-3.control-label Build status
+    .col-sm-5
+      = f.input_field :status, class:"form-control", label: false, |
+        collection: ["other", "success", "notice", "problem"],     |
+        selected: @build.status || "other"                         |
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:spec)}"}
+    %label.col-sm-3.control-label Short specs or laptop name
+    .col-sm-5
+      = f.input_field :spec, class:"form-control", placeholder: "GA-P55A-UD3 / i5-750 / 12GB / GTX460 / 10.9.4", label: false
+  .form-group
+    %label.col-sm-3.control-label Give a name to your build
+    .col-sm-5
+      = f.input_field :name, class:"form-control", placeholder: "home build-1", label: false
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:mb)}"}
+    %label.col-sm-3.control-label Motherboard
+    .col-sm-5
+      = f.input_field :mb, class:"form-control", placeholder: "Gigabyte GA-P55A-UD3 rev. 1 Bios F11", label: false
+    %a.btn.btn-default{:href => "javascript:;", :onclick => "jQuery('#modal-6').modal('show', {backdrop: 'static'});"}
+      %i.fa.fa-link
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:cpu)}"}
+    %label.col-sm-3.control-label CPU
+    .col-sm-5
+      = f.input_field :cpu, class:"form-control", placeholder: "Intel Core i5 750 2,66Ghz overclocked @ 3,66Ghz/183x20", label: false
+    %a.btn.btn-default{:href => "javascript:;", :onclick => "jQuery('#modal-6').modal('show', {backdrop: 'static'});"}
+      %i.fa.fa-link
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:gpu)}"}
+    %label.col-sm-3.control-label GPU
+    .col-sm-5
+      = f.input_field :gpu, class:"form-control", placeholder: "Gigabyte GTX560Ti 1GB Superoverclock GV-N560SO-1GI-950", label: false
+    %a.btn.btn-default{:href => "javascript:;", :onclick => "jQuery('#modal-6').modal('show', {backdrop: 'static'});"}
+      %i.fa.fa-link
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:ram)}"}
+    %label.col-sm-3.control-label RAM
+    .col-sm-5
+      = f.input_field :ram, class:"form-control", placeholder: "2x4GB DDR3 Kingston HyperX Blue 1600Mhz overclocked @ 1830Mhz", label: false
+    %a.btn.btn-default{:href => "javascript:;", :onclick => "jQuery('#modal-6').modal('show', {backdrop: 'static'});"}
+      %i.fa.fa-link
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:disk)}"}
+    %label.col-sm-3.control-label HDD/SSD
+    .col-sm-5
+      = f.input_field :disk, class:"form-control", placeholder: "Samsung 840 Basic 120GB", label: false
+    %a.btn.btn-default{:href => "javascript:;", :onclick => "jQuery('#modal-6').modal('show', {backdrop: 'static'});"}
+      %i.fa.fa-link
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:chassis)}"}
+    %label.col-sm-3.control-label CHASSIS
+    .col-sm-5
+      = f.input_field :chassis, class:"form-control", placeholder: "Corsair 600T", label: false
+    %a.btn.btn-default{:href => "javascript:;", :onclick => "jQuery('#modal-6').modal('show', {backdrop: 'static'});"}
+      %i.fa.fa-link
+  .form-group
+    %label.col-sm-3.control-label Other H/W
+    .col-sm-5
+      = f.input_field :other_hw, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: horizontal; height: 100px;", class:"form-control autogrow", placeholder: "Here you can share any info about your other hardware and peripherals if you want", label: false
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:cost)}"}
+    %label.col-sm-3.control-label Average cost
+    .col-sm-5
+      = f.input_field :cost, class:"form-control", placeholder: "$", label: false
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:os)}"}
+    %label.col-sm-3.control-label OS
+    .col-sm-5
+      = f.input_field :os, class:"form-control", placeholder: "10.9.5 Mavericks", label: false
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:im)}"}
+    %label.col-sm-3.control-label Installation method
+    .col-sm-5
+      = f.input_field :im, class:"form-control", placeholder: "clover", label: false
+  %div{:class => "form-group #{"has-error" if f.object.errors.include?(:body)}"}
+    %label.col-sm-3.col-md-3.control-label
+      Installation notes, instructions, photos...
+      %br/
+      = link_to "Markdown-Cheatsheet", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet", class: "label-link", target: "_blank"
+    .col-sm-9.col-md-9
+      = f.input_field :body, as: :text, style:"overflow: hidden; word-wrap: break-word; resize: vertical; height: 148px;", class:"form-control autogrow", placeholder: "use markdown", label: false
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      .checkbox.tooltip-primary{"data-original-title" => "If you want to keep your build private or you're working on text don't check this.", "data-placement" => "left", "data-toggle" => "tooltip", :title => ""}
+        = f.input_field :published, inline_label: 'Make public'
+      - if @build.new_record? or !@build.tweeted?
+        .checkbox.tooltip-primary{"data-original-title" => "You can do this only once on submit or update. Make sure you added build name and short specs.", "data-placement" => "left", "data-toggle" => "tooltip", :title => ""}
+          = f.input_field :tweeted, inline_label: "Tweet this (the build will be posted to @hxq86 twitter page)"
+  .form-group
+    .col-sm-offset-3.col-sm-5
+      = f.button :submit, "Save", class: "btn btn-primary"
+      = link_to "Cancel", builds_path, class: "btn btn-default"
+  / modal
+  #modal-6.modal.fade.in{"aria-hidden" => "true"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Share links to where you made your purcheses
+        .modal-body
+          .row
+            .col-md-12
+              %div{:class => "form-group #{"has-error" if f.object.errors.include?(:mb_url)}"}
+                = f.input_field :mb_url, class:"form-control", placeholder: "store link to MOBO", label: false
+          .row
+            .col-md-12
+              %div{:class => "form-group #{"has-error" if f.object.errors.include?(:cpu_url)}"}
+                = f.input_field :cpu_url, class:"form-control", placeholder: "store link to CPU", label: false
+          .row
+            .col-md-12
+              %div{:class => "form-group #{"has-error" if f.object.errors.include?(:gpu_url)}"}
+                = f.input_field :gpu_url, class:"form-control", placeholder: "store link to GPU", label: false
+          .row
+            .col-md-12
+              %div{:class => "form-group #{"has-error" if f.object.errors.include?(:ram_url)}"}
+                = f.input_field :ram_url, class:"form-control", placeholder: "store link to RAM", label: false
+          .row
+            .col-md-12
+              %div{:class => "form-group #{"has-error" if f.object.errors.include?(:disk_url)}"}
+                = f.input_field :disk_url, class:"form-control", placeholder: "store link to  DISK", label: false
+          .row
+            .col-md-12
+              %div{:class => "form-group #{"has-error" if f.object.errors.include?(:chassis_url)}"}
+                = f.input_field :chassis_url, class:"form-control", placeholder: "store link to  CHASSIS", label: false
+        .modal-footer
+          %button.btn.btn-default.btn.btn-primary{"data-dismiss" => "modal", :type => "button"} Save changes
+  / modal
