@@ -22,7 +22,11 @@ module Hqx86
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.middleware.use Rack::Deflater
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    config.middleware.use Rack::Deflater
+    config.middleware.use(Rack::Tracker) do
+      handler :google_analytics, { tracker: 'UA-55372257-3' }
+    end
   end
 end
