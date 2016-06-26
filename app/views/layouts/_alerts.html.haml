@@ -1,0 +1,5 @@
+- flash.each do |key, value|
+  - if key == "notice" or "info"
+    = content_tag :div, value, :class => "alert alert-info t-alert" unless value.blank?
+  - elsif key == "error"
+    = content_tag :div, value, :class => "alert alert-danger t-alert" unless value.blank?

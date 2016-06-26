@@ -1,0 +1,34 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "hqx86.com hackintosh builds board", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    = metamagic
+    %title= content_for?(:title) ? yield(:title) : "hqx86"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    :javascript
+      $.noConflict();
+    /[if lt IE 9]
+    %script{:src => "assets/js/ie8-responsive-file-warning.js"}
+    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /[if lt IE 9]
+    %script{:src => "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
+    %script{:src => "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"}
+  %body.page-body.loaded
+    .container-fluid
+      = render 'layouts/navbar'
+      = render 'layouts/alerts'
+      .btn-group
+        = link_to "Dashboard", admin_simple_dashboard_index_path, class:"btn btn-green"
+        = link_to "All Builds", admin_simple_dashboard_builds_path, class:"btn btn-green"
+        = link_to "All Posts", admin_simple_dashboard_posts_path, class:"btn btn-green"
+        = link_to "All Users", admin_simple_dashboard_users_path, class:"btn btn-green"
+        = link_to "All Showcases", admin_simple_dashboard_showcases_path, class:"btn btn-green"
+        = link_to "Rails admin", rails_admin_path, class:"btn btn-blue"
+      = yield
+      = render 'layouts/footer'

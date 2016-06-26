@@ -1,0 +1,53 @@
+/ Nav Bar
+%nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  / Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => "/"}
+      %span.emph> HQ
+      X86
+  / Collect the nav links, forms, and other content for toggling
+  #bs-example-navbar-collapse-2.collapse.navbar-collapse
+    %ul.nav.navbar-nav
+      %li= link_to "Posts", posts_path
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Builds
+          %b.caret
+        %ul.dropdown-menu
+          %li= link_to "All", builds_path
+          %li#mini= link_to "Mini", {controller: "/builds", b_type: "mini"}, id: "mini"
+          %li#mid= link_to "Mid", {controller: "/builds", b_type: "mid"}, id: "mid"
+          %li#pro= link_to "Pro", {controller: "/builds", b_type: "pro"}, id: "pro"
+          %li#laptop= link_to "Laptop", {controller: "/builds", b_type: "laptop"}, id: "laptop"
+      %li= link_to "Showcase", showcases_path
+    %ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.fa.fa-plus{:style => "color: #0DE074;"} add
+          %ul.dropdown-menu
+            / Admin/mod user
+            - if current_user.admin?
+              %li= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Post'.html_safe, new_post_path
+            / Regular user
+            %li= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Build'.html_safe, new_build_path
+            %li= link_to '<i style="color: #0DE074;" class="fa fa-plus"></i> New Showcase'.html_safe, new_showcase_path
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            = "#{current_user.username}"
+            %b.caret
+          %ul.dropdown-menu
+            %li= link_to "Profile", user_path(current_user)
+        - if current_user.admin?
+          %li= link_to "Admin", admin_simple_dashboard_index_path
+          %li.divider
+          %li= link_to "Log out", destroy_user_session_path, method: :delete
+      - else
+        %li= link_to "Log in", new_user_session_path
+      / /.navbar-collapse
+    / end Nav Bar
