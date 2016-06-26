@@ -1,0 +1,5 @@
+%li.comment
+  %b
+    = link_to "- #{comment.user.try(:username)}", user_path(comment.user)
+    \:
+  = comment.body

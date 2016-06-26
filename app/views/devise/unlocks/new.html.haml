@@ -1,0 +1,10 @@
+.center-v
+  .auth-box
+    %h4 Resend unlock instructions
+    = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+      = f.full_error :unlock_token
+      .form-inputs
+        = f.input :email, required: true, label: false, autofocus: true, placeholder: "email"
+      .form-actions
+        = f.button :submit, "Resend unlock instructions", class: "button tiny expand"
+    = render "devise/shared/links"

@@ -1,0 +1,10 @@
+#user-comment-content
+  - if user_signed_in?
+    #new_comment.autogrow
+      = simple_form_for([commentable, Comment.new], remote: true) do |f|
+        = f.input :body, label: false, placeholder: "Write a comment..."
+        = f.button :submit, "Submit", class: "btn btn-default btn btn-primary"
+  - else
+    %h6.subheader
+      = link_to "Log in", new_user_session_path
+      or #{link_to "Sign up", new_user_registration_path} to comment

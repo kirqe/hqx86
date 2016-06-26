@@ -1,0 +1,10 @@
+%h5 comments:
+%ul.comments-list
+  - commentable.cached_comments.each do |comment|
+    %li.comment{:id => "comment_#{comment.id}"}
+      %b
+        - if current_user.try(:admin?)
+          = link_to "-", [commentable,comment], method: :delete, data:{confirm: "Are you sure?"}, class:"delete", remote: true
+        = link_to "#{comment.user.try(:username)}:", user_path(comment.user)
+      = comment.body
+%br/

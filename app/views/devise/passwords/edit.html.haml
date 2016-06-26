@@ -1,0 +1,12 @@
+.row
+  .au-form
+    %h4 Change your password
+    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = f.input :reset_password_token, as: :hidden
+      = f.full_error :reset_password_token
+      .form-inputs
+        = f.input :password, label: false, required: true, placeholder: "New password", autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+        = f.input :password_confirmation, label: false, placeholder: "Confirm your new password", required: true
+      .form-actions
+        = f.button :submit, "Change my password", class: "btn btn-primary btn-block"
+    = render "devise/shared/links"

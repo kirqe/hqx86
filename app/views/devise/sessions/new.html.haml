@@ -1,0 +1,25 @@
+.row
+  .au-form
+    %h4 Log in
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name), id:"form_login") do |f|
+      = f.error_notification
+      / <div class="form-inputs">
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-envelope
+          = f.input :email, required: false, label: false, autofocus: true, placeholder: "email", class:"form-control"
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-key
+          = f.input :password, required: false, label: false, placeholder: "password", class:"form-control"
+      - if devise_mapping.rememberable?
+        .checkbox
+          = f.label :remember_me do
+            = f.check_box :remember_me, as: :boolean
+            Remember me
+      / </div>
+      .form-actions
+        = f.button :submit, "Log in", class: "btn btn-primary btn-block"
+    = render "devise/shared/links"
