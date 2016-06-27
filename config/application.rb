@@ -23,6 +23,8 @@ module Hqx86
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    
+    config.action_controller.default_url_options = { :trailing_slash => true }
 
     config.middleware.use Rack::Deflater
     config.middleware.use(Rack::Tracker) do

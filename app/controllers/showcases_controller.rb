@@ -1,5 +1,5 @@
 class ShowcasesController < ApplicationController
-  before_filter :ensure_trailing_slash, only: [:index, :show]
+  #before_filter :ensure_trailing_slash, only: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_showcase, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource

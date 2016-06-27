@@ -1,5 +1,5 @@
 class BuildsController < ApplicationController
-  before_filter :ensure_trailing_slash, only: [:index, :show]
+  #before_filter :ensure_trailing_slash, only: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show, :autocomplete]
   before_action :set_build, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource

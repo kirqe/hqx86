@@ -14,10 +14,10 @@ FactoryGirl.define do
     im "Unibeast"
     status "success"
     body "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor"
-    slug ""
+    slug "test-test-test"
     published true
     tweeted false
-    other_hw "http://example.com/"
+    other_hw "Lorem ipsum dolor sit amet, consectetur adipisicing "
     mb_url "http://example.com/"
     cpu_url "http://example.com/"
     gpu_url "http://example.com/"

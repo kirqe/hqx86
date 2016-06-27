@@ -45,6 +45,8 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'guard'
+  gem 'guard-rspec', require: false
 end
 
 group :test do
