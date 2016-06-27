@@ -38,7 +38,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
-  gem 'byebug'
   gem 'sqlite3'
   gem 'spring'
   gem 'mailcatcher'
