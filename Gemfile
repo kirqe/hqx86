@@ -43,7 +43,16 @@ group :development, :test do
   gem 'spring'
   gem 'mailcatcher'
   gem 'quiet_assets'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'rspec-html-matchers'
+  gem 'capybara'
+  gem 'shoulda-matchers', require: false
+  gem 'database_cleaner'
 end
 
 group :production do
