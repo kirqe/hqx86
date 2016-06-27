@@ -15,12 +15,11 @@ class Build < ActiveRecord::Base
   validates :name, allow_blank: true, presence: true, uniqueness: true, length: {in: 3..150}
   validates :spec, presence: true, length: {in: 3..150}
   validates :slug, uniqueness: true
-  validates :mb, allow_blank: true, length: {in: 3..150, message: "is too short"}
-  validates :cpu, allow_blank: true, length: {in: 3..150, message: "is too short"}
-  validates :gpu, allow_blank: true, length: {in: 3..150, message: "is too short"}
-  validates :ram, allow_blank: true, length: {in: 3..150, message: "is too short"}
-  validates :disk, allow_blank: true, length: {in: 3..150, message: "is too short"}
-  validates :chassis, allow_blank: true, length: {in: 3..150, message: "is too short"}
+
+  [:mb, :cpu, :gpu, :ram, :disk, :chassis].each do |attr|
+    validates attr, allow_blank: true, length: {in: 3..150, message: "is too short"}
+  end
+  
   validates :cost, presence: true, length: {in: 3..20}, :numericality => { :greater_than_or_equal_to => 0 }
   validates :os, presence: true, length: {in: 2..50}
   validates :im, presence: true, length: {in: 2..50}
