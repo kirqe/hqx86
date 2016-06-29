@@ -15,6 +15,5 @@ td:
 - add more roles(rolify?)
 - add file upload
 - update admin panel
-- haml
 - tests tests tests
 
