@@ -12,8 +12,6 @@ Other screenshots can be found [here](/screenshots)
 
 td:
 
-- add more roles(rolify?)
+- update abilities
 - add file upload
 - update admin panel
-- tests tests tests
-

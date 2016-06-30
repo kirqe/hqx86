@@ -11,6 +11,9 @@ categories = %w(news guides apps ad promotion review)
 categories.each{|c| Category.find_or_create_by(name: c)}
 p "categories exported"
 
+
+# [:admin, :mod, :editor, :plain_user]
+
 # 100.times.each do |e|
 #  Build.create(
 #  user_id: 1,

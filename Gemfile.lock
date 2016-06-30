@@ -296,6 +296,7 @@ GEM
     remotipart (1.2.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    rolify (5.1.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -437,6 +438,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails_admin
   redcarpet
+  rolify
   rspec-html-matchers
   rspec-rails
   sass-rails (~> 5.0)

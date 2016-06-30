@@ -29,6 +29,7 @@ gem 'mina'
 gem "paranoia", "~> 2.0"
 gem 'rack-tracker'
 gem 'hamlit'
+gem 'rolify'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'

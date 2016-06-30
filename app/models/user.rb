@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   acts_as_paranoid
   extend FriendlyId
   friendly_id :username, use: :slugged
